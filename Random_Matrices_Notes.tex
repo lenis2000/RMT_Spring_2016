@@ -5,11 +5,9 @@
 \usepackage{amsmath,amssymb,amsthm,amsfonts,upgreek}
 \usepackage{hyperref}
 \usepackage{enumerate}
-\usepackage{array}
 \usepackage{graphicx}
 \usepackage[mathscr]{euscript}
 \usepackage{color,tikz}
-\usetikzlibrary{shapes}
 \usepackage[DIV15]{typearea}
 \usepackage[width=.9\textwidth]{caption}
 \allowdisplaybreaks
@@ -61,7 +59,7 @@ Charlottesville, VA 22904, USA,
 
 \textbf{2.} Try to be consistent --- use environments provided:
 \begin{lstlisting}
-	\begin{theorem}
+	\begin{theorem}\label{thm:example}
 		A theorem.		
 	\end{theorem}
 	\begin{proof}[Idea of proof]
@@ -73,7 +71,7 @@ Charlottesville, VA 22904, USA,
 	\end{proof}	
 \end{lstlisting}
 The above code produces:
-\begin{theorem}
+\begin{theorem}\label{thm:example}
 	A theorem.		
 \end{theorem}
 \begin{proof}[Idea of proof]
@@ -99,7 +97,12 @@ Use \lstinline{align} or \lstinline{multline} for displayed equations.
 
 \textbf{4.} Use \lstinline{\note} command to insert notes: \note{this is a note}.
 
-\textbf{5.} You can email me your \TeX{} files, or use GitHub's pull-requests mechanism.
+\textbf{5.} Use understandable labels for theorems and equations, and reference them by using \lstinline{\ref}
+or \lstinline{\eqref}, see Theorem \ref{thm:example}. Little hints will appear in the PDF file, 
+this should help you.
+
+\textbf{6.} You can email me your \TeX{} files (in which case take
+my preamble and put your text into it), or alternatively you can use GitHub's pull requests mechanism.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
