@@ -1,43 +1,30 @@
 \documentclass[letterpaper,11pt,oneside,reqno]{amsart}
-\usepackage[T2A]{fontenc}%
-\usepackage[utf8]{inputenc}%
-\usepackage[english]{babel}%
-\usepackage{amsmath,amssymb,amsthm,amsfonts,upgreek}%
-\usepackage{hyperref}%
-\usepackage{enumerate}%
-\usepackage{array}%
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,upgreek}
+\usepackage{hyperref}
+\usepackage{enumerate}
+\usepackage{array}
 \usepackage{graphicx}
 \usepackage[mathscr]{euscript}
 \usepackage{color,tikz}
 \usetikzlibrary{shapes}
 \usepackage[DIV15]{typearea}
 \usepackage[width=.9\textwidth]{caption}
-\allowdisplaybreaks%
-\numberwithin{equation}{section}%
+\allowdisplaybreaks
+\numberwithin{equation}{section}
 \usepackage{listings}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%% Graphic primitives
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%draft-specific
-\synctex=1%
+\synctex=1
 \newcommand{\note}[1]{\textsc{\color{blue}(#1)}}
-% \usepackage{refcheck}
-%KILL TIKZ
-	% \usepackage{environ}
-	% \makeatletter
-	% % \providecommand{\env@tikzpicture@save@env}{}
-	% % \providecommand{\env@tikzpicture@process}{}
-	% \RenewEnviron{tikzpicture}[1][]{notikz}
-	% \makeatother
+\usepackage{refcheck}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{lemma}[proposition]{Lemma}
 \newtheorem{corollary}[proposition]{Corollary}
 \newtheorem{theorem}[proposition]{Theorem}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \theoremstyle{definition}
 \newtheorem{definition}[proposition]{Definition}
 \newtheorem{remark}[proposition]{Remark}
@@ -113,6 +100,13 @@ Use \lstinline{align} or \lstinline{multline} for displayed equations.
 \textbf{4.} Use \lstinline{\note} command to insert notes: \note{this is a note}.
 
 \textbf{5.} You can email me your \TeX{} files, or use GitHub's pull-requests mechanism.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Introduction} % (fold)
 \label{sec:introduction}
