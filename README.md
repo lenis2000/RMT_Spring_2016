@@ -1,6 +1,8 @@
 ## MATH 8380 Random Matrices
 ##### Spring 2016. Department of Mathematics, University of Virginia
 
+The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office hours are on Mondays, 3:30-4:30PM, and Wednesdays, 11:00-12:00AM, or by appointment.
+
 **Description.** Study of random matrices is an exciting topic with first major advances in the mid-20th century in connection with statistical (quantum) physics. Since then it found numerous connections to algebra, geometry, combinatorics, as well as to the core of the probability theory. The applications are also numerous: e.g., statistics, number theory, engineering, neuroscience; with more of them discovered every month. The course will discuss fundamental problems and results of Random Matrix Theory, and their connections to tools of algebra and combinatorics.
 
 **Course homepage.** This GitHub repository will contain lecture notes for the course. It will be continuously updated.
