@@ -13,6 +13,12 @@
 4. Universality of random matrix asymptotics.
 5. (optional, depending on time available) Discrete analogues of random matrix models: random permutations, random tilings, interacting particle systems.
 
+**References.** There are three main textbooks which will be used in the course. It is not required to buy any of them to successfully participate in the course.
+
+1. Mehta, M.L. "Random Matrices".
+2. Anderson, G.W., Guionnet, A. and Zeitouni, O. "An introduction to random matrices".
+3. Pastur, L. and Shcherbina, M. "Eigenvalue Distribution of Large Random Matrices".
+
 **Grading.** To receive grade, each student enrolled in the course is expected to take part in typing up the lecture notes, and make at least one 30-minute presentation on a reading assignment or on student's own research. The presentations will be mainly scheduled in the end of February and in the end of the semester. 
 
 Possible reading assignments:
@@ -20,5 +26,3 @@ Possible reading assignments:
 1. 
 2. 
 3. 
-
-**References.** 
