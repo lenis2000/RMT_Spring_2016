@@ -31,4 +31,4 @@ Possible reading assignments:
 2. 
 3. 
 
-**Required official statement.** All students with special needs requiring accommodations should present the appropriate paperwork from the Student Disability Access Center (SDAC). It is the student's responsibility to present this paperwork in a timely fashion and follow up with the instructor about the accommodations being offered. Accommodations for test-taking (e.g., extended time) should be arranged at least 5 business days before an exam.
+<sub>**Required official statement.** All students with special needs requiring accommodations should present the appropriate paperwork from the Student Disability Access Center (SDAC). It is the student's responsibility to present this paperwork in a timely fashion and follow up with the instructor about the accommodations being offered. Accommodations for test-taking (e.g., extended time) should be arranged at least 5 business days before an exam.</sub>
