@@ -17,8 +17,8 @@
 
 Possible reading assignments:
 
-1.
-2.
-3.
+1. 
+2. 
+3. 
 
 **References.** 
