@@ -101,7 +101,19 @@ Use \lstinline{align} or \lstinline{multline} for displayed equations.
 or \lstinline{\eqref}, see Theorem \ref{thm:example}. Little hints will appear in the PDF file, 
 this should help you.
 
-\textbf{6.} You can email me your \TeX{} files (in which case take
+\textbf{6.} Bibliography links can be inserted using the \lstinline{\cite}
+command. I am using a single huge BiBTeX file which is here
+\url{https://github.com/lenis2000/BiBTeX/blob/master/bib.bib}. 
+If something is not in that file, leave a note. 
+Example: command 
+\begin{lstlisting}
+	\cite{AndersonGuionnetZeitouniBook}
+\end{lstlisting}
+produces citation
+\cite{AndersonGuionnetZeitouniBook}.
+
+
+\textbf{7.} You can email me your \TeX{} files (in which case take
 my preamble and put your text into it), or alternatively you can use GitHub's pull requests mechanism
 (\url{https://help.github.com/articles/using-pull-requests/}).
 
