@@ -23,7 +23,7 @@ The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office ho
 2. Anderson, G.W., Guionnet, A. and Zeitouni, O. *"An Introduction to Random Matrices"*.
 3. Pastur, L. and Shcherbina, M. *"Eigenvalue Distribution of Large Random Matrices"*.
 
-**Grading.** To receive grade, each student enrolled in the course is expected to take part in typing up the lecture notes ([notes on TeXing]()), and make at least one 30-minute presentation on a reading assignment or on student's own research. The presentations will be mainly scheduled in the end of February and in the end of the semester. 
+**Grading.** To receive grade, each student enrolled in the course is expected to take part in typing up the lecture notes ([notes on TeXing](https://github.com/lenis2000/RMT_Spring_2016/blob/master/TeXing.md)), and make at least one 30-minute presentation on a reading assignment or on student's own research. The presentations will be mainly scheduled in the end of February and in the end of the semester. 
 
 Possible reading/talk assignments (please first discuss your choice with me!):
 
