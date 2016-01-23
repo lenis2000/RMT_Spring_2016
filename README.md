@@ -25,10 +25,10 @@ The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office ho
 
 **Grading.** To receive grade, each student enrolled in the course is expected to take part in typing up the lecture notes, and make at least one 30-minute presentation on a reading assignment or on student's own research. The presentations will be mainly scheduled in the end of February and in the end of the semester. 
 
-Possible reading assignments:
+Possible reading/talk assignments (please first discuss your choice with me!):
 
-1. 
-2. 
+1. Catalan Numbers ?
+2. Persi Diaconis, Peter J. Forrester "A. Hurwitz and the origins of random matrix theory in mathematics" [http://arxiv.org/abs/1512.09229](http://arxiv.org/abs/1512.09229): the goal is to figure out and report on one of the computations of the volume of the group O(N) or U(N), and also enjoy the related historical background.
 3. 
 
 <sub>**Required official statement.** All students with special needs requiring accommodations should present the appropriate paperwork from the Student Disability Access Center (SDAC). It is the student's responsibility to present this paperwork in a timely fashion and follow up with the instructor about the accommodations being offered. Accommodations for test-taking (e.g., extended time) should be arranged at least 5 business days before an exam.</sub>
