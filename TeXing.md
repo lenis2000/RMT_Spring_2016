@@ -20,7 +20,7 @@
 
 The above code produces:
 
-<img src=img/notes_tex_1.png>
+<img src=https://github.com/lenis2000/RMT_Spring_2016/blob/master/img/notes_tex_1.png>
 
 Use 
 
