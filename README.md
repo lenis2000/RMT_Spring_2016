@@ -7,7 +7,7 @@ The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office ho
 
 **Description.** Study of random matrices is an exciting topic with first major advances in the mid-20th century in connection with statistical (quantum) physics. Since then it found numerous connections to algebra, geometry, combinatorics, as well as to the core of the probability theory. The applications are also numerous: e.g., statistics, number theory, engineering, neuroscience; with more of them discovered every month. The course will discuss fundamental problems and results of Random Matrix Theory, and their connections to tools of algebra and combinatorics.
 
-**Course homepage.** This GitHub repository will contain lecture notes for the course. It will be continuously updated.
+**Course homepage.** This GitHub repository will contain syllabus and lecture notes for the course. They will be continuously updated.
 
 **Structure.** The course covers 5 main themes:
 
