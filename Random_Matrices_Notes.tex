@@ -39,7 +39,7 @@
 \maketitle
 
 \begin{center}
-	(notes by )
+	(notes by Bryce Terwilliger; \ldots)
 \end{center}
 
 \note{before \TeX{}ing, please familiarize yourselves with style suggestions at 
@@ -48,21 +48,68 @@
 \tableofcontents
 \setcounter{tocdepth}{3}
 
-
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \section{Introduction} % (fold)
 \label{sec:introduction}
 
-% section introduction (end)
+\subsection{Nonrandom and random matrices and their eigenvalues} % (fold)
+\label{sub:object_of_study}
 
+The study of random matrices as a field is a patchwork of many fields.  The
+main object we study is a probability distribution on a certain subset of the
+set of matrices $\mathrm{Mat}(N\times N,\ \mathbb R \text{ or } \mathbb C)$,
+thus giving us a random matrix $A$.
+
+\begin{definition}
+An {\it eigenvalue} $\lambda$ of the matrix $A$ is a root of the polynomial
+$f(\lambda)=\text{det}(A-\lambda I)$.  Equivalently, $\lambda$ is an
+eigenvalue if $A$ if the matrix $A-\lambda I$ is not invertible. This second
+way of defining eigenvalues in fact works even when $A$ is not a finite
+size matrix, but an operator in some infinite-dimensional space.
+\end{definition}
+
+We will largely be only concerned with real eigenvalues.  That is the
+eigenvalues of a real symmetric matrix over $\mathbb R$ or Hermitian over
+$\mathbb C$ that is where $A^*=A$.
+
+\begin{remark}
+	The case when eigenvalues can be complex is also studied in
+	the theory of random matrices, sometimes under the keyword \emph{complex
+	random matrices}. See, for example, \cite{gotze2010circular} for a law of 
+	large numbers for complex eigenvalues.
+\end{remark}
+
+\begin{proposition}
+Every eigenvalue of a Hermitian matrix is real.
+\end{proposition}
+\begin{proof}
+Let $A$ be a Hermitian matrix so that $A^*=A$ (here and everywhere below
+$A*$ means $\overline{A^{\text{T}}}$, i.e., transposition and complex conjugation).
+Let $\lambda$ be an eigenvalue of $A$.  Let $v$ be a non-zero vector in the null
+space of $A-\lambda I$.  Let $a=\overline{ v^{\text{T}}}v=|v|^2$, so
+that $a$ is a positive real number.  Let $b=\overline{ v^{\text{T}}}A
+v$.  Then $\bar b=\overline{ b^{\text{T}}}=\overline{\overline{
+v^{\text{T}}}Av}^{\text{T}}=\overline{
+v^{\text{T}}}\bar A^{\text{T}} v=\overline{
+v^{\text{T}}}Av=b$, so $b$ is real.  Since $b=\lambda a$, $\lambda$
+must be real. 
+\end{proof}
+
+Let $\mathcal H_N$ be the set of $N\times N$ Hermitian matrices.  For each
+$N$, let $\mu_N$ be a probability measure on $\mathcal H_N$ (it can be
+supported not by  the whole $\mathcal H_N$, but by a subset of it, too).  Then
+for each matrix $A\in \mathcal H_N$ we may order the real eigenvalues
+$\lambda_1\geq \cdots \geq \lambda_N$ of $A$.
+
+A collection of probability measures $\mu_N$ on $\mathcal H_N$ for each
+$N\ge1$ is said to be a \emph{random matrix ensemble}. For such an ensemble,
+the eigenvalues $\lambda_1^{(N)}\geq \cdots \geq \lambda_N^{(N)}$ of matrices
+$N$ form random point configurations on $\mathbb{R}$ with growing numbers of points.
+Our main goal is to study the asymptotic properties of these collections of points on $\mathbb{R}$,
+as $N\to\infty$.
+
+% subsection object_of_study (end)
+
+% section introduction (end)
 
 
 
