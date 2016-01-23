@@ -3,9 +3,9 @@
 
 ## Notes on TeX style
 
-1. Please do not define and use any \newcommand commands!
+<code>1.</code> Please do not define and use any <code>\newcommand</code> commands!
 
-2. Try to be consistent --- use environments provided:
+<code>2.</code> Try to be consistent --- use environments provided:
 		
 	\begin{theorem}\label{thm:example}
 		A theorem.		
@@ -20,6 +20,7 @@
 
 The above code produces:
 
+<img src=img/notes_tex_1.png>
 
 Use 
 
@@ -31,8 +32,7 @@ or
 
 for displayed equations.
 
-3. Full list of theorem environments defined:
-
+<code>3.</code> Full list of theorem environments defined:
 
 	\newtheorem{proposition}{Proposition}[section]
 	\newtheorem{lemma}[proposition]{Lemma}
@@ -44,13 +44,13 @@ for displayed equations.
 	\newtheorem{exercise}[proposition]{Exercise}	
 
 
-4. Use 
+<code>4.</code> Use 
 	
 	\note 
 
-command to insert notes: \note{this is a note}.
+command to insert notes: <code>\note{this is a note}</code>.
 
-5. Use understandable labels for theorems and equations, and reference them by using 
+<code>5.</code> Use understandable labels for theorems and equations, and reference them by using 
 
 	\ref
 
@@ -58,9 +58,9 @@ or
 
 	\eqref 
 
-like this: \ref{thm:example}. Little hints for links will appear in the PDF file, this should help you.
+like this: <code>\ref{thm:example}</code>. Little hints for links will appear in the PDF file, this should help you.
 
-6. Bibliography links can be inserted using the 
+<code>6.</code> Bibliography links can be inserted using the 
 
 	\cite
 
@@ -72,6 +72,6 @@ Example: command
 
 produces a citation to the book by Anderson, Guionnet, and Zeitouni.
 
-7. You can email me your TeX files (in which case take
+<code>7.</code> You can email me your TeX files (in which case take
 my preamble and put your text into it), or alternatively you can use GitHub's pull requests mechanism
 [https://help.github.com/articles/using-pull-requests/](https://help.github.com/articles/using-pull-requests/).
