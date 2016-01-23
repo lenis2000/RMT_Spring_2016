@@ -16,6 +16,8 @@
 
 \synctex=1
 \newcommand{\note}[1]{\textsc{\color{blue}(#1)}}
+\newcounter{lecture}
+\newcommand{\lect}[1]{\medskip\addtocounter{lecture}{1}\noindent{\Large\textbf{\color{red}Lecture \#\arabic{lecture} on #1 \hrulefill}}\medskip}
 \usepackage{refcheck}
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,11 +44,20 @@
 	(notes by Bryce Terwilliger; \ldots)
 \end{center}
 
-\note{before \TeX{}ing, please familiarize yourselves with style suggestions at 
+\begin{abstract}
+	These are notes for the MATH 8380 ``Random Matrices'' course at the University of Virginia in Spring 2016.
+	The notes are constantly updated, and the latest version can be found at the \texttt{git}
+	repository
+	\url{https://github.com/lenis2000/RMT_Spring_2016}
+\end{abstract}
+
+\note{before \TeX{}ing, please familiarize yourself with style suggestions at 
 \url{https://github.com/lenis2000/RMT_Spring_2016/blob/master/TeXing.md}}
 
 \tableofcontents
 \setcounter{tocdepth}{3}
+
+\lect{1/20/2016}
 
 \section{Introduction} % (fold)
 \label{sec:introduction}
