@@ -35,87 +35,21 @@
 \title[Notes on random matrices]{Notes on random matrices}
 
 \author[L. Petrov]{Leonid Petrov}
-\address{L. Petrov, Department of Mathematics, University of Virginia, 
-141 Cabell Drive, Kerchof Hall,
-P.O. Box 400137,
-Charlottesville, VA 22904, USA,
-\newline{}and Institute for Information Transmission Problems, Bolshoy Karetny per. 19, Moscow, 127994, Russia}
-\email{lenia.petrov@gmail.com}
-\date{}
+\date{\today}
 \maketitle
 
 \begin{center}
-	(notes by \note{students in MATH 8380 course})
+	(notes by )
 \end{center}
+
+\note{before \TeX{}ing, please familiarize yourselves with style suggestions at 
+\url{https://github.com/lenis2000/RMT_Spring_2016/blob/master/TeXing.md}}
 
 \tableofcontents
 \setcounter{tocdepth}{3}
 
-\section*{\note{on the \TeX{} style}}
-
-\lstset{basicstyle=\footnotesize\ttfamily,language=TeX} 
-
-\textbf{1.} Please do not define and use any \lstinline{\newcommand} commands!
-
-\textbf{2.} Try to be consistent --- use environments provided:
-\begin{lstlisting}
-	\begin{theorem}\label{thm:example}
-		A theorem.		
-	\end{theorem}
-	\begin{proof}[Idea of proof]
-		And here is an equation:
-		\begin{align*}
-			a^2+b^2=c^2.
-		\end{align*}
-		This concludes the proof.
-	\end{proof}	
-\end{lstlisting}
-The above code produces:
-\begin{theorem}\label{thm:example}
-	A theorem.		
-\end{theorem}
-\begin{proof}[Idea of proof]
-	And here is an equation:
-	\begin{align*}
-		a^2+b^2=c^2.
-	\end{align*}
-	This concludes the proof.
-\end{proof}
-Use \lstinline{align} or \lstinline{multline} for displayed equations.
-
-\textbf{3.} Full list of theorem environments defined:
-\begin{lstlisting}
-	\newtheorem{proposition}{Proposition}[section]
-	\newtheorem{lemma}[proposition]{Lemma}
-	\newtheorem{corollary}[proposition]{Corollary}
-	\newtheorem{theorem}[proposition]{Theorem}
-	\newtheorem{definition}[proposition]{Definition}
-	\newtheorem{remark}[proposition]{Remark}
-	\newtheorem{example}[proposition]{Example}
-	\newtheorem{exercise}[proposition]{Exercise}	
-\end{lstlisting}
-
-\textbf{4.} Use \lstinline{\note} command to insert notes: \note{this is a note}.
-
-\textbf{5.} Use understandable labels for theorems and equations, and reference them by using \lstinline{\ref}
-or \lstinline{\eqref}, see Theorem \ref{thm:example}. Little hints will appear in the PDF file, 
-this should help you.
-
-\textbf{6.} Bibliography links can be inserted using the \lstinline{\cite}
-command. I am using a single huge BiBTeX file which is here
-\url{https://github.com/lenis2000/BiBTeX/blob/master/bib.bib}. 
-If something is not in that file, leave a note. 
-Example: command 
-\begin{lstlisting}
-	\cite{AndersonGuionnetZeitouniBook}
-\end{lstlisting}
-produces citation
-\cite{AndersonGuionnetZeitouniBook}.
 
 
-\textbf{7.} You can email me your \TeX{} files (in which case take
-my preamble and put your text into it), or alternatively you can use GitHub's pull requests mechanism
-(\url{https://help.github.com/articles/using-pull-requests/}).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
