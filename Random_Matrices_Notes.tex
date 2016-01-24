@@ -237,12 +237,12 @@ then $\displaystyle \lim_{L\to\infty} \frac{1}{L} \#\left\{w_n\in [0,L]\right\}=
 average density of the $w_n$'s is $1$.
 The theorem/conjecture of Montgomery\footnote{Depending in part
 on the Riemann hypothesis and in part on 
-how strong is the assumed convergence in the formula below.} states that the pair correlations of the 
+how strong is the assumed convergence in \eqref{Montgomery_zeta}.} states that the pair correlations of the 
 zeroes of the zeta function have the form
-\begin{equation*}
-\lim_{L\to\infty} \frac{1}{L}\# \left\{\begin{array}{c} w_n\in [0,L] \\ \alpha\leq w_n-w_m\leq \beta \end{array}\right\} 
-\sim \int_\alpha^\beta \left(\delta(x)+1 -\frac{\sin^2(\pi x)}{\pi^2 x^2}\right)\, dx,
-\end{equation*}
+\begin{equation}\label{Montgomery_zeta}
+	\lim_{L\to\infty} \frac{1}{L}\# \left\{\begin{array}{c} w_n\in [0,L] \\ \alpha\leq w_n-w_m\leq \beta \end{array}\right\} 
+	\sim \int_\alpha^\beta \left(\delta(x)+1 -\frac{\sin^2(\pi x)}{\pi^2 x^2}\right)\, dx,
+\end{equation}
 where $\delta(x)$ is the Dirac delta.
 Further details on this and other connections
 between number theory and random matrices
@@ -373,6 +373,19 @@ Note that $L_N$ is a probability measure on $\mathbb{R}$.
 	have the same fixed (but different) distribution.
 \end{remark}
 
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/SC.pdf}
+	\caption{Semicircle density $\SC(x)$.}
+	\label{fig:semicircle}
+\end{figure}
+
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/Wigner1.pdf}
+	\caption{Histogram of the empirical distribution 
+	$L_N$ for $N=5000$.}
+	\label{fig:Wigner}
+\end{figure}
+
 \begin{definition}
 	The semicircle distribution $\SC$ is 
 	a fixed probability distribution on $\mathbb{R}$
@@ -385,25 +398,12 @@ Note that $L_N$ is a probability measure on $\mathbb{R}$.
 	See Fig.~\ref{fig:semicircle}.
 \end{definition}
 
-\begin{figure}[htbp]
-	\includegraphics[width=.5\textwidth]{img/SC.pdf}
-	\caption{Semicircle density $\SC(x)$.}
-	\label{fig:semicircle}
-\end{figure}
-
 \begin{theorem}[Wigner's Semicircle Law]\label{thm:SemicircleLaw}
 	As $N\to\infty$,
 	the empirical distributions 
 	$L_N$ converge weakly, in probability to the 
 	semicircle distribution $\SC$.
 \end{theorem}
-
-\begin{figure}[htbp]
-	\includegraphics[width=.5\textwidth]{img/Wigner1.pdf}
-	\caption{Histogram of the empirical distribution 
-	$L_N$ for $N=5000$.}
-	\label{fig:Wigner}
-\end{figure}
 
 Let us explain what we mean by convergence ``weakly in probability''. Formally this means that
 for any bounded continuous function $f$ on $\mathbb R$ ($f\in C_B(\mathbb R)$) and each $\epsilon>0$ we have 
