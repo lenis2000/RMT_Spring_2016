@@ -3,7 +3,9 @@
 
 ## Notes on TeX style
 
-<code>1.</code> Please do not define any new <code>\newcommand</code> commands! Here are some commands I am using, please try to use them, too:
+##### \newcommands
+
+Please do not define any new <code>\newcommand</code> commands! Here are some commands I am using, please try to use them, too:
 	
 	\newcommand{\SC}{\mathsf{SC}}
 	
@@ -11,7 +13,9 @@
 	
 	\DeclareMathOperator{\PP}{\mathbb{P}}
 
-<code>2.</code> Try to be consistent --- use environments provided:
+##### environments 
+
+Try to be consistent --- use environments provided:
 		
 	\begin{theorem}\label{thm:example}
 		A theorem.		
@@ -38,7 +42,9 @@ or
 
 for displayed equations.
 
-<code>3.</code> Full list of theorem environments defined:
+##### environments defined
+
+Full list of theorem environments defined:
 
 	\newtheorem{proposition}{Proposition}[section]
 	\newtheorem{lemma}[proposition]{Lemma}
@@ -50,13 +56,17 @@ for displayed equations.
 	\newtheorem{exercise}[proposition]{Exercise}	
 
 
-<code>4.</code> Use 
+##### \note
+
+Use 
 	
 	\note 
 
 command to insert notes: <code>\note{this is a note}</code>.
 
-<code>5.</code> Use understandable labels for theorems and equations, and reference them by using 
+##### labels
+
+Use understandable labels for theorems and equations, and reference them by using 
 
 	\ref
 
@@ -66,7 +76,9 @@ or
 
 like this: <code>\ref{thm:example}</code>. Little hints for links will appear in the PDF file, this should help you.
 
-<code>6.</code> Bibliography links can be inserted using the 
+##### bibliography
+
+Bibliography links can be inserted using the 
 
 	\cite
 
@@ -78,6 +90,8 @@ Example: command
 
 produces a citation to the book by Anderson, Guionnet, and Zeitouni.
 
-<code>7.</code> You can email me your TeX files (in which case take
+##### sharing your work
+
+You can email me your TeX files (in which case take
 my preamble and put your text into it), or alternatively you can use GitHub's pull requests mechanism
 [https://help.github.com/articles/using-pull-requests/](https://help.github.com/articles/using-pull-requests/).
