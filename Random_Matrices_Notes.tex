@@ -19,6 +19,12 @@
 \newcounter{lecture}
 \newcommand{\lect}[1]{\medskip\addtocounter{lecture}{1}\noindent{\Large\textbf{\color{red}Lecture \#\arabic{lecture} on #1 \hrulefill}}\medskip}
 \usepackage{refcheck}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SC}{\mathsf{SC}}
+\DeclareMathOperator{\EE}{\mathbb{E}}
+\DeclareMathOperator{\PP}{\mathbb{P}}
+
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newtheorem{proposition}{Proposition}[section]
@@ -296,7 +302,7 @@ The law of the real Wigner $N\times N$ matrix is described as follows:
 	\item $\{a_{ij}\}_{i\leq j}$ is an independent collection of random variables
 	\item $\{a_{ii}\}_{i=1}^N$ is iid\footnote{Independent identically
 	distributed.}, and $\{a_{ij}\}_{i<j}$ is iid.
-	\item $\mathbb E\, a_{ij}=0$ for all $i,j$; $\mathbb E\, a_{ij}^2=2$ for $i=j$; and $\mathbb E\, a_{ij}^2=1$ for $i\neq j$.
+	\item $\EE a_{ij}=0$ for all $i,j$; $\EE a_{ij}^2=2$ for $i=j$; and $\EE a_{ij}^2=1$ for $i\neq j$.
 	\item all moments of $a_{ij}$ are finite.
 \end{itemize}
 The last condition greatly simplifies technicalities of the proofs,
@@ -344,44 +350,91 @@ properties of real Wigner matrices with general entry distribution.
 
 % subsection gaussian_orthogonal_ensemble (end)
 
-\note{continue editing from here}
-
 \subsection{Formulation of the Wigner Semicircle Law} % (fold)
 \label{sub:formulation_of_the_wigner_semicircle_law}
 
 For a real Wigner matrix $A_N\in\mathrm{Mat}(N\times N)$ let
 $\lambda_1^{(N)}\geq \cdots \geq \lambda_N^{(N)}$ be the eigenvalues of $A_N$.
-The empirical distribution of the eigenvalues is
+The \emph{empirical distribution of the eigenvalues} is
 \begin{equation}\label{EmpericalDistributionOfEigenvalues}
 	L_N=\frac{1}{N}\sum_{i=1}^N \delta_{N^{-1/2}\lambda_{i}^{(N)}}.
 \end{equation}
-
-The semicircle distribution is 
-\begin{equation}\label{SemicircleDistribution}
-SC(x)=\frac{1}{2\pi}\sqrt{4-x^2}, \qquad -2\leq x\leq 2.
-\end{equation}
-
-\begin{theorem}\label{SemicircleLaw}
-$L_N$ converges weakly in probability to $SC$.
-\end{theorem}
-
-This means that for each bounded continuous function on $\mathbb R$ ($f\in C_B(\mathbb R)$) and each $\epsilon>0$ we have 
-\begin{equation*}
-\lim_{N\to\infty}\mathbb P\left(\left|\int_{\mathbb R} f\,dL_N-\int_{\mathbb R} f\,dSC\right|>\epsilon\right)=0.
-\end{equation*}
-
-The words "in probability" mean in the usual case.  Where as weakly specifies the metric.
-
-To deal with this type of statement it is convenient to define $\langle \mu, f\rangle=\int f\,d\mu=\int_{\mathbb R}f(x)\,\mu(dx)$ for a given function $f$ and measure $\mu$.  If $\mu$ is a random measure ( such as $L_N$ since $L_N$ depends on $A_N$ which is random) then $\langle \mu, f\rangle$ is a random element of $\mathbb R$ (usually we say random variable).  Since $SC$ is not random $\langle SC, f\rangle$ is fixed for a given function $f$.  The Semicircle Law states, for any given $f\in C_B(\mathbb R)$ the random variable $\langle L_N, f\rangle$ converges in probability to the constant $\langle SC, f\rangle$ which may be written
-\begin{equation}\label{StarSemicrcleLaw}
-\forall \epsilon>0,\lim_{N\to\infty}\mathbb P\left(\left|\langle L_N, f\rangle-\langle SC,f\rangle\right|>\epsilon\right)=0.
-\end{equation}
+That is, we put delta masses of size $1/N$ into the
+$N$ positions of rescaled eigenvalues 
+$\lambda_{i}^{(N)}/\sqrt N$. This rescaling will turn out to be appropriate for the 
+law of large numbers.
+Note that $L_N$ is a probability measure on $\mathbb{R}$.
 
 \begin{remark}
-	This type of convergence is reminiscent of the weak law of large numbers: for
-	$\{X_i\}_{i=1}^\infty$ iid with $\mathbb E\, |X_1| <\infty$ the random
-	variables $\frac{1}N\sum_{i=1}^N X_i$ converge to the constant $\mathbb E \,
-	X_1$ in probability as $N\to\infty$.
+	For the purposes of asymptotic statements, we will always assume that the 
+	off-diagonal entries of real Wigner matrices 
+	$A=A_N$ have the same fixed distribution independent of $N$,
+	and similarly the diagonal entries 
+	have the same fixed (but different) distribution.
+\end{remark}
+
+\begin{definition}
+	The semicircle distribution $\SC$ is 
+	a fixed probability distribution on $\mathbb{R}$
+	supported on $[-2,2]$
+	which is absolutely continuous with respect to the
+	Lebesgue measure and has the density
+	\begin{equation}\label{SemicircleDistribution}
+		\SC(x):=\frac{1}{2\pi}\sqrt{4-x^2}, \qquad -2\leq x\leq 2.
+	\end{equation}
+	See Fig.~\ref{fig:semicircle}.
+\end{definition}
+
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/SC.pdf}
+	\caption{Semicircle density $\SC(x)$.}
+	\label{fig:semicircle}
+\end{figure}
+
+\begin{theorem}[Wigner's Semicircle Law]\label{thm:SemicircleLaw}
+	As $N\to\infty$,
+	the empirical distributions 
+	$L_N$ converge weakly, in probability to the 
+	semicircle distribution $\SC$.
+\end{theorem}
+
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/Wigner1.pdf}
+	\caption{Histogram of the empirical distribution 
+	$L_N$ for $N=5000$.}
+	\label{fig:Wigner}
+\end{figure}
+
+Let us explain what we mean by convergence ``weakly in probability''. Formally this means that
+for any bounded continuous function $f$ on $\mathbb R$ ($f\in C_B(\mathbb R)$) and each $\epsilon>0$ we have 
+\begin{equation}\label{WignerSemicircleLaw}
+\lim_{N\to\infty}\mathbb P\left(\left|\int_{\mathbb R} f\,dL_N-\int_{\mathbb R} f\,d\SC\right|>\epsilon\right)=0.
+\end{equation}
+That is, ``in probability'' means the usual convergence in probability  of
+random elements $L_N$ to a (nonrandom) element $\SC$.  On the other hand,
+``weakly'' specifies the metric on the space of probability measures on
+$\mathbb{R}$ (to which all $L_N$ and $\SC$ belong). Convergence of probability
+measures in this metric simply means weak convergence of probability measures
+on $\mathbb{R}$.
+
+In other words,
+let us use a convenient notation for the pairing $\langle f,\mu\rangle
+=\int_{\mathbb R} f\,d\mu=\int_{\mathbb R}f(x)\,\mu(dx)$ for a given
+function $f$ and measure $\mu$.  If $\mu$ is a random measure (such as $L_N$,
+since $L_N$ depends on $A_N$ which is random), then $\langle f,\mu\rangle$ is
+a random element of $\mathbb R$ (usually we say random variable).  Since $\SC$
+is not random, the pairing $\langle f,\SC\rangle$ is a fixed number for a given function $f$.  The
+Semicircle Law thus states that for any given $f\in C_B(\mathbb R)$ the random variable
+$\langle f,L_N\rangle$ converges in probability to the constant $\langle f,\SC\rangle$ which may be written as
+\begin{equation*}
+\forall \epsilon>0,\qquad \lim_{N\to\infty}\PP\left(\left|\langle f,L_N\rangle-\langle f,\SC\rangle\right|>\epsilon\right)=0,
+\end{equation*}
+which is the same as \eqref{WignerSemicircleLaw}.
+
+\begin{remark}
+	This type of convergence is reminiscent of the classical weak law of large numbers: for
+	$\{X_i\}_{i=1}^\infty$ iid random variables with $\EE|X_1| <\infty$, the random
+	variables $\dfrac{1}N\sum_{i=1}^N X_i$ converge to the constant $\EE X_1$ in probability as $N\to\infty$.
 \end{remark}
 
 % subsection formulation_of_the_wigner_semicircle_law (end)
