@@ -3,7 +3,13 @@
 
 ## Notes on TeX style
 
-<code>1.</code> Please do not define and use any <code>\newcommand</code> commands!
+<code>1.</code> Please do not define any new <code>\newcommand</code> commands! Here are some commands I am using, please try to use them, too:
+	
+	\newcommand{\SC}{\mathsf{SC}}
+	
+	\DeclareMathOperator{\EE}{\mathbb{E}}
+	
+	\DeclareMathOperator{\PP}{\mathbb{P}}
 
 <code>2.</code> Try to be consistent --- use environments provided:
 		
