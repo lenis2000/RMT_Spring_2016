@@ -34,11 +34,7 @@ The above code produces:
 
 Use 
 
-	\align 
-
-or 
-
-	\multline 
+	\equation, \equation*, \align, \align*, \multline, \multline*
 
 for displayed equations.
 
