@@ -3,7 +3,7 @@
 
 ## Notes on TeX style
 
-##### \newcommands
+##### 1. \newcommands
 
 Please do not define any new <code>\newcommand</code> commands! Here are some commands I am using, please try to use them, too:
 	
@@ -13,7 +13,7 @@ Please do not define any new <code>\newcommand</code> commands! Here are some co
 	
 	\DeclareMathOperator{\PP}{\mathbb{P}}
 
-##### environments 
+##### 2. environments 
 
 Try to be consistent --- use environments provided:
 		
@@ -42,8 +42,6 @@ or
 
 for displayed equations.
 
-##### environments defined
-
 Full list of theorem environments defined:
 
 	\newtheorem{proposition}{Proposition}[section]
@@ -56,7 +54,7 @@ Full list of theorem environments defined:
 	\newtheorem{exercise}[proposition]{Exercise}	
 
 
-##### \note
+##### 3. \note
 
 Use 
 	
@@ -64,7 +62,7 @@ Use
 
 command to insert notes: <code>\note{this is a note}</code>.
 
-##### labels
+##### 4. labels
 
 Use understandable labels for theorems and equations, and reference them by using 
 
@@ -76,7 +74,7 @@ or
 
 like this: <code>\ref{thm:example}</code>. Little hints for links will appear in the PDF file, this should help you.
 
-##### bibliography
+##### 5. bibliography
 
 Bibliography links can be inserted using the 
 
@@ -90,7 +88,7 @@ Example: command
 
 produces a citation to the book by Anderson, Guionnet, and Zeitouni.
 
-##### sharing your work
+##### 6. sharing your work
 
 You can email me your TeX files (in which case take
 my preamble and put your text into it), or alternatively you can use GitHub's pull requests mechanism
