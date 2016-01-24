@@ -27,7 +27,7 @@ The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office ho
 
 Possible reading/talk assignments (please first discuss your choice with me!):
 
-1. Catalan Numbers ?
+1. (?) Catalan Numbers.
 2. Persi Diaconis, Peter J. Forrester "A. Hurwitz and the origins of random matrix theory in mathematics" [http://arxiv.org/abs/1512.09229](http://arxiv.org/abs/1512.09229): the goal is to figure out and report on one of the computations of the volume of the group O(N) or U(N), and also enjoy the related historical background.
 
 -----
