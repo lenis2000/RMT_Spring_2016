@@ -25,9 +25,9 @@ The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office ho
 
 **Grading.** To receive grade, each student enrolled in the course is expected to take part in typing up the lecture notes ([notes on TeXing](https://github.com/lenis2000/RMT_Spring_2016/blob/master/TeXing.md)), and make at least one 30-minute presentation on a reading assignment or on student's own research. The presentations will be mainly scheduled in the end of February and in the end of the semester. 
 
-Possible reading/talk assignments (please first discuss your choice with me!):
+Possible reading + talk assignments (please first discuss your choice with me!):
 
-1. (?) Catalan Numbers.
+1. Combinatorics of Catalan Numbers.
 2. Persi Diaconis, Peter J. Forrester "A. Hurwitz and the origins of random matrix theory in mathematics" [http://arxiv.org/abs/1512.09229](http://arxiv.org/abs/1512.09229): the goal is to figure out and report on one of the computations of the volume of the group O(N) or U(N), and also enjoy the related historical background.
 
 -----
