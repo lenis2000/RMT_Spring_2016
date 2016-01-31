@@ -23,6 +23,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\SC}{\mathsf{SC}}
 \DeclareMathOperator{\EE}{\mathbb{E}}
+\DeclareMathOperator{\VAR}{\mathrm{Var}}
 \DeclareMathOperator{\PP}{\mathbb{P}}
 
  
@@ -311,6 +312,23 @@ The last condition greatly simplifies technicalities of the proofs,
 but most results on real Wigner matrices hold under weaker assumptions.
 \end{definition}
 
+\begin{example}
+
+A large class of Wigner random matrices
+(which helps justify why in $A$ the variances on the diagonal must be twice the 
+off-diagonal
+variances) can be constructed as follows.
+Suppose the collection of random variables $x_{ij}$ for $1\leq i,j\leq N$ is iid with $\EE x_{ij}=0$ and $\EE x_{ij}^2=1$.  Let $X=(x_{ij})$ be an $N\times N$ matrix.  Define
+\begin{equation*}
+	A:=\frac{X+X^T}{\sqrt{2}}.
+\end{equation*}
+One readily sees that $A$ is real Wigner. Namely, for example,
+$a_{11}=\frac{x_{11}+x_{11}}{\sqrt 2}=\sqrt 2 x_{11}$, so $\EE a_{11}=0$ 
+and $\EE a_{11}^2=2\EE x_{11}^2=2$.  If $N\geq 2$ then $a_{12}=a_{21}$ with $a_{12}=\frac{x_{12}+x_{21}}{\sqrt 2}$, 
+and we have $\EE a_{12}=0$ and $\VAR a_{12}=\frac{1}{2}\VAR(x_{12}+x_{21})=1$ because $x_{12}$ and $x_{21}$ are independent.
+
+\end{example}
+
 % subsection real_wigner_matrices (end)
 
 \subsection{Gaussian Orthogonal Ensemble} % (fold)
@@ -443,7 +461,14 @@ which is the same as \eqref{WignerSemicircleLaw}.
 
 \lect{1/25/2016}
 
+\subsection{Strategy of the proof} % (fold)
+\label{sub:strategy_of_the_proof}
 
+
+
+
+
+% subsection strategy_of_the_proof (end)
 
 
 
