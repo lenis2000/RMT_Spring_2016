@@ -444,9 +444,9 @@ a random element of $\mathbb R$ (usually we say random variable).  Since $\SC$
 is not random, the pairing $\langle f,\SC\rangle$ is a fixed number for a given function $f$.  The
 Semicircle Law thus states that for any given $f\in C_B(\mathbb R)$ the random variable
 $\langle f,L_N\rangle$ converges in probability to the constant $\langle f,\SC\rangle$ which may be written as
-\begin{equation*}
+\begin{equation}\label{WignerSemicircleLaw_langle}
 \forall \epsilon>0,\qquad \lim_{N\to\infty}\PP\left(\left|\langle f,L_N\rangle-\langle f,\SC\rangle\right|>\epsilon\right)=0,
-\end{equation*}
+\end{equation}
 which is the same as \eqref{WignerSemicircleLaw}.
 
 \begin{remark}
@@ -462,15 +462,39 @@ which is the same as \eqref{WignerSemicircleLaw}.
 \subsection{Strategy of the proof} % (fold)
 \label{sub:strategy_of_the_proof}
 
+We will employ the following strategy in our proof of the Wigner's semicircle
+law. This is only the first of the proofs we will consider, and it is based on
+the computation of moments and on the related combinatorics. Recall that for a
+probability measure $\mu$ the quantities $\langle x^{k},\mu\rangle$,
+$k=0,1,2,\ldots$, are called the \emph{moments} of $\mu$.
 
-
-
+First, we will compute the moments  $m_k:=\langle x^k, \SC\rangle$ of the
+limiting semicircle distribution, and identify the answer in terms of the
+Catalan numbers. Our second step in the proof is to show the convergence
+$\lim_{N\to\infty}\EE \langle x^k,L_N\rangle \to m_k$ for each $k$. The third
+step is to show that  the variance of $\langle x^k,L_N\rangle$ goes to zero as
+$N\to\infty$ for each $k$. Finally, to complete the proof we will need to
+justify that  the convergence \eqref{WignerSemicircleLaw_langle} for any
+function $f(x)$ follows from the case of $f(x)=x^{k}$, $k=0,1,2,\ldots$.
 
 % subsection strategy_of_the_proof (end)
 
+\subsection{Moments of the semicircle distribution} % (fold)
+\label{sub:moments_of_the_semicircle_distribution}
 
 
 
+
+
+
+
+
+
+
+
+
+
+% subsection moments_of_the_semicircle_distribution (end)
 
 % section wigner_s_semicircle_law (end)
 
