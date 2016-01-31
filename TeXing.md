@@ -8,9 +8,8 @@
 Please do not define any new <code>\newcommand</code> commands! Here are some commands I am using, please try to use them, too:
 	
 	\newcommand{\SC}{\mathsf{SC}}
-	
 	\DeclareMathOperator{\EE}{\mathbb{E}}
-	
+	\DeclareMathOperator{\VAR}{\mathrm{Var}}
 	\DeclareMathOperator{\PP}{\mathbb{P}}
 
 ##### 2. environments 
