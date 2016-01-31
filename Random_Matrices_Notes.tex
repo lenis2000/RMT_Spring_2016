@@ -414,6 +414,9 @@ Note that $L_N$ is a probability measure on $\mathbb{R}$.
 		\SC(x):=\frac{1}{2\pi}\sqrt{4-x^2}, \qquad -2\leq x\leq 2.
 	\end{equation}
 	See Fig.~\ref{fig:semicircle}.
+
+	Note that slightly abusing the notation, by $\SC$ we will denote both the
+	semicircle distribution and its probability density \eqref{SemicircleDistribution}.
 \end{definition}
 
 \begin{theorem}[Wigner's Semicircle Law]\label{thm:SemicircleLaw}
@@ -468,33 +471,74 @@ the computation of moments and on the related combinatorics. Recall that for a
 probability measure $\mu$ the quantities $\langle x^{k},\mu\rangle$,
 $k=0,1,2,\ldots$, are called the \emph{moments} of $\mu$.
 
-First, we will compute the moments  $m_k:=\langle x^k, \SC\rangle$ of the
+First, in \S \ref{sub:moments_of_the_semicircle_distribution}
+we will compute the moments  $m_k:=\langle x^k, \SC\rangle$ of the
 limiting semicircle distribution, and identify the answer in terms of the
 Catalan numbers. Our second step in the proof is to show the convergence
-$\lim_{N\to\infty}\EE \langle x^k,L_N\rangle \to m_k$ for each $k$. The third
-step is to show that  the variance of $\langle x^k,L_N\rangle$ goes to zero as
+$\lim_{N\to\infty}\EE \langle x^k,L_N\rangle = m_k$ for each $k$. We do this in \S \ref{sub:convergence_of_expectations_}
+below.
+The third
+step (in \S \ref{sub:variances_langle_x_k_l_nrangleto0_}) 
+is to show that  the variance of $\langle x^k,L_N\rangle$ goes to zero as
 $N\to\infty$ for each $k$. Finally, to complete the proof we will need to
 justify that  the convergence \eqref{WignerSemicircleLaw_langle} for any
 function $f(x)$ follows from the case of $f(x)=x^{k}$, $k=0,1,2,\ldots$.
+This is done in \S \ref{sub:completing_the_proof_WSCL}.
 
 % subsection strategy_of_the_proof (end)
 
 \subsection{Moments of the semicircle distribution} % (fold)
 \label{sub:moments_of_the_semicircle_distribution}
 
+Here we will compute the moments of the semicircle distribution:
+\begin{equation*}
+m_k=\langle x^k, \SC\rangle
+=\int_{-2}^2 x^k\, \SC(x)\,dx
+=\int_{-2}^2 x^k \left( \frac{\sqrt{4-x^2}}{2\pi}\right)\,dx.
+\end{equation*}
 
-
-
-
-
-
-
-
-
-
+Clearly, by symmetry we have $m_k=0$ for $k$ odd. If $k$ is even, let us perform a trigonometric substitution
+$x=2\sin \theta$, $-\frac\pi2\le \theta\le \frac\pi2$, in the above integral:
+\begin{align*}
+	m_{2k}=\frac{2^{2k+1}}{\pi}\int_{-\frac\pi2}^{\frac\pi2}\sin^{2k}\theta\cos^{2}\theta \,d\theta.
+\end{align*}
+	
 
 
 % subsection moments_of_the_semicircle_distribution (end)
+
+\subsection{Digression on the Catalan numbers} % (fold)
+\label{sub:catalan_numbers}
+
+\cite{CatalanOEIS}
+
+% subsection catalan_numbers (end)
+
+\subsection{Convergence of expectations $\EE \langle x^k,L_N\rangle \to m_k$} % (fold)
+\label{sub:convergence_of_expectations_}
+
+% subsection convergence_of_expectations_ (end)
+
+\subsection{Variances $\langle x^k,L_N\rangle\to0$} % (fold)
+\label{sub:variances_langle_x_k_l_nrangleto0_}
+
+% subsection variances_langle_x_k_l_nrangleto0_ (end)
+
+\subsection{Completing the proof} % (fold)
+\label{sub:completing_the_proof_WSCL}
+
+% subsection completing_the_proof (end)
+
+
+
+\newpage
+
+\lect{1/26/2016}
+
+\lect{2/1/2016}
+
+\lect{2/3/2016}
+
 
 % section wigner_s_semicircle_law (end)
 
