@@ -17,7 +17,7 @@
 \synctex=1
 \newcommand{\note}[1]{\textsc{\color{blue}(#1)}}
 \newcounter{lecture}
-\newcommand{\lect}[1]{\medskip\addtocounter{lecture}{1}\noindent{\Large\textbf{\color{red}Lecture \#\arabic{lecture} on #1 \hrulefill}}\medskip}
+\newcommand{\lect}[1]{\bigskip\addtocounter{lecture}{1}\noindent{\Large\textbf{\color{red}Lecture \#\arabic{lecture} on #1 \hrulefill}}\bigskip}
 \usepackage{refcheck}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -835,9 +835,217 @@ On pictures this ordering will be represented from left to right (see Fig.~\ref{
 \subsection{Convergence of expectations $\EE \langle x^k,L_N\rangle \to m_k$} % (fold)
 \label{sub:convergence_of_expectations_}
 
-With the Catalan preparations in place, 
+With the Catalan preparations in place, let us return to the semicircle law. 
+We would like to show that 
+\begin{align}\label{desired_convergence_of_averages_in_WSCL}
+	\lim_{N\to\infty}\EE \langle x^k,L_N\rangle = m_k=\begin{cases}
+		0,&\textnormal{$k$ odd};\\
+		C_{k/2},&\textnormal{$k$ even}.
+	\end{cases}
+\end{align}
+
+First, observe that the left-hand side has the form
+\begin{equation*}
+\begin{split}
+\EE\langle x^k,L_N\rangle&=\EE\int_{\mathbb R}x^k\,L_N(dx)\\
+&=\EE\int_{\mathbb R}x^k\frac{1}{N}\sum_{i=1}^N \delta_{N^{-1/2}\lambda_i}(dx)\\
+&=\EE\frac{1}{N}\sum_{i=1}^N\int_{\mathbb R}x^k\delta_{N^{-1/2}\lambda_i}(dx)\\
+&=\EE\frac{1}{N}\sum_{i=1}^N (N^{-1/2}\lambda_i)^k\\
+&= N^{-1-k/2}\EE \sum_{i=1}^N \lambda_i^k.
+\end{split}
+\end{equation*}
+Since $A$ is diagonalizable (as an $N\times N$ real symmetric matrix), we have $\sum_{i=1}^N \lambda_i^k=\mathop{\mathrm{tr}}(A^k)$. We may express the trace of the $k$th power of a matrix by a $k$-fold sum of cyclic products 
+\begin{align*}
+	\mathop{\mathrm{tr}}(A^k)=\sum_{i_1,i_2,\ldots, i_k=1}^N a_{i_1i_2}a_{i_2i_3}\cdots a_{i_{k-1}i_k}a_{i_ki_1}.
+\end{align*}
+So we have
+\begin{equation}\label{WSCL_proof_0}
+	\EE\langle x^k,L_N\rangle
+	=N^{-1-k/2} \sum_{i_1,i_2,\ldots, i_k=1}^N \EE (a_{i_1i_2}a_{i_2i_3}\cdots a_{i_{k-1}i_k}a_{i_ki_1}).
+\end{equation}
+Our goal now is to understand the combinatorial structure of the above big sum.
+\begin{definition}
+Each term of the sum can be encoded by a \emph{closed word}
+$i_1\ldots i_ki_1$ of length $k+1$ (``closed'' in the sense that the word
+starts and ends with the same letter). 
+For example, 123241 is a closed word of length 6.
+The \emph{support} of a closed word is the set of all letters participating in this word.
+The support of 123241 is $\{1,2,3,4\}$.
+\end{definition}
+
+To each closed word $w$ we associate an undirected graph $G_w$ with vertices
+labeled by the support of the word, edges $(i_1,i_2), (i_2,i_3),\ldots,(i_{k},i_{1})$ connecting each consecutive pair
+of letters in the word. For example, if $w=123241$, then $G_w$ has four
+vertices $\{1,2,3,4\}$ and five edges $\{(1,2),(2,3),(3,2),(2,4),(4,1)\}$ (see Fig.~\ref{fig:Feynman_diag_ex}).
+Notice each graph $G_w$ is connected. These (and similar) graphs are sometimes referred to as Feynman diagrams.
+
+\begin{figure}[htbp]
+	\begin{tikzpicture}[scale=2,very thick,block/.style ={circle, draw=blue, thick ,align=center, minimum height=0.3em}]
+		\node[block] (n1) at (0,0) {1};
+		\node[block] (n2) at (1,0) {2};
+		\node[block] (n3) at (2,0) {3};
+		\node[block] (n4) at (3,0) {4};
+		\draw (n1)--(n2);
+		\draw (n2) [out=20,in=160] to (n3);
+		\draw (n2) [out=-20,in=-160] to (n3);
+		\draw (n2) [out=50,in=130] to (n4);
+		\draw (n4) [out=110,in=70] to (n1);
+	\end{tikzpicture}
+	\caption{Graph $G_w$ corresponding to the word $w=123241$.}
+	\label{fig:Feynman_diag_ex}
+\end{figure}
+
+Let $N_{i_1i_2}^w$ be the number of distinct edges connecting $i_1$ to $i_2$ in $G_w$. In our running example we have $N_{12}^w=1$ and $N_{23}^w=2$.
+Each edge may be a \emph{self} edge such as $(1,1)$, or it can be an edge \emph{connecting} distinct vertices such as $(2,3)$.
+
+With this notation we have
+\begin{equation}\label{WSCL_proof_1}
+	\EE a_{i_1i_2}a_{i_2i_3}\cdots a_{i_{k-1}i_k}a_{i_ki_1}=
+	\prod_{\substack{\textnormal{self $e$}\\e\in G_{i_1\cdots i_ki_1}}}\EE a_{11}^{N_e}
+	\prod_{\substack{\textnormal{connecting $e$}\\ e\in G_{i_1\cdots i_ki_1}}}\EE a_{12}^{N_e},
+\end{equation}
+since all diagonal elements are iid, and all the elements above the diagonal are iid.
+Here the product runs over all possible distinct edges in the graph of the word.
+
+In order for the expectation
+\eqref{WSCL_proof_1} to be nonzero, we must have the following properties:
+\begin{itemize}
+	\item
+	Since $\EE a_{ij}=0$, each edge in $G_{i_1\cdots i_ki_1}$ must have 
+	$N_e\ge2$..
+	\item The graph $G_{i_1\cdots i_ki_1}$ has $k+1$ edges, and so it can have
+	at most $1+k/2$ vertices.
+\end{itemize}
+
+Now let us look at the sum \eqref{WSCL_proof_0} as a whole. 
+Call two graphs
+\emph{equivalent}
+if they differ only by relabeling the vertices.
+Note that the 
+expectations 
+of the form
+\eqref{WSCL_proof_1}
+coming from equivalent graphs are the same. If a graph has $t$ vertices, then there are 
+$N^{\downarrow t}:=N(N-1)\ldots(N-t+1)$ ways to relabel the vertices 
+to get an equivalent graph. This implies that the sum
+\eqref{WSCL_proof_0} can be rewritten as
+\begin{align}\label{WSCL_proof_2}
+	\EE\langle x^k, L_N\rangle=\sum_{t=0}^{1+\lfloor k/2\rfloor}\frac{N^{\downarrow t}}{N^{1+k/2}}
+	\underbrace{\sum_{G_w\in\text{EqClass}_t}\,
+	\prod_{\substack{\text{self } e\\e\in G_{w}}}\EE a_{11}^{N_e}
+	\prod_{\substack{\text{connecting } e\\ e\in G_{w}}}\EE a_{12}^{N_e}}_{(*)},
+\end{align}
+where by $\text{EqClass}_t$ we have denoted the set of equivalence classes
+of graphs $G_w$ corresponding to closed word, having $t$ vertices and $k+1$ edges, and 
+also having $N_e\ge2$ for each edge.
+
+Clearly, for fixed $t$ and $k$, the expression $(*)$ above does not depend on $N$
+and is finite. Also, since $N^{\downarrow t}=O(N^{t})$, 
+the sum \eqref{WSCL_proof_2} vanishes as $N\to\infty$
+unless $t=1+k/2$. Because $t\le \lfloor k/2\rfloor$, this is possible only
+for $k$ even. Therefore,
+$\EE\langle x^k, L_N\rangle$ converges to zero if $k$ is odd.
+
+Now consider the case when $k$ is even and $t=1+k/2$. Then the graph corresponding to each word
+$i_1 \ldots i_ki_1$ has $k+1$ edges, $1+k/2$ vertices, 
+and $N_e\ge2$ for each edge. Hence, gluing together pairs of edges connecting 
+the same vertices, we see that the graph 
+$G_{i_1 \ldots i_ki_1}$ must be a \emph{tree} (see Fig.~\ref{fig:Wigner_word}).\footnote{The words which correspond to
+such trees 
+contributing to \eqref{WSCL_proof_2}
+are sometimes referred to as \emph{Wigner words}.}
+In particular, there are no self edges and $N_e=2$ for each connecting edge. This implies that 
+\begin{align*}
+	\lim_{N\to\infty}\EE\langle x^k, L_N\rangle=\big|\text{EqClass}_{1+k/2}\big|.
+\end{align*}
+
+\begin{figure}[htbp]
+	\begin{tikzpicture}[scale=2,very thick,block/.style ={circle, draw=blue, thick ,align=center, minimum height=0.3em}]
+		\node[block] (n1) at (0,0) {$i_1$};
+		\node[block] (n2) at (1,0) {$i_2$};
+		\node[block] (n3) at (2,0) {$i_3$};
+		\node[block] (n4) at (3,0) {$i_4$};
+		\node[block] (n5) at (4,0) {$i_5$};
+		\node[block] (n6) at (5,0) {$i_6$};
+		\draw (n1) [out=20,in=160] to (n2);
+		\draw (n1) [out=-20,in=-160] to (n2);
+		\draw (n1) [out=40,in=140] to (n3);
+		\draw (n1) [out=60,in=120] to (n3);
+		\draw (n3) [out=20,in=160] to (n4);
+		\draw (n3) [out=-20,in=-160] to (n4);
+		\draw (n4) [out=20,in=160] to (n5);
+		\draw (n4) [out=-20,in=-160] to (n5);
+		\draw (n4) [out=40,in=140] to (n6);
+		\draw (n4) [out=60,in=120] to (n6);
+	\end{tikzpicture}
+	\caption{A graph $G_w$ corresponding to a Wigner word 
+	$w=i_{1}i_3i_4i_5i_4i_6i_4i_3i_1i_2i_1$
+	which nontrivially contributes to the expansion \eqref{WSCL_proof_2}. 
+	Here $k=10$.}
+	\label{fig:Wigner_word}
+\end{figure}	
+\begin{figure}[htbp]
+	\raisebox{50pt}{\scalebox{.8}{\begin{tikzpicture}[scale=2,very thick,block/.style ={circle, draw=blue, thick ,align=center, minimum height=0.3em}]
+		\node[block] (n1) at (0,0) {$1$};
+		\node[block] (n2) at (1,0) {$6$};
+		\node[block] (n3) at (2,0) {$2$};
+		\node[block] (n4) at (3,0) {$3$};
+		\node[block] (n5) at (4,0) {$4$};
+		\node[block] (n6) at (5,0) {$5$};
+		\draw (n1) [out=20,in=160] to (n2);
+		\draw (n1) [out=-20,in=-160] to (n2);
+		\draw (n1) [out=40,in=140] to (n3);
+		\draw (n1) [out=60,in=120] to (n3);
+		\draw (n3) [out=20,in=160] to (n4);
+		\draw (n3) [out=-20,in=-160] to (n4);
+		\draw (n4) [out=20,in=160] to (n5);
+		\draw (n4) [out=-20,in=-160] to (n5);
+		\draw (n4) [out=40,in=140] to (n6);
+		\draw (n4) [out=60,in=120] to (n6);
+	\end{tikzpicture}}}
+	\hspace{40pt}
+	\scalebox{.8}{\begin{tikzpicture}[scale=2,very thick,block/.style ={circle, draw=blue, thick ,align=center, minimum height=0.3em}]
+		\node[block] (n1) at (0,0) {$1$};
+		\node[block] (n2) at (.8,-1) {$6$};
+		\node[block] (n3) at (-.8,-1) {$2$};
+		\node[block] (n4) at (-.8,-2) {$3$};
+		\node[block] (n5) at (-1.6,-3) {$4$};
+		\node[block] (n6) at (0,-3) {$5$};
+		\draw[ultra thick] (n1)--(n3);
+		\draw[ultra thick] (n1)--(n2);
+		\draw[ultra thick] (n3)--(n4);
+		\draw[ultra thick] (n4)--(n5);
+		\draw[ultra thick] (n4)--(n6);
+	\end{tikzpicture}}
+	\caption{A representative graph 
+	$G_w\in \text{EqClass}_{1+k/2}$ corresponding to the graph as on
+	Fig.~\ref{fig:Wigner_word} (left), and its representation as a rooted ordered tree (right).}
+	\label{fig:Wigner_word_representative}
+\end{figure}
+
+To count the number of trees $G_w\in\text{EqClass}_{1+k/2}$, 
+let us choose representatives $w=v_1 \ldots v_{k+1}$,
+such that for each $i=1,\ldots,k+1$, the set $\{1,2,\ldots,v_i\}$
+is an interval in $\{1,2,\ldots,N\}$ beginning at $1$
+(thus, $v_1=v_{k+1}=1$).
+\begin{exercise}
+	There is a unique way of choosing such representatives.
+\end{exercise}
+Let the vertex $1$ be the root $R$, and clearly the order coming from the word
+defines an order on this rooted tree (see Fig.~\ref{fig:Wigner_word_representative}). This implies that 
+$\big|\text{EqClass}_{1+k/2}\big|=C_k$, and
+finally proves the desired convergence \eqref{desired_convergence_of_averages_in_WSCL}.
 
 % subsection convergence_of_expectations_ (end)
+
+\lect{1/27/2016}
+
+\subsection{An example of counting terms in the expansion (\ref{WSCL_proof_0})} % (fold)
+\label{sub:an_example_WSCL_proof}
+
+
+
+% subsection an_example (end)
 
 \subsection{Variances $\langle x^k,L_N\rangle\to0$} % (fold)
 \label{sub:variances_langle_x_k_l_nrangleto0_}
@@ -853,7 +1061,7 @@ With the Catalan preparations in place,
 
 \newpage
 
-\lect{1/26/2016}
+
 
 \lect{2/1/2016}
 
