@@ -1043,32 +1043,180 @@ finally proves the desired convergence \eqref{desired_convergence_of_averages_in
 \subsection{An example of counting terms in the expansion (\ref{WSCL_proof_0})} % (fold)
 \label{sub:an_example_WSCL_proof}
 
+Before proceeding to finish the proof, let us consider one example 
+how expansion \eqref{WSCL_proof_0} works 
+for $k=6$.
 
+\begin{exercise}
+How go get $ C_3 = 5 $ when calculating $ \EE(\mathop{\mathrm{tr}}( A^6 ) )$.
+\end{exercise}
+\begin{proof}[Solution]
+	We want to show how
+
+	\begin{equation*}
+	\EE( \, \text{Tr}( A^6 ) \, ) = N^{ -1 - 3 } \sum_{ i_1 , \ldots, i_6 = 1 }^N \EE \left( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdots a_{ i_5, i_6 } \cdot a_{ i_6, i_1 } \right) \xrightarrow[ N \to \infty ]{} 5.
+	\end{equation*}
+
+	We need to determine which terms are non-zero and how many such terms there are.  If there are 5 or 6 independent indices, we get a product of expected values of independent random variables with expected value zero, so these terms do not contribute.  If there are 3 or fewer independent indices, there are not enough terms to overcome the factor of $ N^{ -4 } $, so these terms do not contribute in the limit.  Thus we are interested in non-zero terms with 4 independent indices.
+	One can check that there are 5 types of such terms:
+
+	\begin{enumerate}
+
+	\item
+	\begin{equation*}
+	\underbrace{ ( i_1, i_2 ) , ( i_2 , i_1 ) }, \quad \underbrace{ ( i_1, i_3 ) , ( i_3, i_1 ) }, \quad \underbrace{ ( i_1, i_4 ), ( i_4, i_1 ) }
+	\end{equation*}
+
+	\item
+	\begin{equation*}
+	\underbrace{ ( i_1, i_2 ) , \quad \underbrace{ ( i_2 , i_3 ) , ( i_3, i_2 ) } , \quad ( i_2, i_1 ) } , \quad \underbrace{ ( i_1, i_4 ), ( i_4, i_1 ) }
+	\end{equation*}
+
+	\item
+	\begin{equation*}
+	\underbrace{ ( i_1, i_2 ) , \quad \underbrace{ ( i_2 , i_3 ) , ( i_3, i_2 ) } , \quad \underbrace{ ( i_2, i_4 ) , ( i_4, i_2 ) }, \quad ( i_2, i_1 ) } 
+	\end{equation*}
+
+	\item
+	\begin{equation*}
+	\underbrace{ ( i_1, i_2 ) , \quad \underbrace{ ( i_2 , i_3 ) , \quad \underbrace{ ( i_3, i_4 ) , ( i_4, i_3 ) }, \quad ( i_3, i_2 ) } , \quad ( i_2, i_1 ) } 
+	\end{equation*}
+
+	\item
+	\begin{equation*}
+	\underbrace{ ( i_1, i_2 ) , ( i_2 , i_1 ) } , \quad \underbrace{ ( i_1, i_3 ) , \quad \underbrace{ ( i_3, i_4 ) , ( i_4, i_3 ) } , \quad ( i_3, i_1 ) }
+	\end{equation*}
+
+	\end{enumerate}
+
+	These sequences bijectively correspond to non-crossing pair partitions of 6 elements.
+	These partitions are in bijection with Dyck paths of length 6
+	(shown on Fig.~\ref{fig:Dyck3}), and are enumerated by the Catalan number $C_3=5$.
+
+	For each of these patterns, there are $ N ( N - 1 ) ( N - 2 ) ( N - 3 ) \sim N^4 $ terms in the sum, and each term is a product of the expected value of the squares of three independent off-diagonal random variables with expected value 0 and variance 1, like
+	\begin{align*}
+	\EE ( a_{ i_1, i_2 } \cdot a_{ i_2 , i_1 } \cdot a_{ i_1, i_3 } \cdot a_{ i_3, i_1 } \cdot a_{ i_1, i_4 } \cdot a_{ i_4, i_1 } ) &= \EE( a_{ i_1, i_2 }^2 ) \cdot \EE( a_{ i_1, i_3 }^2 ) \cdot \EE( a_{ i_1, i_4 }^2 ) = 1.
+	\end{align*}
+	So in the limit we get the Catalan number $ C_3 = 5 $.
+\end{proof}
 
 % subsection an_example (end)
 
-\subsection{Variances $\langle x^k,L_N\rangle\to0$} % (fold)
+\subsection{Variances of $\langle x^k,L_N\rangle$} % (fold)
 \label{sub:variances_langle_x_k_l_nrangleto0_}
+
+Let us now show that the variances vanish in the limit:
+\begin{equation}\label{Variance_to_zero_WSCL}
+\EE ( \, \langle x^k , L_N \rangle^2 ) - \left( \, \EE ( \, \langle x^k , L_N \rangle \, ) \, \right)^2 \xrightarrow[ N \to \infty ]{} 0.
+\end{equation}
+Recall that
+\begin{equation*}
+\langle x^k , L_N \rangle = N^{ -1 - k/2 } \sum_{ \vec{i} = i_1 , \ldots, i_k = 1 }^n a_{ i_1, i_2 } \cdots a_{ i_k , i_1 }.
+\end{equation*}
+Now, writing $ a_{ \vec{i} } $ for $ a_{ i_1, i_2 } \cdots a_{ i_k , i_1 } $, we have
+\begin{equation*}
+\EE ( \, \langle x^k , L_N \rangle^2 ) - \left( \, \EE ( \, \langle x^k , L_N \rangle \, ) \, \right)^2 = N^{ -2 - k } \sum_{ \vec{i} , \vec{j} } \left(  \EE \left( a_{ \vec{i} } \cdot a_{ \vec{j} } \right) - \EE ( a_{ \vec{i} } ) \cdot \EE ( a_{ \vec{j} } ) \, \right).
+\end{equation*}
+If the graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ 
+(corresponding to the words $i_1 \ldots i_ki_1$ and $j_1 \ldots j_kj_1$,
+respectively)
+do not share common edges, 
+then the corresponding random variables $ a_{ \vec{i} } $ and $ a_{ \vec{j} } $ 
+are independent, and so $ \EE( a_{ \vec{ i } } \cdot a_{ \vec{j} } ) = \EE ( a_{ \vec{i} } ) \cdot \EE( a_{ \vec{j} } ) $.  
+Thus we are only interested in the terms for which edges of the 
+graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ overlap.
+
+\begin{example}\label{ex:GiGj_variance_in_WSCL}
+	For instance, if $ \vec{i} = ( 1, 2, 3, 2 , 1 ) $ and $ \vec{j} = ( 1, 2, 1, 1, 1 ) $, then
+	\begin{align*}
+	\EE( a_{ \vec{i} } ) = \EE( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdot a_{ i_3, i_2 } \cdot a_{ i_2, i_1 } ) &= \EE( a_{ 1, 2 }^2 )^2 = 1;
+	\\\EE( a_{ \vec{j} } ) = \EE( a_{ i_1, i_2 } \cdot a_{ i_2, i_1 } \cdot a_{ i_1, i_1 } \cdot a_{ i_1, i_1 } ) &= \EE( a_{ 1, 2 }^2 ) \cdot \EE( a_{ 1,1 } ) = 2;
+	\\\EE( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdot a_{ i_3, i_2 } \cdot a_{ i_2, i_1 } \cdot a_{ i_1, i_2 } \cdot a_{ i_2, i_1 } \cdot a_{ i_1, i_1 } \cdot a_{ i_1, i_1 } ) &= \EE( a_{ i_1, i_2 }^4 ) \cdot \EE( a_{ i_2, i_3 }^2 ) \cdot \EE( a_{ i_1, i_1 }^2 ) = 2 \EE( a_{ 1, 2 }^4 ).
+	\end{align*}
+	The corresponding graphs are given on Fig.~\ref{fig:GiGj_variance_in_WSCL}.
+\end{example}
+\begin{figure}[htbp]
+	\begin{tikzpicture}[scale=3,very thick,block/.style ={circle, draw=blue, thick ,align=center, minimum height=0.3em}]
+		\node[block] (n1) at (0,0) {$1$};
+		\node[block] (n2) at (1,0) {$2$};
+		\node[block] (n3) at (2,0) {$3$};
+		\draw (n1) [out=20,in=160] to (n2);
+		\draw (n1) [out=-20,in=-160] to (n2);
+		\draw[dashed, ultra thick] (n1) [out=40,in=140] to (n2);
+		\draw[dashed, ultra thick] (n1) [out=60,in=120] to (n2);
+		\draw[dashed, ultra thick] (n1) [out=120,in=90] to (-.3,0) [out=-90,in=-120] to (n1);
+		\draw[dashed, ultra thick] (n1) [out=100,in=90] to (-.4,0) [out=-90,in=-100] to (n1);
+		\draw (n1) [out=-20,in=-160] to (n2);
+		\draw (n2) [out=20,in=160] to (n3);
+		\draw (n2) [out=-20,in=-160] to (n3);
+	\end{tikzpicture}
+	\caption{Graphs $ G_{ \vec{i} } $ (solid lines) and $ G_{ \vec{j} } $ (dashed lines) in Example \ref{ex:GiGj_variance_in_WSCL}.}
+	\label{fig:GiGj_variance_in_WSCL}
+\end{figure}
+
+We now argue similarly to the proof given in \S \ref{sub:convergence_of_expectations_}
+(for the convergence of the first moments). Namely, 
+in order for $ \EE ( a_{ \vec{i} } \cdot a_{ \vec{j} } ) - \EE( a_{ \vec{i} } ) \EE( a_{ \vec{j} } ) $ to be non-zero 
+we must have the following:
+\begin{itemize}
+	\item Since
+	$ \EE( a_{ i, j } ) = 0$,
+	the graphs need to have $ N_e \ge 2 $;
+	\item The graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ need to share some edges.
+\end{itemize}
+
+If the combined graph has $ t $ vertices, there are $ N^{ \downarrow t } = N ( N - 1 ) \cdots ( N - t + 1 ) $ equivalent classes of graphs.  Thus, the variance takes the form
+\begin{equation*}
+\EE ( \, \langle x^k , L_N \rangle^2 ) - \left( \, \EE ( \, \langle x^k , L_N \rangle \, ) \, \right)^2 = N^{ -2 - k } \sum_{ t = 1 }^{ 2k } N^{ \downarrow t } \underbrace{ \left[ \sum_{ \substack{ \text{equiv. classes} \\ \text{ of graphs with} \\ \text{ $2k$ vertices } } } ( \text{finite products of finite moments} )\right] }_{ \text{ finite and independent of $N$ } }
+\end{equation*}
+Thus, we must have $ t \ge k + 2 $ in order to have a nonzero contribution as $ N \to \infty $.  
+The associated graphs have $ N_e \ge 2 $ and are connected (since $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ are connected and overlap).
+There are totally $ 2 k $ edges with multiplicities, thus  $\le k $ double edges.
+We conclude that there are no such graphs, and so there are no nonzero contributions to the 
+variance in the limit as $N\to\infty$. This 
+completes the proof of \eqref{Variance_to_zero_WSCL}.
+
+\begin{remark}
+	Remark: by a similar argument, $ t = k + 1 $ also cannot contribute.
+	Indeed, the combined graph of $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $
+	has $\le k$ double edges and $k+1$ vertices so it must be a tree
+	(in the same sense of gluing edges as in \S \ref{sub:convergence_of_expectations_} above).
+	However, as $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ must also overlap (i.e., share common edges),
+	there are no such trees.
+	This implies a better estimate on the variance:
+	\begin{equation*}
+	\EE \left( \, \langle x^k , L_N \rangle^2 \, \right) - \EE \left( \, \langle x^k , L_N \rangle \, \right)^2 = O( N^{-2} ) ,
+	\qquad
+	N\to\infty.
+	\end{equation*}
+	This estimate can in fact be used to show almost-sure convergence to the semi-circular law.
+\end{remark}
 
 % subsection variances_langle_x_k_l_nrangleto0_ (end)
 
-\subsection{Completing the proof} % (fold)
+\subsection{Estimates and completing the proof} % (fold)
 \label{sub:completing_the_proof_WSCL}
 
 % subsection completing_the_proof (end)
 
+\subsection{Remarks on the semicircle law for real Wigner matrices} % (fold)
+\label{sub:remarks_on_the_semicircle_law_for_real_wigner_matrices}
 
 
-\newpage
 
+% subsection remarks_on_the_semicircle_law_for_real_wigner_matrices (end)
 
+% section wigner_s_semicircle_law (end)
 
 \lect{2/1/2016}
 
+\section{Elements of free probability} % (fold)
+\label{sec:elements_of_free_probability}
+
+% section elements_of_free_probability (end)
+
 \lect{2/3/2016}
 
-
-% section wigner_s_semicircle_law (end)
 
 \bibliography{bib}
 \bibliographystyle{amsalpha}
