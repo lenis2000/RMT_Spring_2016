@@ -101,11 +101,13 @@ $\mathbb C$ that is where $A^*=A$
 (here and everywhere below
 $A^*$ means $\overline{A^{T}}$, i.e., transposition and complex conjugation).
 
-\begin{remark}
+\begin{remark}\label{rmk:complex_eigenvalues}
 	The case when eigenvalues can be complex is also studied in
 	the theory of random matrices, sometimes under the keyword \emph{complex
-	random matrices}. See, for example, \cite{gotze2010circular} for a law of 
-	large numbers for complex eigenvalues.
+	random matrices}. 
+	This area is more modern and is actively developing now.
+	See, for example, \cite{gotze2010circular} for a discussion of the law of 
+	large numbers.
 \end{remark}
 
 \begin{proposition}
@@ -374,7 +376,7 @@ properties of real Wigner matrices with general entry distribution.
 For a real Wigner matrix $A_N\in\mathrm{Mat}(N\times N)$ let
 $\lambda_1^{(N)}\geq \cdots \geq \lambda_N^{(N)}$ be the eigenvalues of $A_N$.
 The \emph{empirical distribution of the eigenvalues} is
-\begin{equation}\label{EmpericalDistributionOfEigenvalues}
+\begin{equation}\label{EmpiricalDistributionOfEigenvalues}
 	L_N=\frac{1}{N}\sum_{i=1}^N \delta_{N^{-1/2}\lambda_{i}^{(N)}}.
 \end{equation}
 That is, we put delta masses of size $1/N$ into the
@@ -1160,7 +1162,7 @@ in order for $ \EE ( a_{ \vec{i} } \cdot a_{ \vec{j} } ) - \EE( a_{ \vec{i} } ) 
 we must have the following:
 \begin{itemize}
 	\item Since
-	$ \EE( a_{ i, j } ) = 0$,
+	$ \EE( a_{ i j } ) = 0$,
 	the graphs need to have $ N_e \ge 2 $;
 	\item The graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ need to share some edges.
 \end{itemize}
@@ -1199,10 +1201,87 @@ completes the proof of \eqref{Variance_to_zero_WSCL}.
 
 % subsection completing_the_proof (end)
 
-\subsection{Remarks on the semicircle law for real Wigner matrices} % (fold)
+\subsection{Related laws of large numbers for random matrix spectra} % (fold)
 \label{sub:remarks_on_the_semicircle_law_for_real_wigner_matrices}
 
+Let us mention two relatives of the Wigner semicircle law which can be proven by similar 
+methods of moments and
+trees counting.
 
+\subsubsection{Complex Wigner matrices} % (fold)
+\label{ssub:complex_wigner_matrices}
+	
+The first is the law of large numbers for complex (Hermitian) random Wigner
+matrices $A= ( a_{ i j } )_{i,j=1}^{N}$, in which
+\begin{itemize}
+	\item $ \overline{ a_{ i j } } = a_{ j i } $, $i\le j$,
+	are complex-valued independent random variables.
+	\item The diagonal elements
+	$ a_{ i i } $ are iid real valued with mean $0$ and variance $2$.
+	\item $ a_{ i j } $ with $ i < j $ are iid complex random variables
+	with expected value 0 and (complex) variance 1.
+	On other words, $a_{ij}=x_{ij}+y_{ij}$, where $x_{ij}$ and $y_{ij}$ are independent
+	real random variables with mean $0$ and variance $\frac12$. This implies that 
+	$\EE a_{ij}^{2}=0$ and $\EE |a_{ij}|^{2}=1$.
+	\item All moments $\EE|a_{ij}|^{k}$ are finite.
+\end{itemize}
+Defining $L_N$ in in the same way by \eqref{EmpiricalDistributionOfEigenvalues}
+(note that the eigenvalues of $A$ are real because it is Hermitian),
+we still have the semicircle law: 
+$ L_N \rightarrow \SC $ weakly in probability.
+
+There also exist laws of large numbers
+for complex eigenvalues of random matrices,
+and typical is the \emph{circular law} stating
+that the eigenvalues of a random matrix with iid 
+entries are distributed uniformly inside a unit disc on the 
+complex plane (cf. Remark \ref{rmk:complex_eigenvalues}).
+
+
+% subsubsection complex_wigner_matrices (end)
+
+\subsubsection{Marchenko--Pastur law} % (fold)
+\label{ssub:marchenko_pastur_law}
+
+The second is the Marchenko--Pastur law \cite{MarchenkoPastur}
+for Wishart matrices (random sample covariance matrices). The Wishart ensemble is defined as follows.
+Let $ Y $ be an $ N \times M $ matrix of iid real-valued random variables with mean 0 and variance 1. 
+Then, by definition, $ W = Y Y^\text{T} $ is called a \emph{Wishart} $ N \times N $ random matrix.
+It is a symmetric random matrix which is, moreover, positive definite.
+Therefore, all its eigenvalues are real and nonnegative.
+\begin{remark}
+	If the entries of $ Y $ are Gaussian, then the entries of $ W $ are sums of squares of Gaussians, 
+	so they have chi square distributions --- a type of distribution
+	arising when studying sample covariance matrices of Gaussian random vectors.
+\end{remark}
+
+Suppose $ M / N \to \alpha \in [ 1, \infty ) $. The Marchenko--Pastur law states that
+\begin{equation*}
+L_N = \frac{ 1 }{ N } \sum_{ i = 1 }^N \delta_{ \lambda_i / \sqrt{N} } \to S_\alpha 
+\end{equation*}
+weakly in probability. Here
+$ S_\alpha $, $\alpha\in[1,\infty)$ are the Marchenko--Pastur distributions defined as follows.
+Set
+\begin{equation*}
+b_\pm = ( 1 \pm \sqrt{\alpha} )^2.
+\end{equation*}
+Then the density function of $ S_\alpha $ is
+\begin{equation*}
+f_\alpha( x ) = \frac{ \sqrt{ ( x - b_- ) ( b_+ - x ) } }{ 2 \pi x }, \qquad b_- \le x \le b_+
+\end{equation*}
+which looks as on Fig.~\ref{fig:MP_law}.
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/Marchenko-Pastur.pdf}
+	\caption{The Marchenko--Pastur density $f_\alpha(x)$ for $\alpha=3$.}
+	\label{fig:MP_law}
+\end{figure}
+
+Note that if $ M \gg N $, then the random matrices $W$ are likely to be non-degenerate, so the distribution does not hit zero.
+In fact, the distribution $ S_1 $ corresponding to $\alpha=1$
+is the image of the semicircle law $ \SC $ under the squaring map $ x \mapsto x^2 $.
+
+
+% subsubsection marchenko_pastur_law (end)
 
 % subsection remarks_on_the_semicircle_law_for_real_wigner_matrices (end)
 
