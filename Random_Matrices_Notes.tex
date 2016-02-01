@@ -1199,6 +1199,64 @@ completes the proof of \eqref{Variance_to_zero_WSCL}.
 \subsection{Estimates and completing the proof} % (fold)
 \label{sub:completing_the_proof_WSCL}
 
+We want to show that for any continuous bounded function $f\in C_B(\mathbb R)$, the random
+variables $\langle f, L_N\rangle$ converge in probability to 
+$\langle f, \SC\rangle$ (this is further detailed in \eqref{WignerSemicircleLaw_langle}).
+We have already shown that 
+\begin{itemize}
+	\item The averages converge: $\EE\langle x^{k}, L_N\rangle\to\langle x^k,\SC\rangle$.
+	\item The variances
+	vanish: 
+	$\EE ( \langle x^k , L_N \rangle^2 ) - ( \EE \langle x^k , L_N \rangle )^2 \to0.$
+\end{itemize}
+
+We will also need the following a priori estimate that the empirical distributions
+$L_N$ are concentrated around zero:
+\begin{lemma}
+	For all $ \varepsilon > 0 $ there exists $ B>0 $ so that
+	\begin{equation*}
+		\PP \left( \, \left \langle \, | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \xrightarrow[ N \to \infty ]{} 0.
+	\end{equation*}
+\end{lemma}
+\begin{proof}
+	We will use the Markov (sometimes also called Chebyshev) inequality:
+	\begin{equation*}
+	\PP (  | X | > a ) < \frac{ \EE | X |  }{ a }\qquad \textnormal{for any $a>0$}.
+	\end{equation*}
+	Note that for $ | x | \ge B \ge 1 $,
+	$x^{2k}=|x|^{k}|x|^{k}\ge B^{k}|x|^{k}$, hence
+	$ | x |^k \le x^{ 2 k } / B^k $.  Now we have by the Markov inequality:
+	\begin{align*}
+	\PP \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right) &< \frac{ 1 }{ \varepsilon } \EE \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle \, \right) \le \frac{ \EE \left( \, \langle x^{ 2k } , L_N \rangle \, \right) }{ \varepsilon B^k }.
+	\end{align*}
+	We know that
+	\begin{equation*}
+	\EE \left( \langle x^{2k} , L_N \rangle \, \right) \to \EE \left( \, \langle x^{ 2k } , \SC \rangle \, \right) = C_k.
+	\end{equation*}
+	An easy (and in fact exact in the exponential order) 
+	estimate for the Catalan numbers is
+	\begin{align*}
+	C_k=\frac{1}{k+1}\binom{2k}{k} \le \sum_{ j = 0 }^{ 2k } \binom{2k}{j} = 2^{2k} = 4^k.
+	\end{align*}
+	Thus
+	\begin{equation*}
+	\limsup_{ N \to \infty } \PP \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \le \frac{ C_k }{ \varepsilon B^k } \le \frac{ 4^k }{ \varepsilon B^k }.
+	\end{equation*}
+	As $ k $ grows, the left hand side grows. However, for $ B > 4 $ the right hand side decays to zero. Thus if we set
+	\begin{equation*}
+	\alpha_k = \limsup_{ N \to \infty } \PP \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right),
+	\end{equation*}
+	then
+	$$
+	0 \le \alpha_1 \le \alpha_2 \le \ldots \le \frac{ 4^k }{ \varepsilon B^k } \to 0.
+	$$
+	Thus, all the $ \alpha_k $ are zero. Since the probabilities are non-negative, the desired result follows.
+\end{proof}
+
+
+
+
+
 % subsection completing_the_proof (end)
 
 \subsection{Related laws of large numbers for random matrix spectra} % (fold)
@@ -1243,7 +1301,7 @@ complex plane (cf. Remark \ref{rmk:complex_eigenvalues}).
 \subsubsection{Marchenko--Pastur law} % (fold)
 \label{ssub:marchenko_pastur_law}
 
-The second is the Marchenko--Pastur law \cite{MarchenkoPastur}
+The second relative is the Marchenko--Pastur law \cite{MarchenkoPastur}
 for Wishart matrices (random sample covariance matrices). The Wishart ensemble is defined as follows.
 Let $ Y $ be an $ N \times M $ matrix of iid real-valued random variables with mean 0 and variance 1. 
 Then, by definition, $ W = Y Y^\text{T} $ is called a \emph{Wishart} $ N \times N $ random matrix.
@@ -1267,7 +1325,7 @@ b_\pm = ( 1 \pm \sqrt{\alpha} )^2.
 \end{equation*}
 Then the density function of $ S_\alpha $ is
 \begin{equation*}
-f_\alpha( x ) = \frac{ \sqrt{ ( x - b_- ) ( b_+ - x ) } }{ 2 \pi x }, \qquad b_- \le x \le b_+
+f_\alpha( x ) = \frac{ \sqrt{ ( x - b_- ) ( b_+ - x ) } }{ 2 \pi x }, \qquad b_- \le x \le b_+,
 \end{equation*}
 which looks as on Fig.~\ref{fig:MP_law}.
 \begin{figure}[htbp]
