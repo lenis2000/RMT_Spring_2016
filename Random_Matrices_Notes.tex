@@ -430,9 +430,9 @@ Note that $L_N$ is a probability measure on $\mathbb{R}$.
 \end{theorem}
 
 Let us explain what we mean by convergence ``weakly in probability''. Formally this means that
-for any bounded continuous function $f$ on $\mathbb R$ ($f\in C_B(\mathbb R)$) and each $\epsilon>0$ we have 
+for any bounded continuous function $f$ on $\mathbb R$ ($f\in C_B(\mathbb R)$) and each $\varepsilon>0$ we have 
 \begin{equation}\label{WignerSemicircleLaw}
-\lim_{N\to\infty}\mathbb P\left(\left|\int_{\mathbb R} f\,dL_N-\int_{\mathbb R} f\,d\SC\right|>\epsilon\right)=0.
+\lim_{N\to\infty}\mathbb P\left(\left|\int_{\mathbb R} f\,dL_N-\int_{\mathbb R} f\,d\SC\right|>\varepsilon\right)=0.
 \end{equation}
 That is, ``in probability'' means the usual convergence in probability  of
 random elements $L_N$ to a (nonrandom) element $\SC$.  On the other hand,
@@ -451,7 +451,7 @@ is not random, the pairing $\langle f,\SC\rangle$ is a fixed number for a given 
 Semicircle Law thus states that for any given $f\in C_B(\mathbb R)$ the random variable
 $\langle f,L_N\rangle$ converges in probability to the constant $\langle f,\SC\rangle$ which may be written as
 \begin{equation}\label{WignerSemicircleLaw_langle}
-\forall \epsilon>0,\qquad \lim_{N\to\infty}\PP\left(\left|\langle f,L_N\rangle-\langle f,\SC\rangle\right|>\epsilon\right)=0,
+\forall \varepsilon>0,\qquad \lim_{N\to\infty}\PP\left(\left|\langle f,L_N\rangle-\langle f,\SC\rangle\right|>\varepsilon\right)=0,
 \end{equation}
 which is the same as \eqref{WignerSemicircleLaw}.
 
@@ -1205,7 +1205,7 @@ variables $\langle f, L_N\rangle$ converge in probability to
 $\langle f, \SC\rangle$ (this is further detailed in \eqref{WignerSemicircleLaw_langle}).
 We have already shown that 
 \begin{itemize}
-	\item The averages converge: $\EE\langle x^{k}, L_N\rangle\to\langle x^k,\SC\rangle$.
+	\item The moments converge: $\EE\langle x^{k}, L_N\rangle\to\langle x^k,\SC\rangle$.
 	\item The variances
 	vanish: 
 	$\EE ( \langle x^k , L_N \rangle^2 ) - ( \EE \langle x^k , L_N \rangle )^2 \to0.$
@@ -1213,12 +1213,13 @@ We have already shown that
 
 We will also need the following a priori estimate that the empirical distributions
 $L_N$ are concentrated around zero:
-\begin{lemma}
+\begin{lemma}\label{lemma:WSCL_truncation}
 	For all $ \varepsilon > 0 $ there exists $ B>0 $ so that
 	\begin{equation*}
-		\PP \left( \, \left \langle \, | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \xrightarrow[ N \to \infty ]{} 0.
+		\PP \left( \, \left \langle \, | x |^k \mathbf{1}_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \xrightarrow[ N \to \infty ]{} 0.
 	\end{equation*}
 \end{lemma}
+Here an everywhere below $\mathbf{1}_{A}$ denotes the indicator function of an event $A$, so the function $| x |^k \mathbf{1}_{ | x | > B }$ looks as on Fig.~\ref{fig:indicator_polynomial}.
 \begin{proof}
 	We will use the Markov (sometimes also called Chebyshev) inequality:
 	\begin{equation*}
@@ -1228,7 +1229,7 @@ $L_N$ are concentrated around zero:
 	$x^{2k}=|x|^{k}|x|^{k}\ge B^{k}|x|^{k}$, hence
 	$ | x |^k \le x^{ 2 k } / B^k $.  Now we have by the Markov inequality:
 	\begin{align*}
-	\PP \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right) &< \frac{ 1 }{ \varepsilon } \EE \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle \, \right) \le \frac{ \EE \left( \, \langle x^{ 2k } , L_N \rangle \, \right) }{ \varepsilon B^k }.
+	\PP \left( \, \left \langle | x |^k \mathbf{1}_{ | x | > B } , L_N \right \rangle > \varepsilon \right) &< \frac{ 1 }{ \varepsilon } \EE \left( \, \left \langle | x |^k \mathbf{1}_{ | x | > B } , L_N \right \rangle \, \right) \le \frac{ \EE \left( \, \langle x^{ 2k } , L_N \rangle \, \right) }{ \varepsilon B^k }.
 	\end{align*}
 	We know that
 	\begin{equation*}
@@ -1241,11 +1242,11 @@ $L_N$ are concentrated around zero:
 	\end{align*}
 	Thus
 	\begin{equation*}
-	\limsup_{ N \to \infty } \PP \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \le \frac{ C_k }{ \varepsilon B^k } \le \frac{ 4^k }{ \varepsilon B^k }.
+	\limsup_{ N \to \infty } \PP \left( \, \left \langle | x |^k \mathbf{1}_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \le \frac{ C_k }{ \varepsilon B^k } \le \frac{ 4^k }{ \varepsilon B^k }.
 	\end{equation*}
 	As $ k $ grows, the left hand side grows. However, for $ B > 4 $ the right hand side decays to zero. Thus if we set
 	\begin{equation*}
-	\alpha_k = \limsup_{ N \to \infty } \PP \left( \, \left \langle | x |^k 1_{ | x | > B } , L_N \right \rangle > \varepsilon \right),
+	\alpha_k = \limsup_{ N \to \infty } \PP \left( \, \left \langle | x |^k \mathbf{1}_{ | x | > B } , L_N \right \rangle > \varepsilon \right),
 	\end{equation*}
 	then
 	$$
@@ -1253,10 +1254,178 @@ $L_N$ are concentrated around zero:
 	$$
 	Thus, all the $ \alpha_k $ are zero. Since the probabilities are non-negative, the desired result follows.
 \end{proof}
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/indicator_polynomial.pdf}
+	\caption{The function $|x|^{5}\mathbf{1}_{|x|>5}$.}
+	\label{fig:indicator_polynomial}
+\end{figure}
 
-
-
-
+Now, fix $B>4$ (say, $B=5$), and uniformly approximate the function 
+$f\mathbf{1}_{|x|\le B}$ (a continuous function on a compact interval)
+by a polynomial. That is, by the Weierstrass Approximation Theorem,
+for every $\delta>0$ there is a polynomial
+$Q_\delta(x)$ such that
+\begin{align*}
+	\sup_{|x|\le B}|f(x)-Q_{\delta}(x)|<\delta.
+\end{align*}
+Therefore, we can estimate
+\begin{align*}
+	\left|
+	\langle f,L_N\rangle-
+	\langle f,\SC\rangle
+	\right|&\le
+	\left|
+	\langle f,L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|+
+	\left|
+	\langle Q_{\delta},\SC\rangle-
+	\langle f,\SC\rangle
+	\right|
+	\\&\le
+	\left|
+	\langle f\mathbf{1}_{|x|\le B},L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|
+	+
+	\left|
+	\langle f\mathbf{1}_{|x|> B},L_N\rangle
+	\right|+
+	\left|
+	\langle Q_{\delta},\SC\rangle-
+	\langle f,\SC\rangle
+	\right|
+	\\&\le
+	\left|
+	\langle Q_{\delta}\mathbf{1}_{|x|\le B},L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|\\&\hspace{20pt}+
+	\left|
+	\langle f\mathbf{1}_{|x|\le B},L_N\rangle-
+	\langle Q_{\delta}\mathbf{1}_{|x|\le B},L_N\rangle
+	\right|
+	+
+	\left|
+	\langle f\mathbf{1}_{|x|> B},L_N\rangle
+	\right|+
+	\left|
+	\langle Q_{\delta},\SC\rangle-
+	\langle f,\SC\rangle
+	\right|
+	\\&\le
+	\left|
+	\langle Q_{\delta},L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|
+	+
+	\left|
+	\langle Q_{\delta}\mathbf{1}_{|x|> B},L_N\rangle
+	\right|\\&\hspace{20pt}+
+	\left|
+	\langle f\mathbf{1}_{|x|\le B},L_N\rangle-
+	\langle Q_{\delta}\mathbf{1}_{|x|\le B},L_N\rangle
+	\right|
+	+
+	\left|
+	\langle f\mathbf{1}_{|x|> B},L_N\rangle
+	\right|+
+	\left|
+	\langle Q_{\delta},\SC\rangle-
+	\langle f,\SC\rangle
+	\right|
+	\\&\le
+	\left|
+	\langle Q_{\delta},L_N\rangle-
+	\EE\langle Q_{\delta},L_N\rangle
+	\right|
+	+
+	\left|
+	\EE\langle Q_{\delta},L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|
+	+
+	\left|
+	\langle Q_{\delta}\mathbf{1}_{|x|> B},L_N\rangle
+	\right|\\&\hspace{20pt}+
+	\left|
+	\langle f\mathbf{1}_{|x|\le B},L_N\rangle-
+	\langle Q_{\delta}\mathbf{1}_{|x|\le B},L_N\rangle
+	\right|
+	+
+	\left|
+	\langle f\mathbf{1}_{|x|> B},L_N\rangle
+	\right|+
+	\left|
+	\langle Q_{\delta},\SC\rangle-
+	\langle f,\SC\rangle
+	\right|
+	\\&\le
+	\left|
+	\langle Q_{\delta},L_N\rangle-
+	\EE\langle Q_{\delta},L_N\rangle
+	\right|
+	+
+	\left|
+	\EE\langle Q_{\delta},L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|
+	\\&\hspace{20pt}+
+	\left|
+	\langle Q_{\delta}\mathbf{1}_{|x|> B},L_N\rangle
+	\right|+
+	\left|
+	\langle f\mathbf{1}_{|x|> B},L_N\rangle
+	\right|+2 \delta.
+\end{align*}
+Therefore, we can estimate the probabilities as follows
+(given that $\delta$ is sufficiently small):
+\begin{align*}
+	\PP\Big(\left|
+	\langle f,L_N\rangle-
+	\langle f,\SC\rangle
+	\right|
+	>\varepsilon\Big)&\le
+	\PP\Big(
+	\left|
+	\langle Q_{\delta},L_N\rangle-
+	\EE\langle Q_{\delta},L_N\rangle
+	\right|>\varepsilon/5
+	\Big)
+	+
+	\PP\Big(\left|
+	\EE\langle Q_{\delta},L_N\rangle-
+	\langle Q_{\delta},\SC\rangle
+	\right|>\varepsilon/5\Big)
+	\\&\hspace{40pt}+
+	\PP\Big(\left|
+	\langle Q_{\delta}\mathbf{1}_{|x|> B},L_N\rangle
+	\right|>\varepsilon/5\Big)
+	+
+	\PP\Big(
+	\left|
+	\langle f\mathbf{1}_{|x|> B},L_N\rangle
+	\right|>\varepsilon/5\Big).
+\end{align*}
+The first summand above convergences to zero by Chebyshev inequality:
+\begin{align*}
+	\PP\Big(
+	\left|
+	\langle Q_{\delta},L_N\rangle-
+	\EE\langle Q_{\delta},L_N\rangle
+	\right|>\varepsilon/5
+	\Big)\le
+	\frac{\EE\big(\langle Q_{\delta},L_N\rangle^{2}\big)
+	-\big(\EE\langle Q_{\delta},L_N\rangle\big)^{2}}{(\varepsilon/5)^{2}},
+\end{align*}
+which goes to zero because variances go to zero
+(\S \ref{sub:variances_langle_x_k_l_nrangleto0_}).
+The second summand convergences to zero because the moments
+converge (\S \ref{sub:convergence_of_expectations_}).
+The last two summands converge to zero by
+Lemma \ref{lemma:WSCL_truncation} (note that $f$ is bounded and so 
+can be bounded by a polynomial). 
+This completes our first proof of the Wigner's semicircle law
+(formulated above as Theorem~\ref{thm:SemicircleLaw}).
 
 % subsection completing_the_proof (end)
 
