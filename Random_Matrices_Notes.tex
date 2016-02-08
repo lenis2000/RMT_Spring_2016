@@ -50,6 +50,7 @@
 
 \begin{center}
 	(notes by 
+	Kristin Courtney;
 	Stephen Hardy;
 	Bryce Terwilliger; \ldots)
 \end{center}
@@ -1528,11 +1529,53 @@ in \cite{wigner1955characteristic}. In our proof we closely follow Section 2.1 o
 \section{Elements of free probability} % (fold)
 \label{sec:elements_of_free_probability}
 
+\subsection{Motivating question} % (fold)
+\label{sub:motivation}
+
+We will discuss certain ideas from free probability
+applied to spectra of random matrices. 
+Our main goal is to motivate and describe the operation of free convolution
+of two probability distributions with compact support. 
+
+The motivating question we will be interested in is the following. Suppose
+$A_N$ and $B_N$ are two ensembles of 
+(real symmetric or Hermitian) $N\times N$ random matrices, and 
+assume
+\begin{equation*}
+	L_N(A_N)\to\mu,\qquad L_N(B_N)\to\nu,
+\end{equation*}
+where $L_N$ is the empirical spectral distribution \eqref{EmpiricalDistributionOfEigenvalues}, and $\mu$ and $\nu$ are limiting probability measures on $\mathbb{R}$ with compact support.
+The above convergence is the weak convergence in probability, as in 
+\eqref{WignerSemicircleLaw} and \eqref{WignerSemicircleLaw_langle}.
+The question is, how to understand the convergence of the sum:
+\begin{equation*}
+	L_N(A_N+B_N)\to\ ?
+\end{equation*}
+Of course, the answer will involve the dependence structure
+of the ensembles $A_N$ and $B_N$, and here we will consider 
+one choice of this dependence --- \emph{free independence},
+which informally means that the eigenbases corresponding to the matrices
+$A_N$ and $B_N$ are in generic position.
+Then the empirical spectral distributions of $A_N+B_N$
+converge to the \emph{free convolution}
+$\mu\boxplus\nu$ of the measures $\mu$ and $\nu$.
+
+\begin{example}
+	
+\end{example}
+
+
+% subsection motivation (end)
+
+
 \subsection{Notes and references} % (fold)
 \label{sub:notes_Free}
 
 Free probability was invented by Voiculescu in the 1980s
+to study operator algebras
 (e.g., \cite{Voiculescu_Free_book} gives an early introduction).
+In particular, the word ``free'' comes from the free groups, 
+whose (suitably defined) operator algebras were a motivating the study.
 In our discussions we mainly follow Chapter 5 of \cite{AndersonGuionnetZeitouniBook},
 and also lecture notes \cite{Novak2012FreeLectures}.
 
