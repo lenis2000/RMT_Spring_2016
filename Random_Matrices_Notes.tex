@@ -1536,6 +1536,8 @@ We will discuss certain ideas from free probability
 applied to spectra of random matrices. 
 Our main goal is to motivate and describe the operation of free convolution
 of two probability distributions with compact support. 
+We will not discuss all the technical aspects and proofs, but will focus on 
+certain concrete examples.
 
 The motivating question we will be interested in is the following. Suppose
 $A_N$ and $B_N$ are two ensembles of 
@@ -1561,9 +1563,29 @@ converge to the \emph{free convolution}
 $\mu\boxplus\nu$ of the measures $\mu$ and $\nu$.
 
 \begin{example}
-	
-\end{example}
+	Suppose $A_N$ and $B_N$ are independent and real Wigner. 
+	Then by Theorem \ref{thm:SemicircleLaw} we have
+	$L_N(A_N)\to \SC$ and $L_N(B_N)\to \SC$. However, 
+	$\displaystyle\frac{A_N+B_N}{\sqrt{2}}$ is also clearly real Wigner, and so
+	\begin{equation*}
+		L_N\left(\frac{A_N+B_N}{\sqrt{2}}\right) \to \SC.
+	\end{equation*}
+	We will see that this corresponds to the following
+	rule for the free convolution:
+	\begin{equation*}
+		\frac{\SC\boxplus\SC}{\sqrt{2}}=\SC.
+	\end{equation*}
 
+	In classical probability, if $X$ and $Y$ are iid random variables 
+	such that for any constants $a,b$ we have 
+	$aX+bY\stackrel{D}{=} cX+d$ for some other constants $c,d$, then $X$ is called
+	\emph{stable}. An important such example is Gaussian random variables.
+	Indeed, if  $X,Y$ are iid Gausian random variables with mean $0$
+	and variance $1$, then
+	$X+Y=\sqrt{2}X$.  
+	This suggests that the semicircle distribution should
+	be the free analogue of the Gaussian distribution.
+\end{example}
 
 % subsection motivation (end)
 
