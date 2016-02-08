@@ -1484,6 +1484,12 @@ Therefore, all its eigenvalues are real and nonnegative.
 	arising when studying sample covariance matrices of Gaussian random vectors.
 \end{remark}
 
+\begin{figure}[htbp]
+	\includegraphics[width=.5\textwidth]{img/Marchenko-Pastur.png}
+	\caption{The Marchenko--Pastur density $f_\alpha(x)$ for $\alpha=3$.}
+	\label{fig:MP_law}
+\end{figure}
+
 Suppose $ M / N \to \alpha \in [ 1, \infty ) $. The Marchenko--Pastur law states that
 \begin{equation*}
 L_N = \frac{ 1 }{ N } \sum_{ i = 1 }^N \delta_{ \lambda_i / \sqrt{N} } \to S_\alpha 
@@ -1499,11 +1505,6 @@ Then the density function of $ S_\alpha $ is
 f_\alpha( x ) = \frac{ \sqrt{ ( x - b_- ) ( b_+ - x ) } }{ 2 \pi x }, \qquad b_- \le x \le b_+,
 \end{equation*}
 which looks as on Fig.~\ref{fig:MP_law}.
-\begin{figure}[htbp]
-	\includegraphics[width=.5\textwidth]{img/Marchenko-Pastur.png}
-	\caption{The Marchenko--Pastur density $f_\alpha(x)$ for $\alpha=3$.}
-	\label{fig:MP_law}
-\end{figure}
 
 Note that if $ M \gg N $, then the random matrices $W$ are likely to be non-degenerate, so the distribution does not hit zero.
 In fact, the distribution $ S_1 $ corresponding to $\alpha=1$
