@@ -1575,9 +1575,9 @@ $\mu\boxplus\nu$ of the measures $\mu$ and $\nu$.
 	\end{equation*}
 	We will see that this corresponds to the following
 	rule for the free convolution:
-	\begin{equation*}
+	\begin{equation}\label{free_conv_SC}
 		\frac{\SC\boxplus\SC}{\sqrt{2}}=\SC.
-	\end{equation*}
+	\end{equation}
 
 	In classical probability, if $X$ and $Y$ are iid random variables 
 	such that for any constants $a,b$ we have 
@@ -2068,9 +2068,9 @@ This motivates the following general definition:
 	(cf. Fig.~\ref{fig:NC_part}).
 \end{definition}
 Clearly, rewriting \eqref{free_cum_def} similarly to \eqref{cumulants_via_moments} as
-\begin{equation*}
+\begin{equation}\label{free_cum_via_mom}
 	\kappa_n=m_n-\sum_{\substack{\pi\in\mathcal{NC}(n)\\\text{\# of blocks}\geq 2}} \prod_{B\in \pi} \kappa_{|B|},
-\end{equation*}
+\end{equation}
 we see that the sequence of free cumulants $(\kappa_1,\kappa_2,\ldots)$
 is uniquely determined by the sequence of moments.
 
@@ -2198,9 +2198,9 @@ Let us give a couple of remarks:
 \begin{remark}
 	Because all partitions are non-crossing for $n\leq 3$, we have
 	 \begin{align*}
-	     c_1& =k_1,\\
-	     c_2& =k_2,\\
-	     c_3& =k_3.
+	     c_1& =\kappa_1,\\
+	     c_2& =\kappa_2,\\
+	     c_3& =\kappa_3.
 	 \end{align*}
 \end{remark}
 
@@ -2236,11 +2236,11 @@ inside these connected components.
 Arguing in a similar way with the noncrossing cumulant formula \eqref{free_cum_def},
 we see that if the moments $m_n=2^{\binom n2}$ count graphs, then the free cumulants
 $\kappa_n$ count geometrically connected graphs on $n$ labeled vertices.
-The geometrically connectedness condition leads to splitting into noncrossing partitions.
+The geometrically connectedness condition naturally leads to splitting into noncrossing partitions.
 See Fig.~\ref{fig:counting_graphs}.
 
 \begin{figure}[htbp]
-	\begin{tikzpicture}[scale=1, very thick,block/.style ={circle, draw=blue, thick, fill=white, align=center}]
+	\begin{tikzpicture}[scale=1, very thick,block/.style ={circle, draw = blue, thick, fill=white, align = center}]
 		\def\r{2};
 		\def\rs{1.41421};
 		\draw[dotted] (0,0) circle (\r);
@@ -2252,12 +2252,12 @@ See Fig.~\ref{fig:counting_graphs}.
 		\node[block] (i4) at (\rs,-\rs) {$4$};
 		\node[block] (i6) at (-\rs,-\rs) {$6$};
 		\node[block] (i8) at (-\rs,\rs) {$8$};
-		\draw (i1) to [out=-90,in=180] (i3);
-		\draw (i2) to [out=-145,in=90] (i5);
-		\draw (i2) to [out=-125,in=135] (i4);
-		\draw (i7) to [out=30,in=-60] (i8);
-		\draw (i7) to [out=-30,in=60] (i6);
-		\draw (i8) to [out=-15,in=15] (i6);
+		\draw (i1) to [out = -90,in = 180] (i3);
+		\draw (i2) to [out = -145,in = 90] (i5);
+		\draw (i2) to [out = -125,in = 135] (i4);
+		\draw (i7) to [out = 30,in = -60] (i8);
+		\draw (i7) to [out = -30,in = 60] (i6);
+		\draw (i8) to [out = -15,in = 15] (i6);
 	\end{tikzpicture}
 	\caption{The geometric connectedness means that the graph on $n$ labeled vertices
 	located on the circle is connected as a geometric figure if not as a graph. 
@@ -2265,23 +2265,106 @@ See Fig.~\ref{fig:counting_graphs}.
 	\label{fig:counting_graphs}
 \end{figure}
 
-
-
-
 % subsection example_counting_graphs (end)
-
-
 
 \lect{2/3/2016}
 
 \subsection{Free independence} % (fold)
 \label{sub:free_independence}
 
-\note{mixed cumulants here}
+Recall that in the classical case, for independent random variables $X$ and $Y$ and each $n\geq 1$,
+\begin{align*}
+    c_n(X+Y)=c_n(X)+c_n(Y).
+\end{align*}
+So, we would like to define free independence such that the same holds for free cumulants.
+That is, if $X$ and $Y$ are free independent random variables, then for all $n\geq 1$,
+\begin{align*}
+    \kappa_n(X+Y)=\kappa_n(X)+\kappa_n(Y).
+\end{align*}
+
+To make a more precise definition of the free independence that we will work with, 
+we need joint cumulants (classical and free).
+That is, we want to speak not only about the variance and its higher analogues, 
+but also about the covariance and its higher analogues (for two or more random variables).
+This construction is rather straightforward: the joint moments are defined as
+\begin{equation*}
+	m_n(X_1,...,X_n)=\EE [X_1,...,X_n],
+\end{equation*}
+and the joint cumulants --- by the expansion
+\begin{equation*}
+	m_n(X_1,...,X_n)=\sum_{\pi\in\mathcal{P}(n)}\prod_{B\in\pi} c_{|B|}(X_i\colon i\in B).
+\end{equation*}
+To get the definition of the joint free cumulants, simply replace 
+$\mathcal{P}(n)$ in the above formula by $\mathcal{NC}(n)$, and 
+$c_{|B|}(X_i\colon i\in B)$
+by
+$\kappa_{|B|}(X_i\colon i\in B)$:
+\begin{equation}\label{multilinear_mom_via_free_cum}
+	m_n(X_1,...,X_n)=\sum_{\pi\in\mathcal{NC}(n)}\prod_{B\in\pi} \kappa_{|B|}(X_i\colon i\in B).
+\end{equation}
+Note that from \eqref{multilinear_mom_via_free_cum}
+(more precisely, rewriting \eqref{multilinear_mom_via_free_cum}
+in a recursive form like \eqref{free_cum_via_mom})
+we see that $\kappa_n$ is a symmetric multilinear function of its arguments.
+
+\begin{definition}[Free independence of classical random variables]
+	Two random variables $X$ and $Y$ 
+	with $\EE X=\EE Y=0$
+	are said to be 
+	\emph{free independent} if all their joint mixed free cumulants vanish for all $n\ge2$:
+	\begin{equation*}
+		\kappa_n(X,Y,Y,\ldots,Y,Y)=
+		\kappa_n(X,X,Y,\ldots,Y,Y)=\ldots=
+		\kappa_n(X,X,X,\ldots,X,Y)=0.
+	\end{equation*}
+\end{definition}
+    
+\begin{exercise}
+	Two random variables $X$ and $Y$ 
+	with $\EE X=\EE Y=0$
+	are classically independent
+	if and only if all their joint mixed classical cumulants are zero:
+	$c_n(X,X,...X,Y,...,Y)=0$.
+\end{exercise}
+
+\begin{example}
+	Note that this will not be the same as regular independence. Indeed, 
+	if you have two free independent $\SC$ random variables $X$ and $Y$, then
+	\begin{align*}
+	    X+Y\stackrel{D}{=} \sqrt 2\cdot \SC.
+	\end{align*}
+	For classically independent 
+	$X$ and $Y$, their sum $X+Y$ clearly
+	does not have the distribution $\sqrt 2\cdot \SC$
+	(in particular,
+	$\SC$ is not a stable distribution).
+\end{example}
+
+It turns out that free independence of classical random variables is problematic. 
+To see this, consider free independent classical random variables $X$ and $Y$. Then, 
+\begin{align*}
+    m_4(X,X,Y,Y) = m_4(X,Y,X,Y),
+\end{align*}
+ where 
+\begin{align*}
+ m_4(X,X,Y,Y)=\kappa_2(X,X)\kappa_2(Y,Y)+\kappa_2(X,X)+\kappa_1(Y)^2 +\kappa_2(Y,Y)\kappa_1(X)^2+\kappa_1(X)^2\kappa_1(Y)^2,
+\end{align*}
+and
+\begin{align*}
+ m_4(X,Y,X,Y)=\kappa_2(X,X)\kappa_1(Y)^2+\kappa_1(X)^2\kappa_2(Y,Y)+\kappa_1(X)^2\kappa_2(Y)^2.
+\end{align*}
+Hence $\kappa_2(X,X)\kappa_2(Y,Y)=0$, which means that, for classical random variables, free independence requires one of the random variables to be constant. 
+
+The solution is to introduce noncommutativity, whence
+\begin{align*}
+    m_4(X,X,Y,Y) \neq m_4(X,Y,X,Y),
+\end{align*}
+and, in fact, $XXYY\ne XYXY$.
+This is the motivation for the definitions in the following subsection.
 
 % subsection free_independence (end)
 
-\subsection{Free random variables} % (fold)
+\subsection{Noncommutative spaces of random variables} % (fold)
 \label{sub:free_random_variables}
 
 % subsection free_random_variables (end)
