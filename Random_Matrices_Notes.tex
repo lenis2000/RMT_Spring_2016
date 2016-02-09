@@ -1487,7 +1487,7 @@ Therefore, all its eigenvalues are real and nonnegative.
 \end{remark}
 
 \begin{figure}[htbp]
-	\includegraphics[width=.5\textwidth]{img/Marchenko-Pastur.png}
+	\includegraphics[width=.8\textwidth]{img/Marchenko-Pastur.png}
 	\caption{The Marchenko--Pastur density $f_\alpha(x)$ for $\alpha=3$.}
 	\label{fig:MP_law}
 \end{figure}
@@ -2196,7 +2196,7 @@ Let us give a couple of remarks:
 	such expansions should involve all partitions with arbitrary part sizes.
 \end{remark}
 \begin{remark}
-	Because all partitions are non-crossing for $n\leq 3$, we have
+	Because all partitions are noncrossing for $n\leq 3$, we have
 	 \begin{align*}
 	     c_1& =\kappa_1,\\
 	     c_2& =\kappa_2,\\
@@ -2307,7 +2307,7 @@ Note that from \eqref{multilinear_mom_via_free_cum}
 in a recursive form like \eqref{free_cum_via_mom})
 we see that $\kappa_n$ is a symmetric multilinear function of its arguments.
 
-\begin{definition}[Free independence of classical random variables]
+\begin{definition}[Free independence of classical random variables]\label{def:free_indep_classical}
 	Two random variables $X$ and $Y$ 
 	with $\EE X=\EE Y=0$
 	are said to be 
@@ -2366,6 +2366,135 @@ This is the motivation for the definitions in the following subsection.
 
 \subsection{Noncommutative spaces of random variables} % (fold)
 \label{sub:free_random_variables}
+
+The idea of free random variables was invented by Voiculescu in the beginning of the 
+1980s, cf. \cite{Voiculescu_Free_book}. 
+The space $L^\infty(\Omega, \mathcal{F},\PP)$ of bounded random variables 
+is a commutative von Neumann algebra. 
+Hence, noncommutative random variables would live in a noncommutative von Neumann algebra. 
+
+To define a von Neuman algebra, first, let $H$ be a Hilbert space (complete inner product space over $\mathbb{C}$) and $\mathcal{B}(H)$ be the space of all bounded linear operators on $H$ (bounded with respect to the norm induced by the inner product $(\cdot|\cdot)$ on $H$). The space $\mathcal{B}(H)$ has a natural involution given by 
+\begin{align*}
+    (Tx|y)=(x|T^*y)
+\end{align*}
+for any $T\in \mathcal{B}(H)$ and $x,y\in H$. Elements of $\mathcal{B}(H)$
+of the form $T^{*}T$ are called \emph{nonnegative}.
+
+In addition to the topology on $\mathcal{B}(H)$ induced by the norm, there is a \emph{weak operator topology}. We say that for $T_n, T\in \mathcal{B}(H)$, $T_n\to T$ as $n\to\infty$
+in the weak operator topology if for any $x,y\in H$,
+\begin{align*}
+    (T_nx|y)\to (Tx|y),\qquad n\to\infty.
+\end{align*}
+\begin{definition}
+	A \emph{von Neumann algebra} $\mathcal{A}$
+	is a unital (i.e., $1\in\mathcal{A}$) $*$-closed subalgebra 
+	of $\mathcal{B}(H)$, which is closed with respect to the weak operator topology.
+\end{definition}
+We would
+like to replace $L^\infty(\Omega, \mathcal{F}, \PP)$ with a von Neumann algebra $\mathcal{A}$.
+To complete the picture, we would need an analogue of the expectation
+which in the commutative case comes from the probability distribution.
+In lieu of the classical expectation, we have a notion of tracial state on our von Neumann algebra. 
+
+The von Neumann algebras we need will satisfy $a^*=a$ for all $a\in\mathcal{A}$. Thus,
+we will not consider the most general definition of a tracial state, but will deal with functionals
+$\tau\colon \mathcal{A}\to\mathbb{C}$ satisfying
+\begin{enumerate}
+    \item $\tau(1)=1$;
+    \item $\tau(ab)=\tau(ba)$ for all $a,b\in\mathcal{A}_+$ (here $\mathcal{A}_+$
+    is the subset of nonnegative elements in $\mathcal{A}$);
+    \item $\tau(a^*a)\ge0$ for all $a\in\mathcal{A}$.
+\end{enumerate}
+The tracial state is \emph{faithful} if $\tau(a^*a)=0$ implies $a=0$.
+
+So, we have the following correspondences:
+\begin{equation*}
+\begin{array}{c|c}
+    \text{Classical} & \text{Noncommutative} \\ \hline
+     L^\infty(\Omega, \mathcal{F}, P) & \text{a von Neumann algebra} \ \mathcal{A}\\
+     \EE[\cdot] & \tau[\cdot]\\
+     m_n(X) & m_n(a)=\tau(a^n),\ a\in \mathcal{A}_+
+\end{array}	
+\end{equation*}
+
+Now, we define free independence for noncommutative random variables. 
+\begin{definition}
+Elements $a$ and $b$ in a von Neumann algebra $\mathcal{A}$ are \emph{free independent} if for any polynomials $f_1,g_1,..., f_k, g_k$ such that $\tau(f_i(a))=\tau(g_j(b))=0$, we have 
+\begin{align*}
+    \tau(f_1(a)g_1(b)f_2(a)g_2(b)\cdots g_k(b))=0.
+\end{align*}
+Note that this is essentially mimicking Defining \ref{def:free_indep_classical} 
+stating that joint mixed cumulants are zero. 
+\end{definition}
+Compare this to classical independence:
+\begin{definition}
+Elements $a$ and $b$ in a von Neumann algebra $\mathcal{A}$ are \emph{classically independent} if $ab=ba$ and for any polynomials $f$ and $g$ such that $\tau(f(a))=\tau(g(b))=0$, we have 
+\begin{align*}
+    \tau(f(a)g(b))=0.
+\end{align*}
+\end{definition}
+If the moments $m_n(a)$ of an element $a\in\mathcal{A}$
+can be identified with moments of a compactly supported probability distribution on $\mathbb{R}$,
+we will denote this distribution by $\mu_a$.
+That is, talking about a single random variable yields the same results
+in commutative or noncommutative setting.
+\begin{definition}[Free convolution]\label{def:free_convolution}
+	If $a,b\in\mathcal{A}$ are free independent and correspond to compactly
+	supported probability distributions $\mu_a$ and $\mu_b$ on $\mathbb{R}$, respectively,
+	then their sum $a+b$ corresponds to a new 
+	compactly
+	supported probability distribution $\mu_{a+b}$ on $\mathbb{R}$. 
+	This distribution $\mu_{a+b}$ is called the \emph{free convolution}
+	of the distributions $\mu_a$ and $\mu_b$, and is denoted by 
+	\begin{align*}
+		\mu_{a+b}=\mu_a\boxplus\mu_b.
+	\end{align*}
+	As we will see below, the definition of the free convolution operation 
+	does not require von Neumann algebras.
+\end{definition}
+
+
+To apply free probability to random matrices, we will need the following definition:
+\begin{definition}
+For a sequence $(\mathcal{A}_N,\tau_N)$ of von Neumann algebras with tracial states, and sequences $(a_N)$ and $(b_N)$ with $a_N, b_N\in \mathcal{A}_N$ 
+for each $N$, we say that $(a_N)$ and $(b_N)$ are \emph{asymptotically free} if 
+for all polynomials $f_1,g_1,..., f_k, g_k$ such that $\tau(f_i(a_N))\to 0$ and $\tau(g_j(b_N))\to0$, we have 
+\begin{align*}
+    \tau(f_1(a_N)g_1(b_N)f_2(a_N)g_2(b_N)\cdots g_k(b_N))\to 0.
+\end{align*}
+\end{definition}
+
+An example of a sequence $(\mathcal{A}_N,\tau_N)$ of von Neumann algebras is 
+given by random matrices. Take
+$\mathcal{A}_N$ to be the von Neumann algebra of Hermitian
+random matrices with almost surely bounded entries.\footnote{One can also take real symmetric random
+matrices as we did in \S \ref{sec:wigner_s_semicircle_law}. However,
+from now on we will mostly work with Hermitian complex matrices, so we are 
+switching to this setting.}
+Equip each $\mathcal{A}_N$ with a tracial state
+\begin{equation*}
+	\tau_N(A):=\frac{1}{N} \EE \text{tr}(A),\qquad A\in\mathcal{A}_N,
+\end{equation*}
+coming from the usual matrix trace. 
+Recall that quantities like $\tau_N(A)$ played a major role in the proof of the
+Wigner's semicircle law in \S \ref{sec:wigner_s_semicircle_law}.
+
+\begin{proposition}\label{prop:asymptotically_free}
+	Consider sequences $(A_N), (B_N)$ of $N\times N$ Hermitian random matrices from $\mathcal{A}_N$ with 
+	\begin{align*}
+		L_N(A_N)\to \mu ,\qquad L_N(B_N)\to \nu,
+	\end{align*}
+	as discussed in \S \ref{sub:motivation}. Assume that $\mu$ and $\nu$ are compactly supported.
+	For each $N$, let $U_N$ be the random Haar-distributed unitary matrix 
+	that is independent of $A_N$ and $B_N$. 
+
+	Then the random matrices $A_N$ and $U_NB_NU^*_N$ from $\mathcal{A}_N$ 
+	are asymptotically free.  
+\end{proposition}
+\begin{proof}
+	We will not prove this statement as it requires a graph enumeration somewhat similar to the proof 
+	of the semicircle law. See, e.g., \cite[\S 3.6]{Novak2012FreeLectures} for an outline of the proof.
+\end{proof}
 
 % subsection free_random_variables (end)
 
