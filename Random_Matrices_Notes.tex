@@ -17,7 +17,7 @@
 \synctex=1
 \newcommand{\note}[1]{\textsc{\color{blue}(#1)}}
 \newcounter{lecture}
-\newcommand{\lect}[1]{\bigskip\addtocounter{lecture}{1}\noindent{\Large\textbf{\color{red}Lecture \#\arabic{lecture} on #1 \hrulefill}}\bigskip}
+\newcommand{\lect}[1]{\bigskip\addtocounter{lecture}{1}\noindent{\Large{\color{red}\bf{}Lecture \#\arabic{lecture} on #1 \hrulefill}}}
 % \newcommand{\lect}[1]{}
 % \usepackage{refcheck}
 
@@ -1457,7 +1457,9 @@ matrices $A= ( a_{ i j } )_{i,j=1}^{N}$, in which
 Defining $L_N$ in in the same way by \eqref{EmpiricalDistributionOfEigenvalues}
 (note that the eigenvalues of $A$ are real because it is Hermitian),
 we still have the semicircle law: 
-$ L_N \rightarrow \SC $ weakly in probability.
+$ L_N \rightarrow \SC $ weakly in probability. The proof of this result involves counting 
+of graphs similarly to the real case described above, but in the case of Hermitian Wigner matrices
+the graphs will be directed.
 
 There also exist laws of large numbers
 for complex eigenvalues of random matrices,
@@ -1527,13 +1529,13 @@ in \cite{wigner1955characteristic}. In our proof we closely follow Section 2.1 o
 
 \lect{2/1/2016}
 
-\section{Elements of free probability} % (fold)
+\section{Elements of Free Probability} % (fold)
 \label{sec:elements_of_free_probability}
 
 \subsection{Motivating question} % (fold)
 \label{sub:motivation}
 
-We will discuss certain ideas from free probability
+We will discuss certain ideas from Free Probability
 applied to spectra of random matrices. 
 Our main goal is to motivate and describe the operation of free convolution
 of two probability distributions with compact support. 
@@ -1754,16 +1756,47 @@ We thus will need a nicer analogue for cumulants.
 
 % subsection free_cumulants (end)
 
+\subsection{Example. Counting graphs} % (fold)
+\label{sub:example_counting_graphs}
+
+% subsection example_counting_graphs (end)
+
+\subsection{Free independence} % (fold)
+\label{sub:free_independence}
+
+% subsection free_independence (end)
+
+\subsection{Free random variables} % (fold)
+\label{sub:free_random_variables}
+
+% subsection free_random_variables (end)
+
+\subsection{Semicircle law again} % (fold)
+\label{sub:semicircle_law_again}
+
+% subsection semicircle_law_again (end)
+
+\subsection{Free convolution and Voiculescu's algorithm} % (fold)
+\label{sub:free_convolution_and_voiculescu_s_algorithm}
+
+% subsection free_convolution_and_voiculescu_s_algorithm (end)
+
+\subsection{Examples of free convolution} % (fold)
+\label{sub:examples_of_free_convolutions}
+
+% subsection examples_of_free_convolutions (end)
+
 \subsection{Notes and references} % (fold)
 \label{sub:notes_Free}
 
-Free probability was invented by Voiculescu in the 1980s
+Free Probability was invented by Voiculescu in the 1980s
 to study operator algebras
 (e.g., \cite{Voiculescu_Free_book} gives an early introduction).
 In particular, the word ``free'' comes from the free groups, 
 whose (suitably defined) operator algebras were a motivating the study.
 In our discussions we mainly follow Chapter 5 of \cite{AndersonGuionnetZeitouniBook},
-and also lecture notes \cite{Novak2012FreeLectures}.
+and also lecture notes \cite{Novak2012FreeLectures} which provide a lot of combinatorial
+insight into Free Probability.
 
 % subsection notes (end)
 
