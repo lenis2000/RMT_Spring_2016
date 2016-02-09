@@ -2505,7 +2505,9 @@ Using Proposition \ref{prop:asymptotically_free}, we can give another proof of t
 Wigner's semicircle law, now for the Gaussian Unitary Ensemble (GUE).
 First, note that a free analogue of the Central Limit theorem
 states that if $X_1,X_2,\ldots$ is a family of free independent 
-identically distributed elements of $(\mathcal{A},\tau)$, then
+identically distributed elements of $(\mathcal{A},\tau)$
+with mean $0$ and variance $1$,\footnote{That is,
+$\tau(X_1)=0$ and $\tau(X_1^{2})=1$.} then
 \begin{equation*}
 	\frac{X_1+...+X_N}{\sqrt{N}}\to \SC,\qquad N\to\infty,
 \end{equation*}
@@ -2518,8 +2520,9 @@ in the sense that for any $n\ge0$ we have
 		&\textnormal{$n$ even}.
 	\end{cases}
 \end{equation}
-This is proven using free cumulants exactly in the same way as 
-the classical Central Limit Theorem (Theorem \ref{thm:classic_clt}).
+This is proven using free cumulants exactly in the same way as in
+the proof of the classical Central Limit Theorem using the classical
+cumulants (Theorem \ref{thm:classic_clt}).
 	
 Let us now sketch a proof of the semicircle law for the Gaussian Hermitian matrices.
 Let $G_N$ be an $N\times N$ GUE random matrix (i.e., an Hermitian random
