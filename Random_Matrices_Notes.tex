@@ -1590,6 +1590,121 @@ $\mu\boxplus\nu$ of the measures $\mu$ and $\nu$.
 
 % subsection motivation (end)
 
+\subsection{Classical moments and cumulants} % (fold)
+\label{sub:classical_moments_and_cumulants}
+
+Given a random variable $X$, the $n^{th}$ \emph{moment} of $X$ is
+\begin{center}
+$m_n(X)=\EE(X^n)$ for $n\geq 0$. 
+\end{center}
+
+\begin{definition}
+The \emph{moment} (\emph{exponential}\footnote{The word
+``exponential'' refers to the presence of the factorials in the series, which
+resembles the Taylor series for the exponent $e^{z}$.}) \emph{generating function} for a random variable $X$ is given by 
+\begin{align}\label{Moment_Gen}
+\displaystyle M(z)=\EE (e^{z X})=\sum_{n=0}^\infty \frac{m_n(X)z^n}{n!}.
+\end{align}
+Let us define a new exponential generating function $C(z):=\log(M(z))$, and call its expansion coefficients $c_n(X)$, $n\ge1$,
+the \emph{cumulants} of $X$:
+\begin{align}\label{Cumulant_Gen}
+\displaystyle C(z)=\sum_{n=1}^\infty \frac{c_n(X)z^n}{n!}=\log(M(z)).
+\end{align}
+\end{definition}
+
+\begin{remark}
+	When speaking of moments and cumulants, we will assume that the series \eqref{Moment_Gen} 
+	converges for sufficiently small $z$, and that the moments define the distribution of $X$
+	uniquely. A sufficient assumption which we will employ in this section unless otherwise
+	noted is that all random variables (and probability distributions)
+	have compact support.
+\end{remark}
+
+The cumulants (sometimes also called \emph{half/semi-invariants}) of $X$ form a sequence $(c_n)_{n\ge1}$, where $c_n$ is a homogeneous polynomial of moments $m_k$, $k\leq n$, with the leading term $m_n$:
+\begin{align*}
+    c_1&=m_1=\EE X,\\
+    c_2&=\VAR(X)=m_2-m_1^2,\\
+    c_3&=\textnormal{skewness}=m_3-3m_2m_1+2m_1^3,\\
+    c_4&=\textnormal{kurtosis}=m_4-4m_3m_1-3m_2^2+12m_2m_1^2-6m_1^4,\\
+    &\vdots
+\end{align*}
+
+\begin{example}[Cumulants of the Gaussian random variable]
+	The moment generating function \eqref{Moment_Gen} of $\mathcal{N}(0,1)$, is 
+	\begin{align*}
+	    M(z)&= \int_{-\infty}^\infty e^{zx} \frac{e^{-x^2/2}}{\sqrt{2\pi}}\ dx\\
+	    &=e^{z^2/2}\int_{-\infty}^\infty \frac{e^{-(x-z)^2/2}}{\sqrt{2\pi}}\ dx\\
+	    &=e^{z^2/2}.
+	\end{align*}
+	Hence, the cumulant generating fuction \eqref{Cumulant_Gen} is 
+	\begin{align*}
+	    C(z)=z^2/2.
+	\end{align*}
+	This implies that the the cumulant sequence of $\mathcal{N}(0,1)$ is 
+	\begin{align}\label{Cumulant_Seq_Ga}
+	    (0, 1, 0, 0, ...).
+	\end{align}
+\end{example}
+
+Now, if $X$ and $Y$ are independent random variables, then 
+\begin{align*}
+	c_2(X+Y)=\VAR(X+Y)=\VAR(X)+\VAR(Y)=c_2(X)+c_2(Y),
+\end{align*}
+so their second cumulants add up.
+In fact, this holds for all higher cumulants, too:
+\begin{proposition}
+If $X$ and $Y$ are independent random variables, then for all $n\geq 1$, 
+\begin{align}\label{lin_cumulants}
+c_n(X+Y)=c_n(X)+c_n(Y).
+\end{align}
+\end{proposition}
+\begin{proof}
+	We have
+	$M_X(z)=\EE e^{zX}$, so 
+	$\EE(e^{zX+zY})=\EE e^{zX}\EE e^{zY}$
+	by the usual product rule for expectations of independent
+	random variables $e^{zX}$ and  $e^{zY}$, which implies
+	$\log M_{X+Y}(z)=\log M_X(z)+\log M_Y(z)$, as desired.
+\end{proof}
+
+So, the cumuluants ``linearize'' addition of independent random variables. 
+Note also that for $\alpha\in \mathbb{R}$, 
+\begin{align}\label{lin_cumulants_2}
+	c_n(\alpha X)=\alpha^nc_n(X).
+\end{align}
+To showcase the utility of the cumulants, we use them to prove the classical Central Limit Theorem (CLT):
+\begin{theorem}[Central Limit Theorem]\label{thm:classic_clt}
+	Let $X_1, X_2, ...$ be iid random variables with $\EE X_i=0$ (recall that we assume compact support). Then, 
+	\begin{align*}
+		S_N=\frac{X_1+...+X_N}{\sqrt{N}}\xrightarrow{\ D\ } \mathcal{N}(0,\VAR(X_1)).
+	\end{align*}
+\end{theorem}
+\begin{proof}[Proof sketch]
+	Note that, by \eqref{lin_cumulants} and \eqref{lin_cumulants_2}, for each $n$ and $N$, 
+	\begin{align*}
+	c_n(S_N)=N^{-n/2}Nc_n(X_1).
+	\end{align*}
+	In particular, we have:\footnote{The argument for $c_n(S_N)$ vanishing in the limit is similar to the one from 
+	the proof of the Wigner's Semicircle Law, see 
+	\eqref{WSCL_proof_2} in particular.} 
+	\begin{align*}
+	    n=1 :&\qquad  c_1(S_N) = \EE(X_1)=0,\\
+	    n=2 :&\qquad  c_2(S_N) =c_2(X_1)=\VAR(X_1),\\
+	     n\geq 3  :&\qquad c_n(S_N)\xrightarrow{N\to\infty} 0.
+	\end{align*}
+	So, the cumulant sequence of $\displaystyle \lim_{N\to\infty} S_N$ is 
+	\begin{align}\label{Cumulant_seq_SN}
+		(0, \VAR(X_1), 0, 0, ...).
+	\end{align}
+	By comparing \eqref{Cumulant_seq_SN} and \eqref{Cumulant_Seq_Ga}, we see that the cumulant sequences of $S_N$ and $\mathcal{N}(0,1)$ are the same up to a constant, which implies the CLT.
+\end{proof}
+
+% subsection classical_moments_and_cumulants (end)
+
+\subsection{Moments and cumulants of Gaussian and semicircle distributions} % (fold)
+\label{sub:moments_and_cumulants_of_gaussian_and_semicircle_distributions}
+
+% subsection moments_and_cumulants_of_gaussian_and_semicircle_distributions (end)
 
 \subsection{Notes and references} % (fold)
 \label{sub:notes_Free}
