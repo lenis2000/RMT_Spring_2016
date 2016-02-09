@@ -117,7 +117,7 @@ Every eigenvalue of a Hermitian matrix is real.
 \end{proposition}
 \begin{proof}
 Let $A$ be a Hermitian matrix, so that $A^*=A$.
-Let $\lambda$ be an eigenvalue of $A$.  Let $v$ be a non-zero vector in the null
+Let $\lambda$ be an eigenvalue of $A$.  Let $v$ be a nonzero vector in the null
 space of $A-\lambda I$.  Let $a=\overline{ v^{T}}v=|v|^2$, so
 that $a$ is a positive real number.  Let $b=\overline{ v^{T}}A
 v$.  Then $\bar b=\overline{ b^{T}}=\overline{\overline{
@@ -1061,7 +1061,7 @@ How go get $ \mathrm{Cat}_3 = 5 $ from $ \EE(\mathop{\mathrm{tr}}( A^6 ) )$ ?
 	\EE( \, \text{Tr}( A^6 ) \, ) = N^{ -1 - 3 } \sum_{ i_1 , \ldots, i_6 = 1 }^N \EE \left( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdots a_{ i_5, i_6 } \cdot a_{ i_6, i_1 } \right) \xrightarrow[ N \to \infty ]{} 5.
 	\end{equation*}
 
-	We need to determine which terms are non-zero and how many such terms there are.  If there are 5 or 6 independent indices, we get a product of expected values of independent random variables with expected value zero, so these terms do not contribute.  If there are 3 or fewer independent indices, there are not enough terms to overcome the factor of $ N^{ -4 } $, so these terms do not contribute in the limit.  Thus we are interested in non-zero terms with 4 independent indices.
+	We need to determine which terms are nonzero and how many such terms there are.  If there are 5 or 6 independent indices, we get a product of expected values of independent random variables with expected value zero, so these terms do not contribute.  If there are 3 or fewer independent indices, there are not enough terms to overcome the factor of $ N^{ -4 } $, so these terms do not contribute in the limit.  Thus we are interested in nonzero terms with 4 independent indices.
 	One can check that there are 5 types of such terms:
 
 	\begin{enumerate}
@@ -1093,8 +1093,8 @@ How go get $ \mathrm{Cat}_3 = 5 $ from $ \EE(\mathop{\mathrm{tr}}( A^6 ) )$ ?
 
 	\end{enumerate}
 
-	These sequences bijectively correspond to non-crossing pair partitions of 6 elements.
-	These partitions are in bijection with Dyck paths of length 6
+	These sequences bijectively correspond to noncrossing pair partitions of 6 elements.
+	These partitions are in a clear bijection with Dyck paths of length 6
 	(shown on Fig.~\ref{fig:Dyck3}), and are enumerated by the Catalan number $\mathrm{Cat}_3=5$.
 
 	For each of these patterns, there are $ N ( N - 1 ) ( N - 2 ) ( N - 3 ) \sim N^4 $ terms in the sum, and each term is a product of the expected value of the squares of three independent off-diagonal random variables with expected value 0 and variance 1, like
@@ -1160,7 +1160,7 @@ graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ overlap.
 
 We now argue similarly to the proof given in \S \ref{sub:convergence_of_expectations_}
 (for the convergence of the first moments). Namely, 
-in order for $ \EE ( a_{ \vec{i} } \cdot a_{ \vec{j} } ) - \EE( a_{ \vec{i} } ) \EE( a_{ \vec{j} } ) $ to be non-zero 
+in order for $ \EE ( a_{ \vec{i} } \cdot a_{ \vec{j} } ) - \EE( a_{ \vec{i} } ) \EE( a_{ \vec{j} } ) $ to be nonzero 
 we must have the following:
 \begin{itemize}
 	\item Since
@@ -1253,7 +1253,7 @@ Here an everywhere below $\mathbf{1}_{A}$ denotes the indicator function of an e
 	$$
 	0 \le \alpha_1 \le \alpha_2 \le \ldots \le \frac{ 4^k }{ \varepsilon B^k } \to 0.
 	$$
-	Thus, all the $ \alpha_k $ are zero. Since the probabilities are non-negative, the desired result follows.
+	Thus, all the $ \alpha_k $ are zero. Since the probabilities are nonnegative, the desired result follows.
 \end{proof}
 \begin{figure}[htbp]
 	\includegraphics[width=.6\textwidth]{img/indicator_polynomial.png}
@@ -1508,7 +1508,7 @@ f_\alpha( x ) = \frac{ \sqrt{ ( x - b_- ) ( b_+ - x ) } }{ 2 \pi x }, \qquad b_-
 \end{equation*}
 which looks as on Fig.~\ref{fig:MP_law}.
 
-Note that if $ M \gg N $, then the random matrices $W$ are likely to be non-degenerate, so the distribution does not hit zero.
+Note that if $ M \gg N $, then the random matrices $W$ are likely to be nondegenerate, so the distribution does not hit zero.
 In fact, the distribution $ S_1 $ corresponding to $\alpha=1$
 is the image of the semicircle law $ \SC $ under the squaring map $ x \mapsto x^2 $.
 
@@ -1623,13 +1623,15 @@ the \emph{cumulants} of $X$:
 \end{remark}
 
 The cumulants (sometimes also called \emph{half/semi-invariants}) of $X$ form a sequence $(c_n)_{n\ge1}$, where $c_n$ is a homogeneous polynomial of moments $m_k$, $k\leq n$, with the leading term $m_n$:
-\begin{align*}
-    c_1&=m_1=\EE X,\\
-    c_2&=\VAR(X)=m_2-m_1^2,\\
-    c_3&=\textnormal{skewness}=m_3-3m_2m_1+2m_1^3,\\
-    c_4&=\textnormal{kurtosis}=m_4-4m_3m_1-3m_2^2+12m_2m_1^2-6m_1^4,\\
-    &\vdots
-\end{align*}
+\begin{equation}\label{skewness_kurtosis}
+	\begin{split}
+		c_1&=m_1=\EE X,\\
+		c_2&=\VAR(X)=m_2-m_1^2,\\
+		c_3&=\textnormal{skewness}=m_3-3m_2m_1+2m_1^3,\\
+		c_4&=\textnormal{kurtosis}=m_4-4m_3m_1-3m_2^2+12m_2m_1^2-6m_1^4,\\
+		&\vdots
+	\end{split}
+\end{equation}
 
 \begin{example}[Cumulants of the Gaussian random variable]\label{ex:Cumulant_Seq_Ga}
 	The moment generating function \eqref{Moment_Gen} of $\mathcal{N}(0,1)$, is 
@@ -1727,19 +1729,19 @@ Now, we have the following correspondence:
 \begin{equation*}
 \begin{array}{llclcl}
 \text{Classical:} &  \text{moments} & \longleftrightarrow &\  \text{cumulants} &\longleftrightarrow & \ \mathcal{N}(0,1) \ \text{has simplest cumulants}\\
-\text{Random matrices:} & \text{moments} & \longleftrightarrow & ? &\longleftrightarrow & \SC \ \text{simplest ``cumulants''?}\\
+\text{Random matrices:} & \text{moments} & \longleftrightarrow & ? &\longleftrightarrow &  \ \textnormal{``cumulants'' s.t. $\SC$ has simplest?}\\
 \end{array}	
 \end{equation*}
 
 A natural question is how the cumulants of $\SC$ look like. Turns out they are not so nice. In fact, 
 \begin{align*}
-    \sum_{n=0}^\infty z^n \text{Cat}_n=\frac{1-\sqrt{1-4z}}{2z},
+    \sum_{n=0}^\infty z^n \mathrm{Cat}_n=\frac{1-\sqrt{1-4z}}{2z},
 \end{align*}
 which is a good algebraic function. However, the moment exponential generating function
 \eqref{Moment_Gen} 
 for $\SC$ is more complicated:
 \begin{align*}
-    M(z)=\sum_{n=0}^\infty \frac{\text{Cat}_nz^n}{n!}=e^{2z}(I_0(2z)-I_1(2z)),
+    M(z)=\sum_{n=0}^\infty \frac{\mathrm{Cat}_nz^n}{n!}=e^{2z}(I_0(2z)-I_1(2z)),
 \end{align*}
 where the $I_k$'s are the modified Bessel functions of the first kind:
 \begin{align*}
@@ -1752,17 +1754,530 @@ We thus will need a nicer analogue for cumulants.
 \subsection{Free cumulants} % (fold)
 \label{sub:free_cumulants}
 
+To explain the definition of free cumulants which replace the usual
+cumulants in the context of random matrices in connection with the semicircle
+distribution, let us first investigate the combinatorial relation between the 
+moments and the classical cumulants in detail. That is, we 
+want to generalize the formulas \eqref{skewness_kurtosis} to arbitrary $n$.
+We will use the following combinatorial statement which can be found in 
+\cite[Section 5.1]{Stanley1999}:
+\begin{proposition}[Exponential formula]\label{prop:expon_thm}
+	The moments can be expressed through cumulants as follows:
+	\begin{equation}\label{moments_via_cumulants}
+	     m_n=\sum_{\pi\in\mathcal{P}(n)} \prod_{B\in\pi} c_{|B|},
+	\end{equation}
+	where $\mathcal{P}(n)$ is the set of all partitions of the set 
+	$\{1,...,n\}$, and $B\in \pi$ are the blocks of the partition $\pi$.
+	See Fig.~\ref{fig:partition} for an example.
+	\begin{figure}[htbp]
+		\begin{tikzpicture}
+			[scale=1, very thick,block/.style ={circle, draw=blue, thick, align=center}]
+			\begin{scope}[shift={(0,0)}]
+				\node[block] (i1) at (0,0) {$1$};
+				\node[block] (i2) at (1,0) {$2$};
+				\node[block] (i3) at (2,0) {$3$};
+				\draw (i1) to [out=90,in=90] (i2);
+				\draw (i2) to [out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(3.5,0)}]
+				\node[block] (i1) at (0,0) {$1$};
+				\node[block] (i2) at (1,0) {$2$};
+				\node[block] (i3) at (2,0) {$3$};
+				\draw (i1) to [out=90,in=90] (i2);
+			\end{scope}
+			\begin{scope}[shift={(7,0)}]
+				\node[block] (i1) at (0,0) {$1$};
+				\node[block] (i2) at (1,0) {$2$};
+				\node[block] (i3) at (2,0) {$3$};
+				\draw (i1) to [out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(10.5,0)}]
+				\node[block] (i1) at (0,0) {$1$};
+				\node[block] (i2) at (1,0) {$2$};
+				\node[block] (i3) at (2,0) {$3$};
+				\draw (i2) to [out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(14,0)}]
+				\node[block] (i1) at (0,0) {$1$};
+				\node[block] (i2) at (1,0) {$2$};
+				\node[block] (i3) at (2,0) {$3$};
+			\end{scope}
+		\end{tikzpicture}
+		\caption{All partitions of $\{1,2,3\}$, yielding the 
+		expansion $m_3=c_3+3c_2c_1+c_1^{3}$.}
+		\label{fig:partition}
+	\end{figure}
+\end{proposition}
+This also implies that the cumulants can be recursively determined by the moments:
+\begin{equation}\label{cumulants_via_moments}
+	c_n=m_n-\sum_{\substack{\pi\in\mathcal{P}(n)\\\text{\# of blocks}\geq 2}} \prod_{B\in \pi} c_{|B|}.
+\end{equation}
+\begin{proof}
+	We start with the identity of generating functions 
+	\begin{equation}\label{M_exp_C}
+		M(z)=\exp(C(z)),
+	\end{equation}
+	that is,
+	\begin{equation*}
+		\sum_{n=0}^{\infty}\frac{m_nz^{n}}{n!}=
+		\sum_{k=0}^{\infty}\frac{(C(z))^{k}}{k!}.
+	\end{equation*}
+	Our aim is to use the definition of the exponential
+	generating function $C(z)$ \eqref{Cumulant_Gen}
+	to get the coefficient by $z^{n}$ from the right-hand side of the above identity
+	of the generating functions. Write
+	\begin{equation*}
+		\frac{1}{k!}(C(z))^k=\frac1{k!}{\Big(\sum_{i=0}^\infty \frac{c_i z^i}{i!}\Big)^k}.
+	\end{equation*}
+	Take a partition $i_1,...,i_k$ of $n$, i.e. 
+	$i_1+...+i_k=n$, 
+	and take the $i_j$-th term from each bracket above.
+	Then, we can write
+	\begin{equation}
+		\label{moment_multinomial_form}
+		m_n=\sum_{\substack{k\\i_1,...,i_k}}\frac{c_{i_1}\cdots c_{i_k}n!}{k!i_1!\cdots i_k!}.
+	\end{equation}
+	Notice that $\displaystyle \frac{n!}{i_1!\cdots i_k!}$ is the multinomial coefficient,
+	that is, the number of ways to put $n$ labeled objects into $k$
+	labeled boxes, such that there are $i_j$ elements in the $j$th box. 
+	Since in the set partition of $\{1,2,\ldots,n\}$
+	the blocks are unlabeled, we have to divide this multinomial
+	coefficient by $k!$ to get the number of the corresponding set partitions.
+	With this perspective, we can rewrite the $n^{th}$ moment \eqref{moment_multinomial_form}
+	as \eqref{moments_via_cumulants}, where $k$ is the number of the blocks of the partition
+	$\pi$, and $i_1,\ldots,i_k$ are the sizes of these blocks.
+\end{proof}
 
+Applying \eqref{moments_via_cumulants} to the Gaussian distribution $\mathcal{N}(0,1)$, we have
+\begin{equation}\label{gauss_via_cum}
+	m_{2n}=(2n-1)!!=\sum_{\pi\in\mathcal{P}(2n)} \prod_{B\in\pi} c_{|B|}.
+\end{equation}
+However, since $c_n=0$ for $n\neq 2$ and $c_2=1$, the sum is only over pair partitions 
+(i.e. partitions in which all blocks have size 2). Hence, 
+\begin{align*}
+ m_{2n}=(2n-1)!!=\# \Big\{\textnormal{pair partitions of $\{1,2,\ldots,2n\}$}\Big\}.
+\end{align*}
+See Fig.~\ref{fig:pair_partitions_NC_partitions}.
+\begin{figure}[htbp]
+		\begin{tikzpicture}
+			[scale=1, very thick,block/.style ={circle, draw=blue, thick}]
+			\draw[thick] (-.2,-.1)--(16.7,-.1);
+			\begin{scope}[shift={(0,.7)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i2);
+				\draw (i3) to [out=90,in=90] (i4);
+				\draw (i5) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(3.5,.7)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i4);
+				\draw (i2) to [out=90,in=90] (i3);
+				\draw (i5) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(14,.7)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i2);
+				\draw (i3) to [out=90,in=90] (i6);
+				\draw (i4) to [out=90,in=90] (i5);
+			\end{scope}
+			\begin{scope}[shift={(7,.7)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i6);
+				\draw (i2) to [out=90,in=90] (i3);
+				\draw (i4) to [out=90,in=90] (i5);
+			\end{scope}
+			\begin{scope}[shift={(10.5,.7)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i6);
+				\draw (i2) to [out=90,in=90] (i5);
+				\draw (i4) to [out=90,in=90] (i3);
+			\end{scope}
+
+			\begin{scope}[shift={(0,-1.5)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i2);
+				\draw (i3) to [out=90,in=90] (i5);
+				\draw (i4) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(3.5,-1.5)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i3);
+				\draw (i2) to [out=90,in=90] (i4);
+				\draw (i5) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(7,-1.5)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i3);
+				\draw (i2) to [out=90,in=90] (i5);
+				\draw (i4) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(10.5,-1.5)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i3);
+				\draw (i2) to [out=90,in=90] (i6);
+				\draw (i4) to [out=90,in=90] (i5);
+			\end{scope}
+			\begin{scope}[shift={(14,-1.5)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i4);
+				\draw (i2) to [out=90,in=90] (i5);
+				\draw (i3) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(0,-3)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i4);
+				\draw (i2) to [out=90,in=90] (i6);
+				\draw (i3) to [out=90,in=90] (i5);
+			\end{scope}
+			\begin{scope}[shift={(3.5,-3)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i5);
+				\draw (i2) to [out=90,in=90] (i3);
+				\draw (i4) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(7,-3)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i5);
+				\draw (i2) to [out=90,in=90] (i4);
+				\draw (i3) to [out=90,in=90] (i6);
+			\end{scope}
+			\begin{scope}[shift={(10.5,-3)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i5);
+				\draw (i2) to [out=90,in=90] (i6);
+				\draw (i3) to [out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(14,-3)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\node[block] (i5) at (2,0) {};
+				\node[block] (i6) at (2.5,0) {};
+				\draw (i1) to [out=90,in=90] (i6);
+				\draw (i2) to [out=90,in=90] (i4);
+				\draw (i3) to [out=90,in=90] (i5);
+			\end{scope}
+		\end{tikzpicture}
+		\caption{All pair partitions of the set $\{1,2,3,4,5,6\}$.
+		There are $5=\mathrm{Cat}_3$ noncrossing such partitions (the top $5$),
+		and $15=5!!=5\cdot 3\cdot 1$ pair partitions in total.}
+		\label{fig:pair_partitions_NC_partitions}
+\end{figure}
+
+Mimicking the classical Gaussian case, we would like to
+find a class $\mathcal{P}'(2n)$ of partitions of the set $\{1,2,\ldots,2n\}$, such that the semicircle
+moments have the form
+\begin{equation}\label{cat_via_free_cum}
+	\mathrm{Cat}_{n}=m_{2n}(\SC)=\sum_{\pi\in \mathcal{P}'(2n)}\prod_{B\in\pi} \kappa_{|B|},
+\end{equation}
+where $(\kappa_n)_{n\ge1}$ are the would-be free cumulants.
+We want the semicircle distribution to have the simplest free cumulants, 
+that, is, $\kappa_2=1$ and $\kappa_n=0$ for $n\ne2$.
+Therefore, for the semicircle distribution
+the sum in \eqref{cat_via_free_cum} must be over pair partitions from 
+$\mathcal{P}'(n)$. 
+\begin{quote}
+	But we already know that the 
+	Catalan number $\mathrm{Cat}_{n}$ counts the 
+	number of \emph{noncrossing} pair partitions of $\{1,2,\ldots,2n\}$
+	--- they are in a natural bijection with Dyck paths 
+	of length $2n$ (cf. \S \ref{sub:an_example_WSCL_proof}).
+\end{quote}
+The noncrossing pair partitions of $\{1,2,3,4,5,6\}$ are given on 
+Fig.~\ref{fig:pair_partitions_NC_partitions}, top.
+
+This motivates the following general definition:
+\begin{definition}[Free cumulants]
+	Given a random variable $X$ with compact support and moments
+	$m_n=\EE(X^{n})$, its \emph{free cumulants} are defined via the following expansion of moments
+	\begin{equation}\label{free_cum_def}
+		m_n=\sum_{\pi\in \mathcal{NC}(n)}\prod_{B\in\pi} \kappa_{|B|},
+	\end{equation}
+	where $\mathcal{NC}(n)$ is the set of noncrossing partitions of $\{1,2,\ldots,n\}$
+	(cf. Fig.~\ref{fig:NC_part}).
+\end{definition}
+Clearly, rewriting \eqref{free_cum_def} similarly to \eqref{cumulants_via_moments} as
+\begin{equation*}
+	\kappa_n=m_n-\sum_{\substack{\pi\in\mathcal{NC}(n)\\\text{\# of blocks}\geq 2}} \prod_{B\in \pi} \kappa_{|B|},
+\end{equation*}
+we see that the sequence of free cumulants $(\kappa_1,\kappa_2,\ldots)$
+is uniquely determined by the sequence of moments.
+
+	\begin{figure}[htbp]
+		\begin{tikzpicture}
+			[scale=1, very thick,block/.style ={circle, draw=blue, thick, align=center}]
+			\begin{scope}[shift={(0,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+			\end{scope}
+			\begin{scope}[shift={(2.5,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i2);
+			\end{scope}
+			\begin{scope}[shift={(5,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(7.5,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(10,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i2) to[out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(12.5,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i2) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(15,0)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i3) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(0,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i2);
+				\draw (i3) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(2.5,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i4);
+				\draw (i2) to[out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(5,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i2) to[out=90,in=90] (i3);
+			\end{scope}
+			\begin{scope}[shift={(7.5,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i2) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(10,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i3) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(12.5,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i2) to[out=90,in=90] (i3) to[out=90,in=90] (i4);
+			\end{scope}
+			\begin{scope}[shift={(15,-1.2)}]
+				\node[block] (i1) at (0,0) {};
+				\node[block] (i2) at (.5,0) {};
+				\node[block] (i3) at (1,0) {};
+				\node[block] (i4) at (1.5,0) {};
+				\draw (i1) to[out=90,in=90] (i2);
+				\draw (i2) to[out=90,in=90] (i3);
+				\draw (i3) to[out=90,in=90] (i4);
+			\end{scope}
+		\end{tikzpicture}
+		\caption{All noncrossing partitions of $\{1,2,3,4\}$, yielding the 
+		expansion $m_4=\kappa_4+4\kappa_3\kappa_1+2\kappa_2^2+6\kappa_2\kappa_1^{2}+\kappa_1^{4}$.}
+		\label{fig:NC_part}
+	\end{figure}
+Let us give a couple of remarks:
+\begin{remark}
+	For the ``simplest'' random variables --- Gaussian in the classical case and the 
+	semicircle in the free case --- the sequence of cumulants or free cumulants, respectively,
+	has the form
+	\begin{equation*}
+		(0,1,0,0,\ldots).
+	\end{equation*}
+	Therefore, the expansions \eqref{gauss_via_cum} and \eqref{cat_via_free_cum}
+	involve only pair partitions. For general random variables 
+	such expansions should involve all partitions with arbitrary part sizes.
+\end{remark}
+\begin{remark}
+	Because all partitions are non-crossing for $n\leq 3$, we have
+	 \begin{align*}
+	     c_1& =k_1,\\
+	     c_2& =k_2,\\
+	     c_3& =k_3.
+	 \end{align*}
+\end{remark}
 
 % subsection free_cumulants (end)
 
 \subsection{Example. Counting graphs} % (fold)
 \label{sub:example_counting_graphs}
 
+It is not essential that the quantities $m_n$ and $c_n$ in Proposition \ref{prop:expon_thm}
+are moments and cumulants of a certain random variable. 
+Indeed, the exponential formula \eqref{moments_via_cumulants} holds
+for coefficients of any exponential generating series related as 
+\eqref{M_exp_C}.
+
+The combinatorial meaning of the exponential formula \eqref{moments_via_cumulants}
+is the following. If the quantities $m_n$ enumerate
+certain kinds of objects on $n$ labeled vertices,
+then the quantities $c_n$ related to $m_n$ via \eqref{moments_via_cumulants} 
+or \eqref{cumulants_via_moments} count such objects which are \emph{connected}.
+
+In particular, for counting undirected graphs on $n$ labeled vertices:
+\begin{align*}
+     m_n& =\# \ \text{of graphs}\ =2^{{n}\choose{2}},\\
+     c_n& =\# \ \text{of connected graphs}.
+\end{align*}
+This property that the $c_n$'s count connected objects 
+is clear from \eqref{moments_via_cumulants}: we count the total number
+of objects by splitting each object into connected components
+(this corresponds to picking a partition $\pi$),
+and then counting the numbers of connected objects on vertices
+inside these connected components.
+
+Arguing in a similar way with the noncrossing cumulant formula \eqref{free_cum_def},
+we see that if the moments $m_n=2^{\binom n2}$ count graphs, then the free cumulants
+$\kappa_n$ count geometrically connected graphs on $n$ labeled vertices.
+The geometrically connectedness condition leads to splitting into noncrossing partitions.
+See Fig.~\ref{fig:counting_graphs}.
+
+\begin{figure}[htbp]
+	\begin{tikzpicture}[scale=1, very thick,block/.style ={circle, draw=blue, thick, fill=white, align=center}]
+		\def\r{2};
+		\def\rs{1.41421};
+		\draw[dotted] (0,0) circle (\r);
+		\node[block] (i1) at (0,\r) {$1$};
+		\node[block] (i3) at (\r,0) {$3$};
+		\node[block] (i7) at (-\r,0) {$7$};
+		\node[block] (i5) at (0,-\r) {$5$};
+		\node[block] (i2) at (\rs,\rs) {$2$};
+		\node[block] (i4) at (\rs,-\rs) {$4$};
+		\node[block] (i6) at (-\rs,-\rs) {$6$};
+		\node[block] (i8) at (-\rs,\rs) {$8$};
+		\draw (i1) to [out=-90,in=180] (i3);
+		\draw (i2) to [out=-145,in=90] (i5);
+		\draw (i2) to [out=-125,in=135] (i4);
+		\draw (i7) to [out=30,in=-60] (i8);
+		\draw (i7) to [out=-30,in=60] (i6);
+		\draw (i8) to [out=-15,in=15] (i6);
+	\end{tikzpicture}
+	\caption{The geometric connectedness means that the graph on $n$ labeled vertices
+	located on the circle is connected as a geometric figure if not as a graph. 
+	The displayed graph has 3 connected and 2 geometrically connected components.}
+	\label{fig:counting_graphs}
+\end{figure}
+
+
+
+
 % subsection example_counting_graphs (end)
+
+
+
+\lect{2/3/2016}
 
 \subsection{Free independence} % (fold)
 \label{sub:free_independence}
+
+\note{mixed cumulants here}
 
 % subsection free_independence (end)
 
@@ -1802,7 +2317,7 @@ insight into Free Probability.
 
 % section elements_of_free_probability (end)
 
-\lect{2/3/2016}
+
 
 
 \bibliography{bib}
