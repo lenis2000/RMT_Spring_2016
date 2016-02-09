@@ -1,4 +1,4 @@
-## MATH 8380 Random Matrices
+## MATH 8380 Random Matrices - Syllabus
 ##### Spring 2016. Department of Mathematics, University of Virginia
 
 **Instructor.** Leonid Petrov (lenia.petrov@gmail.com, petrov@virginia.edu), [http://faculty.virginia.edu/petrov/](http://faculty.virginia.edu/petrov/)
