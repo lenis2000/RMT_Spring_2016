@@ -2501,6 +2501,49 @@ Wigner's semicircle law in \S \ref{sec:wigner_s_semicircle_law}.
 \subsection{Semicircle law again} % (fold)
 \label{sub:semicircle_law_again}
 
+Using Proposition \ref{prop:asymptotically_free}, we can give another proof of the 
+Wigner's semicircle law, now for the Gaussian Unitary Ensemble (GUE).
+First, note that a free analogue of the Central Limit theorem
+states that if $X_1,X_2,\ldots$ is a family of free independent 
+identically distributed elements of $(\mathcal{A},\tau)$, then
+\begin{equation*}
+	\frac{X_1+...+X_N}{\sqrt{N}}\to \SC,\qquad N\to\infty,
+\end{equation*}
+in the sense that for any $n\ge0$ we have
+\begin{equation}\label{free_clt_moment_convergence}
+	\tau\bigg[\Big(\frac{X_1+...+X_N}{\sqrt{N}}\Big)^{n}\bigg]\to m_n(\SC)=
+	\begin{cases}
+		0,&\textnormal{$n$ odd};\\
+		\mathrm{Cat}_{n/2},
+		&\textnormal{$n$ even}.
+	\end{cases}
+\end{equation}
+This is proven using free cumulants exactly in the same way as 
+the classical Central Limit Theorem (Theorem \ref{thm:classic_clt}).
+	
+Let us now sketch a proof of the semicircle law for the Gaussian Hermitian matrices.
+Let $G_N$ be an $N\times N$ GUE random matrix (i.e., an Hermitian random
+matrix with iid standard real Gaussians on the diagonal, 
+and iid standard complex Gaussians --- with independent
+real and imaginary parts having Gaussian distribution with variance $\frac 12$
+--- above the diagonal). We would like to show that
+$L_N(G_N)\to\SC$ weakly in probability. We have seen in \S \ref{sec:wigner_s_semicircle_law} that
+for this it is enough to show the convergence of the moments as in \eqref{free_clt_moment_convergence}.
+Let $G_N^{(1)},...,G_N^{(N)}$ be independent copies of $G_N$.
+By the unitary invariance of the GUE (see \S \ref{} below), for 
+for $U_N^{(k)}, 1\leq k\leq N$ Haar-distributed unitary matrices independent of everything else, we have 
+$U_N^{(k)}G_N^{(k)}(U_N^{(k)})^*\stackrel{D}{=} G_N$.
+Furthermore, we clearly have by the Gaussian nature of the elements of the matrix:
+\begin{align*}
+    G_N\stackrel{D}{=}\frac{U_N^{(1)}G_N^{(1)}(U^{(1)}_N)^*+...+U_N^{(N)}G_N^{(N)}(U_N^{(N)})^*}{\sqrt{N}}.
+\end{align*}
+Finally, by Proposition \ref{prop:asymptotically_free},
+the summands above are asymptotically free. Thus, by the free CLT,
+$L_N(G_N)$ converges to the semicircle distribution $\SC$. 
+
+
+
+
 % subsection semicircle_law_again (end)
 
 \subsection{Free convolution and Voiculescu's algorithm} % (fold)
