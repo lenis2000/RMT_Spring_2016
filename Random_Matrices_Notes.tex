@@ -2449,7 +2449,8 @@ in commutative or noncommutative setting.
 	\begin{align*}
 		\mu_{a+b}=\mu_a\boxplus\mu_b.
 	\end{align*}
-	As we will see below, the definition of the free convolution operation 
+	As we will see below in Proposition \ref{prop:asymptotically_free}
+	and \S \ref{sub:free_convolution_and_voiculescu_s_algorithm}, working with free convolution 
 	does not require von Neumann algebras.
 \end{definition}
 
@@ -2493,8 +2494,13 @@ Wigner's semicircle law in \S \ref{sec:wigner_s_semicircle_law}.
 \end{proposition}
 \begin{proof}
 	We will not prove this statement as it requires a graph enumeration somewhat similar to the proof 
-	of the semicircle law. See, e.g., \cite[\S 3.6]{Novak2012FreeLectures} for an outline of the proof.
+	of the semicircle law. See, e.g., \cite[\S 3.6]{Novak2012FreeLectures} for an outline of the proof
+	and more references.
 \end{proof}
+
+This proposition shows that the abstract definition of the free convolution (Definition \ref{def:free_convolution})
+can be realized more concretely using summation of random matrices, one of which is randomly rotated, 
+so that the eigenbases of $A_N$ and $U_NB_NU^*_N$ are in ``completely generic'' position.
 
 % subsection free_random_variables (end)
 
@@ -2544,18 +2550,249 @@ Finally, by Proposition \ref{prop:asymptotically_free},
 the summands above are asymptotically free. Thus, by the free CLT,
 $L_N(G_N)$ converges to the semicircle distribution $\SC$. 
 
-
-
-
 % subsection semicircle_law_again (end)
 
 \subsection{Free convolution and Voiculescu's algorithm} % (fold)
 \label{sub:free_convolution_and_voiculescu_s_algorithm}
 
+Let us now describe the operation of the free convolution $(\mu,\nu)\mapsto \mu\boxplus \nu$
+of Definition \ref{def:free_convolution}
+(where $\mu$ and $\nu$ are probability distributions on $\mathbb{R}$ with compact
+support) in more concrete terms.
+
+We would like to describe an algorithm for computing $\mu\boxplus \nu$ given $\mu$ and $\nu$.
+Recall that under free convolution we have $\kappa_n(\mu\boxplus\nu)=\kappa_n(\mu)+\kappa_n(\nu)$ for each $n\ge1$. 
+We will use the following fact relating (ordinary, not exponential) moment generating function of a measure
+and its free cumulant generating function:
+\begin{equation}\label{L_K_definitions}
+	L(z)=1+\sum_{n=1}^\infty m_nz^n,\qquad
+	K(z)=1+\sum_{n=1}^\infty \kappa_nz^n,
+\end{equation}
+\begin{proposition}\label{prop:free_expon_thm}
+	Thus defined generating series are related as follows:
+	\begin{equation}\label{L_K_relations}
+		L(z)=K\big(zL(z)\big).
+	\end{equation}
+\end{proposition}
+\begin{proof}
+	This is the free analogue of the exponential formula (Proposition \ref{prop:expon_thm}),
+	which can be proven by combinatorial manipulations with generating series.
+	We will not give its proof here.
+\end{proof}
+\begin{remark}\label{rmk:L_K_inversion_exists}
+	Relation \eqref{L_K_relations} between infinite power series can be used to compute coefficients
+	of $L(z)$ if the coefficients of $K(z)$ are known, and vice versa. This is done in a purely formal way,
+	by recursively looking at coefficients by powers of $z$ in both sides. Thus, \eqref{L_K_relations} 
+	shows that moments and free cumulants uniquely determine each other.
+	Of course, this uniqueness already follows from the combinatorial relations 
+	\eqref{free_cum_def} and \eqref{free_cum_via_mom}. 
+\end{remark}
+
+Now, take the \emph{Cauchy transform} (sometimes also called the \emph{Stieltjes transform}) of each measure:
+\begin{align*}
+    G_\mu(z)&=\int_\mathbb{R} \frac{d\mu(x)}{z-x}\\
+    &=\int_\mathbb{R} \frac{z^{-1} d\mu(x)}{1-x/z}\\
+    &=\int_\mathbb{R}\sum_{n=0}^\infty z^{-1}\frac{x^n}{z^n} d\mu(x)\\
+    &=\sum_{n=0}^\infty \int_\mathbb{R}z^{-1}\frac{x^n}{z^n} d\mu(x)\\
+    &=\sum_{n=0}^\infty \frac{m_n(\mu)}{z^{n+1}}
+\end{align*}
+for large enough $|z|$, and similarly for $G_\nu(z)$
+(recall that the measures have finite support).
+Using \eqref{L_K_definitions} and Proposition \ref{prop:free_expon_thm},
+define
+\begin{align*}
+    V_{\mu}(z):=\frac{1}{z}K_{\mu}(z),
+\end{align*}
+and similarly for $\nu$. 
+Proposition \ref{prop:free_expon_thm} readily implies that
+the functions $G_\mu$ and $V_\mu$ are mutual inverses:
+\begin{equation}\label{V_G_relation}
+	V_\mu\big(G_\mu(z)\big)=G_\mu\big(V_\mu(z)\big)=z.
+\end{equation}
+
+\begin{example}[Semicircle distribution]\label{G_SC}
+We can compute $G_{\SC}$ using the Cauchy Transform:
+\begin{align*}
+G_{\SC}(z)&=\int_{-2}^2 \frac{\frac{1}{2\pi}\sqrt{1-4x^2}}{z-x}dx\\
+&=\sum_{n=0}^\infty \frac{\mathrm{Cat}_n}{z^{2n+1}}\\
+&=\frac{1}{z}\left(\frac{1-\sqrt{1-4/z^2}}{2}\right)\\
+&=\frac{1}{2}z-\frac{1}{2}\sqrt{z^2-4}.
+\end{align*}
+We have computed this using the explicit formula for the Catalan numbers \eqref{Catalan_def}. This expansion can be 
+verified by simply Taylor expanding $\frac{1}{2}z-\frac{1}{2}\sqrt{z^2-4}$ at $z=\infty$.
+
+On the other hand, since we know that the free cumulant sequence for $\SC$ is $(0,1,0,0,...)$, we can compute
+\begin{align*}
+V_{\SC}(z)=\frac{1}{z}+z.
+\end{align*}
+Hence, we can regain $G_{\SC}$ from \eqref{V_G_relation}:
+\begin{align*}
+    \frac{1}{G}+G=z & \Rightarrow G^2-zG+1=0\\
+    & \Rightarrow G=\frac{1}{2}(z-\sqrt{z^2-4}).
+\end{align*}
+\end{example}
+
+Therefore, we have established the following algorithm for computing the free convolution
+of compactly supported measure $\mu$ and $\nu$ on $\mathbb{R}$:
+\begin{theorem}[Voiculescu's Algorithm for Free Convolution]\label{thm:Voiculescu_algorithm}
+To compute the free convolution $\mu\boxplus\nu$, follows these steps:
+\begin{enumerate}
+    \item Compute the Cauchy transforms $G_\mu(z)=\EE (z-X)^{-1}$ and $G_\nu(z)=\EE (z-Y)^{-1}$
+    (here $X$ and $Y$ are distributed as $\mu$ and $\nu$, respectively).
+    \item Solve $G_\mu(V_\mu(z))=z$ and $G_\nu(V_\nu(z))=z$ subject to $V(z)\sim 1/z$ at $0$.
+    \item Compute Voiculescu's R-transforms
+    \begin{equation*}
+        R_\mu(z)=V_\mu(z)-1/z,\qquad R_\nu(z)=V_\nu(z)-1/z.
+    \end{equation*}
+    These R-transforms linearize the free convolution: 
+    \begin{equation*}
+    	R_{\mu\boxplus\nu}(z)=R_\mu(z)+R_\nu(z),
+    \end{equation*}
+    so $V_{\mu\boxplus\nu}(z)=V_\mu(z)+V_\nu(z)-1/z$.
+    \item Finally, solve $V_{\mu\boxplus\nu}(G_{\mu\boxplus\nu}(z))=z$ subject to $G(z)\sim 1/z$ at $\infty$.
+    \item Recover the distribution $\mu\boxplus\nu$ from its Cauchy transform $G_{\mu\boxplus\nu}$.
+\end{enumerate}
+\end{theorem}
+This algorithm essentially involves only formal manipulations with 
+power series and rational functions in one variable $z$, and 
+thus can be implemented to compute an arbitrary number of first 
+terms of the Cauchy transform $G_{\mu\boxplus\nu}$
+for arbitrary input $G_\mu(z)$ and $G_\nu(z)$.
+
+\lect{2/8/2016}
+
+To recover a distribution from its Cauchy transform requires one more step. In principle, 
+having a distribution $\mu$ and its Cauchy transform
+\begin{equation}
+	G_\mu(z)=\sum_{n=0}^{\infty}\frac{m_n}{z^{n+1}},
+\end{equation}
+one can take the moments $m_n$ and construct the exponential generating function $\EE e^{zX}=\int_{\mathbb{R}}e^{zx}\mu(dx)$.
+The exponential generating function can then be inverted using the usual inverse Fourier transform.
+However, there is a more direct approach:
+\begin{proposition}[Inversion of Cauchy transform]\label{prop:inverse_Cauchy}
+	Let $\mu$ be an absolutely continuous distribution (i.e., it has density $\rho(t)$) supported 
+	inside a finite interval $I\subset\mathbb{R}$.
+	Then we have 
+	\begin{equation*}
+		\rho(x)=\lim_{y\to0^{+}}\frac{1}{\pi}Im(G(x+iy)),
+	\end{equation*}
+	where $i=\sqrt{-1}$ and $Im$ means the imaginary part of a complex number.
+\end{proposition}
+\begin{proof}
+	Setting $z=x+iy$, we get
+	\begin{align*}
+	 G(z)&=\int_I \frac{\rho(t)\, dt}{z-t}\\
+	 &= \int_I \rho(t)\left[\frac{x-t}{(x-t)^2+y^2}-i\frac{y}{(x-t)^2+y^2}\right] dt.
+	\end{align*}
+	Now for any $a<b$ we can find the following integral
+	by interchanging the integrations
+	(allowed by Fubini's theorem):
+	\begin{align*}
+	 \int_a^b Im(G(x+iy)) \ dx&= \int_I\rho(t)\, dt\int_a^b \frac{-y}{y^2+(x-t)^2} dx\\
+	 &=\int_I\rho(t)\, dt\;\arctan\left(\frac{x-t}{y}\right)\bigg\vert_{x=a}^{x=b}\\
+	 &=\int_I\rho(t)\, dt\left[\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)\right].
+	\end{align*}
+	As $y\to0^+$, we have
+	$\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)=0$ for $t\notin[a,b]$.
+	Moreover, 
+	\begin{align*}
+	\arctan\left(\frac{b-t}{y}\right)-\arctan\left(\frac{a-t}{y}\right)\to \frac{\pi}{2}-\frac{-\pi}{2}=\pi,\qquad y\to0^+.
+	\end{align*}
+	Hence,
+	\begin{align*}
+	 \int_a^b Im(G(x+iy)) \, dx\to \int_I \pi\rho(t)\, dt,\qquad {y\to 0^+}.
+	\end{align*}
+	This completes the proof.
+\end{proof}
+\begin{exercise}
+	Derive a generalization of the inversion formula of Proposition \ref{prop:inverse_Cauchy}
+	in the case when $\mu$ is not necessarily absolutely continuous (but still compactly supported).
+\end{exercise}
+
 % subsection free_convolution_and_voiculescu_s_algorithm (end)
 
 \subsection{Examples of free convolution} % (fold)
 \label{sub:examples_of_free_convolutions}
+
+Let us conclude with a couple of concrete examples.
+
+\begin{example}[$\textnormal{Bernoulli}\boxplus \textnormal{Bernoulli}$]
+Suppose $\mu=\nu=\frac{1}{2}\delta_{-1}+\frac{1}{2}\delta_1$,
+that is, the corresponding random variables take values $\pm1$
+with probabilities $\frac12$.
+Note that classical convolution yields
+\begin{align*}
+    \mu*\nu=\frac{1}{4}\delta_{-2}+\frac{1}{2}\delta_0+\frac{1}{4}\delta_2.
+\end{align*}
+
+To find $\mu\boxplus\nu$, we follow Voiculescu's Algorithm (Theorem \ref{thm:Voiculescu_algorithm}):
+\begin{enumerate}
+    \item $\displaystyle G(z)=\EE\frac{1}{z-x}=\frac{1}{2}\left(\frac{1}{z+1}+\frac{1}{z-1}\right)=\frac{z}{z^2-1}$.
+    \item Solving $\displaystyle z=G(V(z))=\frac{V}{V^2-1}$ yields $zV^2-V-z=0$. So, 
+    \begin{align*}
+        V(z)=\frac{1\pm\sqrt{1+4z^2}}{2z}.
+    \end{align*}
+    Since $V(z)=\frac{K(z)}{z}\sim \frac{1}{z}$ at $z=0$, we choose
+    \begin{align*}
+        V(z)=\frac{1+\sqrt{1+4z^2}}{2z}.
+    \end{align*}
+    \item $\displaystyle V_{\mu\boxplus\nu}(z)=V_{\mu}(z)+V_{\nu}(z)-\frac{1}{z}=\frac{\sqrt{1+4z^2}}{z}$.
+    \item Solving $\displaystyle z=V_{\mu\boxplus\nu}(G_{\mu\boxplus\nu}(z))=\frac{\sqrt{1+4G^2}}{G}$ yields 
+    \begin{align*}
+        G_{\mu\boxplus\nu}(z)=\pm (z^2-4)^{-1/2}.
+    \end{align*}
+    Since $zG_{\mu\boxplus\nu}(z)\to 1$ at $z=0$, we choose
+    \begin{align*}
+        G_{\mu\boxplus\nu}(z)=\frac{1}{\sqrt{z^2-4}}.
+    \end{align*}
+    \item From Proposition \ref{prop:inverse_Cauchy}, we see that the probability density $\rho(x)$ for $\mu\boxplus\nu$ is 
+    \begin{align*}
+        \rho(x)&=\frac1\pi\lim_{y\to 0^+}Im\left(\frac{1}{\sqrt{(x+iy)^2-4}}\right)\\
+        &=
+        \begin{cases}
+        	0,&|x|>2;\\
+        	\dfrac{1}{\pi\sqrt{4-x^2}} &, |x|\leq 2.
+        \end{cases}
+    \end{align*}
+\end{enumerate}
+This is the \emph{arcsine distribution} (Fig.~\ref{fig:arcsine}). We see that this is quite different from the classical convolution. 
+\end{example}
+\begin{figure}[htbp]
+	\includegraphics[width=.6\textwidth]{img/arcsine.png}
+	\caption{The arcsine density.}
+	\label{fig:arcsine}
+\end{figure}
+
+\begin{exercise}[Free Poisson Theorem]
+Let $\alpha>0, \lambda>1$, and consider the Bernoulli density
+\begin{align*}
+    \mu_N=(1-\lambda/N)\delta_0+\lambda/N\delta_\alpha
+\end{align*}
+supported by $0$ and $\alpha$.
+Classically, 
+\begin{equation*}
+    \mu_N^{*N}\to \mathrm{Poisson}(\lambda)
+    \textnormal{\ on $\{0,\alpha,2 \alpha,\ldots\}$}
+    ,\qquad N\to\infty.
+\end{equation*}
+
+In the free situation, by computing the R-transform, multiplying it by $N$, 
+and then inverting, show that $\mu_N^{\boxplus N}$ 
+converges to the density $\frac{1}{2\pi\alpha t}\sqrt{4\lambda\alpha^2-(t-\alpha(1+\lambda))^2}$, 
+which is the Marchenko--Pastur distribution (\S \ref{ssub:marchenko_pastur_law})
+under a change of parameters. 
+If $\lambda\le1$, then the limiting distribution is different. Namely, it has an atom of size $1- \lambda$ at $0$,
+and the rest of the mass $\lambda$ is distributed according to the same Marchenko--Pastur law.
+\end{exercise}
+
+\begin{exercise}[{Cauchy Density}]
+Show that for the Cauchy density $C=\frac{1}{\pi(1+x^2)}$ on $\mathbb{R}$, 
+\begin{align*}
+    \mu*C=\mu\boxplus C,
+\end{align*}
+i.e., the free convolution with the Cauchy density is the same as the classical convolution.
+See \cite[Exercise 5.3.41]{AndersonGuionnetZeitouniBook} for more hints.
+\end{exercise}
 
 % subsection examples_of_free_convolutions (end)
 
@@ -2575,6 +2812,29 @@ insight into Free Probability.
 
 % section elements_of_free_probability (end)
 
+\section{Gaussian Unitary Ensemble} % (fold)
+\label{sec:gaussian_unitary_ensemble}
+
+\subsection{Definition and basic properties} % (fold)
+\label{sub:definition_and_basic_properties}
+
+% subsection definition_and_basic_properties (end)
+
+\subsection{Joint eigenvalue density} % (fold)
+\label{sub:joint_eigenvalue_density}
+
+% subsection joint_eigenvalue_density (end)
+
+\subsection{Notes and references} % (fold)
+\label{sub:notes_GUE}
+
+{\ }
+
+% subsection notes_GUE (end)
+
+% section gaussian_unitary_ensemble (end)
+
+\lect{2/10/2016}
 
 
 
