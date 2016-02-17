@@ -29,6 +29,7 @@ The class meets on Mondays and Wednesdays, 2:00-3:15PM in Kerchof 317. Office ho
 Possible reading + talk assignments (please first discuss your choice with me!):
 
 1. [taken] Combinatorics of Catalan Numbers
+2. [taken] Free probability and von Neumann algebras
 2. Persi Diaconis, Peter J. Forrester "A. Hurwitz and the origins of random matrix theory in mathematics" [http://arxiv.org/abs/1512.09229](http://arxiv.org/abs/1512.09229): the goal is to figure out and report on one of the computations of the volume of the group O(N) or U(N), and also enjoy the related historical background
 3. Statistics of elliptic curves and free probability (some references are in section 1.6 in [http://arxiv.org/abs/1205.2097](http://arxiv.org/abs/1205.2097))
 4. Examples of determinantal point processes - in particular, uniform spanning trees - a starting point can be section 8 in the survey [http://arxiv.org/abs/0911.1153](http://arxiv.org/abs/0911.1153)
