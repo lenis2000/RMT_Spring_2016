@@ -34,7 +34,7 @@ Possible reading + talk assignments (please first discuss your choice with me!):
 3. Statistics of elliptic curves and free probability (some references are in section 1.6 in [http://arxiv.org/abs/1205.2097](http://arxiv.org/abs/1205.2097))
 4. Examples of determinantal point processes - in particular, uniform spanning trees - a starting point can be section 8 in the survey [http://arxiv.org/abs/0911.1153](http://arxiv.org/abs/0911.1153)
 5. Tridiagonalization of Gaussian unitary matrices
-6. Hermite polynomials and orthogonal polynomials in general
+6. [taken] Hermite polynomials and orthogonal polynomials in general
 7. Steepest descent method
 
 -----
