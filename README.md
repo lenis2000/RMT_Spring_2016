@@ -36,7 +36,7 @@ Possible reading + talk assignments (please first discuss your choice with me!):
 5. Tridiagonalization of Gaussian unitary matrices
 6. [taken] Hermite polynomials and orthogonal polynomials in general
 7. Steepest descent method
-8. Something that *you* can suggest :)
+8. Something that you can suggest :)
 
 -----
 
