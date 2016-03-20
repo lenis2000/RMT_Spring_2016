@@ -4,6 +4,7 @@
 \usepackage[english]{babel}
 \usepackage{amsmath,amssymb,amsthm,amsfonts,upgreek}
 \usepackage{hyperref}
+\usepackage{cleveref}
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage[mathscr]{euscript}
@@ -52,7 +53,8 @@
 	(notes by 
 	Kristin Courtney;
 	Stephen Hardy;
-	Bryce Terwilliger; \ldots)
+	Bryce Terwilliger;
+	Daniel Franz; \ldots)
 \end{center}
 
 \begin{abstract}
@@ -1058,7 +1060,7 @@ How go get $ \mathrm{Cat}_3 = 5 $ from $ \EE(\mathop{\mathrm{tr}}( A^6 ) )$ ?
 	We want to show how
 
 	\begin{equation*}
-	\EE( \, \text{Tr}( A^6 ) \, ) = N^{ -1 - 3 } \sum_{ i_1 , \ldots, i_6 = 1 }^N \EE \left( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdots a_{ i_5, i_6 } \cdot a_{ i_6, i_1 } \right) \xrightarrow[ N \to \infty ]{} 5.
+	\EE( \, \text{tr}( A^6 ) \, ) = N^{ -1 - 3 } \sum_{ i_1 , \ldots, i_6 = 1 }^N \EE \left( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdots a_{ i_5, i_6 } \cdot a_{ i_6, i_1 } \right) \xrightarrow[ N \to \infty ]{} 5.
 	\end{equation*}
 
 	We need to determine which terms are nonzero and how many such terms there are.  If there are 5 or 6 independent indices, we get a product of expected values of independent random variables with expected value zero, so these terms do not contribute.  If there are 3 or fewer independent indices, there are not enough terms to overcome the factor of $ N^{ -4 } $, so these terms do not contribute in the limit.  Thus we are interested in nonzero terms with 4 independent indices.
@@ -2539,7 +2541,7 @@ real and imaginary parts having Gaussian distribution with variance $\frac 12$
 $L_N(G_N)\to\SC$ weakly in probability. We have seen in \S \ref{sec:wigner_s_semicircle_law} that
 for this it is enough to show the convergence of the moments as in \eqref{free_clt_moment_convergence}.
 Let $G_N^{(1)},...,G_N^{(N)}$ be independent copies of $G_N$.
-By the unitary invariance of the GUE (see \S \ref{} below), for 
+By the unitary invariance of the GUE (see \Cref{sub:definition_and_basic_properties} below), for 
 for $U_N^{(k)}, 1\leq k\leq N$ Haar-distributed unitary matrices independent of everything else, we have 
 $U_N^{(k)}G_N^{(k)}(U_N^{(k)})^*\stackrel{D}{=} G_N$.
 Furthermore, we clearly have by the Gaussian nature of the elements of the matrix:
@@ -2818,6 +2820,47 @@ insights into Free Probability.
 
 \subsection{Definition and basic properties} % (fold)
 \label{sub:definition_and_basic_properties}
+
+Recall that by $\mathcal H_N$ we denote the set of $N \times N$ Hermitian matrices over $\mathbb{C}$. 
+
+\begin{definition}
+  The law of the Gaussian Unitary Ensemble (GUE) is 
+  a probability distribution on $\mathcal H_N$, and the law of 
+  a random matrix $A=(a_{ij})_{i,j=1}^N\in\mathcal H_N$ is described as follows:
+  \begin{itemize}
+    \item $a_{ii} \sim \mathcal N(0,1)$ for each $i$.
+    \item $a_{ij}=\overline{a}_{ji}\sim \mathcal N(0,1/2)+ \sqrt{-1}\, \mathcal N(0,1/2)$ for $i<j$.
+  \end{itemize}
+  All real normal random variables involved above are assumed to be independent.
+  Note that $\EE a_{ij}=0$ for all $i,j$.
+\end{definition}
+
+Now fix any (nonrandom) $A\in \mathcal H_N$. Then we can write
+\begin{equation*}
+  \mathrm{tr}(A^2)=\mathrm{tr}(AA)=\sum_{i=1}^N a_{ii}^2+\sum_{i\neq j} a_{ij}a_{ji}=\sum_{i=1}^N a_{ii}^2+2\sum_{i<j} |a_{ij}|^2.
+\end{equation*}
+Identify $\mathcal H_N$ with $\mathbb{R}^{N^2}$ with the standard Lebesgue measure
+which in the matrix coordinates can be written as
+\begin{align*}
+  dA = \prod_i d a_{ii} \prod_{i<j} da_{ij}^{\Re} da_{ij}^\Im.
+\end{align*}
+Here the superscripts $\Re$ and $\Im$ refer to the real and imaginary parts.
+
+The GUE distribution $\mu$ on $\mathcal H_N$
+has probability density (with respect to the above Lebesgue measure)
+\begin{align*}
+  d\mu(A) &=\frac{1}{Z_N}e^{-\sum_{i}a_{ii}^2/2}
+  e^{-\sum_{i<j}(a_{ij}^{\Re})^2-\sum_{i<j}(a_{ij}^{\Im})^2} dA \\
+  &= \frac{1}{Z_N}e^{-\frac{1}{2}(\sum_i a_{ii}^2+2\sum_{i<j}|a_{ij}|^2)} dA\\
+  &= \frac{1}{Z_N} e^{-\frac{1}{2} \mathrm{tr}(A^2)} dA,
+\end{align*}
+where $Z_N=(\sqrt{\pi})^{N^2} (\sqrt{2})^N$ is the normalization constant (its value
+follows from the normalization of the Gaussian distribution).
+
+This computation shows that the GUE density
+is \emph{unitary invariant}. That is, if $A$ is a random matrix with GUE distribution 
+and $U\in U(N)$ is a fixed unitary matrix, 
+then $U A U^{-1}\stackrel{\mathcal D}{=}A$ (equality in distribution).
 
 % subsection definition_and_basic_properties (end)
 
