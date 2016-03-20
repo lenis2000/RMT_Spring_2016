@@ -2867,7 +2867,88 @@ then $U A U^{-1}\stackrel{\mathcal D}{=}A$ (equality in distribution).
 \subsection{Joint eigenvalue density} % (fold)
 \label{sub:joint_eigenvalue_density}
 
+Let $A\in\mathcal H_N$ have the GUE distribution.
+Denote its 
+eigenvalues (which are necessarily real) by $\lambda_1\ge\cdots\ge\lambda_N$.
 
+\begin{exercise}
+	Show that under the GUE distribution the eigenvalues of the matrix
+	are almost surely pairwise distinct.
+\end{exercise}
+
+We will now derive the joint density of eigenvalues of the GUE random matrix:
+
+\begin{theorem}
+  Let $A=A_N\in\mathcal H_N$ have the GUE distribution. 
+  Then the joint density of the eigenvalues of $A$ 
+  with respect to the Lebesgue measure on $\mathbb{R}^{N}$ is given by
+  \begin{equation*}
+    C_N \prod_{i<j} |\lambda_i-\lambda_j|^2 \prod_{i=1}^N e^{-\lambda_i^2/2}.
+  \end{equation*}
+\end{theorem}
+We will not compute the value of the normalization
+constant $C_N$ right now, but later in \Cref{} we will see that it is equal to 
+$\dfrac{(2\pi)^{-N/2}}{0! 1!\cdots (N-1)!}$.
+\begin{proof}
+  We will in fact prove a more general result.
+  Namely,
+  let $f$ be a function on the space $\mathcal H_N$ of 
+  Hermitian $N\times N$ matrices 
+  which is unitary invariant, 
+  i.e. $f(U A U^*)=f(A)$ for any fixed unitary matrix $U$. 
+  (This implies that $f$ depends only on the eigenvalues $\lambda_1,\cdots, \lambda_N$ of $A$, and 
+  moreover, in a symmetric way.) We will show that
+  \begin{equation*}
+    \int_{\mathcal H_N}f(A) dA=\mathrm{const}_N\int_{\mathbb{R}^N} f(\lambda_1,\cdots, \lambda_N) 
+    \prod_{i<j} |\lambda_i-\lambda_j|^2 ~ d\lambda_1\cdots d\lambda_N,
+  \end{equation*}
+  where both integrals are with respect to the corresponding Lebesgue measures. 
+  In other words, we aim to find
+  the Jacobian of the transformation mapping from $A$ to the set of its eigenvalues.
+
+  \begin{example}
+	As an example, consider the change of coordinates in $\mathbb{R}^2$ from Cartesian to polar: $(x,y)\to (r,\theta)$. If $f(x,y)$ is independent of $\theta$, i.e. it is radially symmetric, then
+	\begin{equation*}
+	\iint_{\mathbb{R}^2} f(x,y) ~ dxdy =2\pi \int_0^\infty f(r) r dr.
+	\end{equation*}
+	The factor $r$ comes from the Jacobian, and so 
+	$2\pi r=\mathrm{const}\cdot r$ is the \emph{radial part} of the 
+	Lebesgue measure on $\mathbb{R}^2$. 
+	What we are about to do now is a generalization of this procedure.
+	That is, we will find the radial part of the Lebesgue measure on the 
+	space of $N\times N$ Hermitian matrices.
+  \end{example}
+
+  %%%
+  %%%
+  %%%
+  %%%
+  
+  Consider $\mathcal H_N$ as a space with an action of $U(N)$: $A\mapsto UAU^*$. A typical $A\in \mathcal H_N$ can be written as $U \Lambda U^*$, where $\Lambda$ is the diagonal matrix of eigenvalues of $A$. Perform a change of variables 
+  \begin{equation*}
+    A \leftrightarrow (\vec{\lambda}, \dot{U}),
+  \end{equation*}
+  where $\vec{\lambda}$ is the vector of eigenvalues and $\dot{U}=U \mod T$, $T$ the torus of diagonal matrices, which stabilize $\vec{\lambda}$. The matrix $\dot{U}$ represents the rotation to the eigenbasis of $A$.
+  
+  The Jacobian is $dA=(?) d\vec{\lambda} d \dot{U}$, where $d\dot{U}$ is Haar measure. We note that the Jacobian is independent of $U$ since Lebesuge measure is rotationally invariant.
+  
+  So we can take $U=1+X$, $X$ ``small''. Then $U^*=U^{-1}=1-X+$ small order terms. Since $A=U\Lambda U^*$, 
+  \begin{equation*}
+    A+dA=(1+X)(\Lambda+d\Lambda)(1-X)=\Lambda+d\Lambda+X\Lambda-\Lambda X+ \text{ small terms}.
+  \end{equation*}
+  Hence
+  \begin{align*}
+    d a_{jk} &= x_{jk}\lambda_k-\lambda_j x_{jk}=(\lambda_k-\lambda_j)x_{jk} \\
+    d a_{ii} &= d\lambda_i.
+  \end{align*}
+  The $x_{jk}$ are distributed according to Haar measure. Thus 
+  \begin{equation*}
+    dA=\prod d\lambda_{i} \prod_{j<k} d x_{jk} \prod_{j<k} |\lambda_j-\lambda_k|^2,
+  \end{equation*}
+  so the Jacobian is $\prod_{j<k} |\lambda_j-\lambda_k|^2$.
+  
+  The theorem then follows from using $f(A)=e^{-\frac{1}{2} \mathrm{tr}(A^2)}$.
+\end{proof}
 
 
 
