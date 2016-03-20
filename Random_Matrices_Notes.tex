@@ -419,7 +419,7 @@ Note that $L_N$ is a probability measure on $\mathbb{R}$.
 	\begin{equation}\label{SemicircleDistribution}
 		\SC(x):=\frac{1}{2\pi}\sqrt{4-x^2}, \qquad -2\leq x\leq 2.
 	\end{equation}
-	See Fig.~\ref{fig:semicircle}.
+	See \Cref{fig:semicircle}.
 
 	Note that slightly abusing the notation, by $\SC$ we will denote both the
 	semicircle distribution and its probability density \eqref{SemicircleDistribution}.
@@ -477,19 +477,19 @@ the computation of moments and on the related combinatorics. Recall that for a
 probability measure $\mu$ the quantities $\langle x^{k},\mu\rangle$,
 $k=0,1,2,\ldots$, are called the \emph{moments} of $\mu$.
 
-First, in \S \ref{sub:moments_of_the_semicircle_distribution}
+First, in \Cref{sub:moments_of_the_semicircle_distribution}
 we will compute the moments  $m_k:=\langle x^k, \SC\rangle$ of the
 limiting semicircle distribution, and identify the answer in terms of the
 Catalan numbers. Our second step in the proof is to show the convergence
-$\lim_{N\to\infty}\EE \langle x^k,L_N\rangle = m_k$ for each $k$. We do this in \S \ref{sub:convergence_of_expectations_}
+$\lim_{N\to\infty}\EE \langle x^k,L_N\rangle = m_k$ for each $k$. We do this in \Cref{sub:convergence_of_expectations_}
 below.
 The third
-step (in \S \ref{sub:variances_langle_x_k_l_nrangleto0_}) 
+step (in \Cref{sub:variances_langle_x_k_l_nrangleto0_}) 
 is to show that  the variance of $\langle x^k,L_N\rangle$ goes to zero as
 $N\to\infty$ for each $k$. Finally, to complete the proof we will need to
 justify that  the convergence \eqref{WignerSemicircleLaw_langle} for any
 function $f(x)$ follows from the case of $f(x)=x^{k}$, $k=0,1,2,\ldots$.
-This is done in \S \ref{sub:completing_the_proof_WSCL}.
+This is done in \Cref{sub:completing_the_proof_WSCL}.
 
 % subsection strategy_of_the_proof (end)
 
@@ -572,7 +572,7 @@ for our proof of the semicircle law.
 	sequence $d_0,d_1,\ldots,d_{2n}$ such that
 	$d_0=d_{2n}=0$, $d_{i+1}-d_{i}=\pm1$ for all $i$,
 	and that $d_i\ge0$ for all $i$. Graphically Dyck paths can be represented as 
-	on Fig.~\ref{fig:Dyck}.
+	in \Cref{fig:Dyck}.
 \end{definition}
 
 \begin{figure}[htbp]
@@ -667,7 +667,7 @@ for our proof of the semicircle law.
 	See \url{https://en.wikipedia.org/wiki/Catalan_number#Second_proof} for details.
 
 	Another way to count the Dyck paths is to first establish the recurrence \eqref{Catalan_recurrence}, and then use generating
-	functions to solve the recurrence (see Remark \ref{rmk:from_recurrence_to_explicit_formula} below).
+	functions to solve the recurrence (see \Cref{rmk:from_recurrence_to_explicit_formula} below).
 \end{proof}
 
 % subsubsection dyck_paths (end)
@@ -684,7 +684,7 @@ The Catalan numbers satisfy the recurrence relation
 \end{lemma}
 \begin{proof}
 	The easiest way to see this is by counting the Dyck paths: let the first time a Dyck path 
-	reaches $0$ be $2j$, then $j$ can be any number from $1$ to $n$ (see Fig.~\ref{fig:Dyck3}). 
+	reaches $0$ be $2j$, then $j$ can be any number from $1$ to $n$ (see \Cref{fig:Dyck3}). 
 	The part of the Dyck path after time $2j$ is independent from the 
 	part before $2j$. The number of paths 
 	from $2j$ to $2n$ is exactly $\mathrm{Cat}_{n-j}$. The 
@@ -726,7 +726,7 @@ numerous families of combinatorial objects. We will need one more family of
 such objects --- \emph{rooted ordered trees}. An ordered tree is a rooted tree (i.e., a tree with a distinguished
 vertex $R$ called the \emph{root})
 in which children of every vertex are linearly ordered. 
-On pictures this ordering will be represented from left to right (see Fig.~\ref{fig:ordered_tree}).
+On pictures this ordering will be represented from left to right (see \Cref{fig:ordered_tree}).
 
 \begin{figure}[htbp]
 	\begin{tikzpicture}[scale=1,thick,
@@ -772,8 +772,8 @@ On pictures this ordering will be represented from left to right (see Fig.~\ref{
 		\draw[->,dashed, very thick] (-.6,0)--++(-1.4,-1.4) .. controls (-3,-2) and (-2,-3) .. (-1.4,-1.9) --++ (0,-1.1);
 	\end{tikzpicture}
 	\caption{These trees are isomorphic as rooted trees, but are different
-	as rooted ordered trees. A beginning of the walk of Exercise
-	\ref{exec:trees_are_Catalan} is displayed for the second tree.}
+	as rooted ordered trees. A beginning of the walk of 
+	\Cref{exec:trees_are_Catalan} is displayed for the second tree.}
 	\label{fig:ordered_tree}
 \end{figure}
 
@@ -807,8 +807,8 @@ On pictures this ordering will be represented from left to right (see Fig.~\ref{
 		--++(1,1)--++(1,1)
 		--++(1,-1)--++(1,-1);
 	\end{tikzpicture}
-	\caption{Dyck paths corresponding to the rooted ordered trees on Fig.~\ref{fig:ordered_tree}
-	(see Exercise \ref{exec:trees_are_Catalan}).}
+	\caption{Dyck paths corresponding to the rooted ordered trees in \Cref{fig:ordered_tree}
+	(see \Cref{exec:trees_are_Catalan}).}
 	\label{fig:ordered_tree_Dyck}
 \end{figure}
 
@@ -823,15 +823,15 @@ On pictures this ordering will be represented from left to right (see Fig.~\ref{
 \end{proof}
 
 \begin{exercise}\label{exec:trees_are_Catalan}
-	By comparing the proof of Lemma \ref{lemma:Dyck_and_recurrence}
-	and Lemma \ref{lemma:trees_are_Catalan}, come up with a bijection between
+	By comparing the proof of \Cref{lemma:Dyck_and_recurrence,lemma:trees_are_Catalan}, 
+	come up with a bijection between
 	Dyck paths and ordered rooted trees.
 \end{exercise}
 \begin{proof}[Idea]
 	Consider the walk around the tree (such that the tree is always to the left of the walker),
 	which starts to the left of the root. Let $d_k$ be the distance of the walker from the root.
-	The Dyck paths corresponding to trees on Fig.~\ref{fig:ordered_tree}
-	are given on Fig.~\ref{fig:ordered_tree_Dyck}.
+	The Dyck paths corresponding to trees in \Cref{fig:ordered_tree}
+	are given in \Cref{fig:ordered_tree_Dyck}.
 \end{proof}
 
 % subsubsection rooted_labeled_trees (end)
@@ -882,7 +882,7 @@ The support of 123241 is $\{1,2,3,4\}$.
 To each closed word $w$ we associate an undirected graph $G_w$ with vertices
 labeled by the support of the word, edges $(i_1,i_2), (i_2,i_3),\ldots,(i_{k},i_{1})$ connecting each consecutive pair
 of letters in the word. For example, if $w=123241$, then $G_w$ has four
-vertices $\{1,2,3,4\}$ and five edges $\{(1,2),(2,3),(3,2),(2,4),(4,1)\}$ (see Fig.~\ref{fig:Feynman_diag_ex}).
+vertices $\{1,2,3,4\}$ and five edges $\{(1,2),(2,3),(3,2),(2,4),(4,1)\}$ (see \Cref{fig:Feynman_diag_ex}).
 Notice each graph $G_w$ is connected. These (and similar) graphs are sometimes referred to as Feynman diagrams.
 
 \begin{figure}[htbp]
@@ -956,7 +956,7 @@ Now consider the case when $k$ is even and $t=1+k/2$. Then the graph correspondi
 $i_1 \ldots i_ki_1$ has $k+1$ edges, $1+k/2$ vertices, 
 and $N_e\ge2$ for each edge. Hence, gluing together pairs of edges connecting 
 the same vertices, we see that the graph 
-$G_{i_1 \ldots i_ki_1}$ must be a \emph{tree} (see Fig.~\ref{fig:Wigner_word}).\footnote{The words which correspond to
+$G_{i_1 \ldots i_ki_1}$ must be a \emph{tree} (see \Cref{fig:Wigner_word}).\footnote{The words which correspond to
 such trees 
 contributing to \eqref{WSCL_proof_2}
 are sometimes referred to as \emph{Wigner words}.}
@@ -1024,8 +1024,8 @@ In particular, there are no self edges and $N_e=2$ for each connecting edge. Thi
 		\draw[ultra thick] (n4)--(n6);
 	\end{tikzpicture}}
 	\caption{A representative graph 
-	$G_w\in \text{EqClass}_{1+k/2}$ corresponding to the graph as on
-	Fig.~\ref{fig:Wigner_word} (left), and its representation as a rooted ordered tree (right).}
+	$G_w\in \text{EqClass}_{1+k/2}$ corresponding to the graph as in
+	\Cref{fig:Wigner_word} (left), and its representation as a rooted ordered tree (right).}
 	\label{fig:Wigner_word_representative}
 \end{figure}
 
@@ -1038,7 +1038,7 @@ is an interval in $\{1,2,\ldots,N\}$ beginning at $1$
 	There is a unique way of choosing such representatives.
 \end{exercise}
 Let the vertex $1$ be the root $R$, and clearly the order coming from the word
-defines an order on this rooted tree (see Fig.~\ref{fig:Wigner_word_representative}). This implies that 
+defines an order on this rooted tree (see \Cref{fig:Wigner_word_representative}). This implies that 
 $\big|\text{EqClass}_{1+k/2}\big|=\mathrm{Cat}_k$, and
 finally proves the desired convergence \eqref{desired_convergence_of_averages_in_WSCL}.
 
@@ -1046,7 +1046,7 @@ finally proves the desired convergence \eqref{desired_convergence_of_averages_in
 
 \lect{1/27/2016}
 
-\subsection{An example of counting terms in the expansion (\ref{WSCL_proof_0})} % (fold)
+\subsection{An example of counting terms in the expansion of \cref{WSCL_proof_0}} % (fold)
 \label{sub:an_example_WSCL_proof}
 
 Before proceeding to finish the proof, let us consider one example 
@@ -1097,7 +1097,7 @@ How go get $ \mathrm{Cat}_3 = 5 $ from $ \EE(\mathop{\mathrm{tr}}( A^6 ) )$ ?
 
 	These sequences bijectively correspond to noncrossing pair partitions of 6 elements.
 	These partitions are in a clear bijection with Dyck paths of length 6
-	(shown on Fig.~\ref{fig:Dyck3}), and are enumerated by the Catalan number $\mathrm{Cat}_3=5$.
+	(shown in \Cref{fig:Dyck3}), and are enumerated by the Catalan number $\mathrm{Cat}_3=5$.
 
 	For each of these patterns, there are $ N ( N - 1 ) ( N - 2 ) ( N - 3 ) \sim N^4 $ terms in the sum, and each term is a product of the expected value of the squares of three independent off-diagonal random variables with expected value 0 and variance 1, like
 	\begin{align*}
@@ -1139,7 +1139,7 @@ graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ overlap.
 	\\\EE( a_{ \vec{j} } ) = \EE( a_{ i_1, i_2 } \cdot a_{ i_2, i_1 } \cdot a_{ i_1, i_1 } \cdot a_{ i_1, i_1 } ) &= \EE( a_{ 1, 2 }^2 ) \cdot \EE( a_{ 1,1 } ) = 2;
 	\\\EE( a_{ i_1, i_2 } \cdot a_{ i_2, i_3 } \cdot a_{ i_3, i_2 } \cdot a_{ i_2, i_1 } \cdot a_{ i_1, i_2 } \cdot a_{ i_2, i_1 } \cdot a_{ i_1, i_1 } \cdot a_{ i_1, i_1 } ) &= \EE( a_{ i_1, i_2 }^4 ) \cdot \EE( a_{ i_2, i_3 }^2 ) \cdot \EE( a_{ i_1, i_1 }^2 ) = 2 \EE( a_{ 1, 2 }^4 ).
 	\end{align*}
-	The corresponding graphs are given on Fig.~\ref{fig:GiGj_variance_in_WSCL}.
+	The corresponding graphs are given in \Cref{fig:GiGj_variance_in_WSCL}.
 \end{example}
 \begin{figure}[htbp]
 	\begin{tikzpicture}[scale=3,very thick,block/.style ={circle, draw=blue, thick ,align=center, minimum height=0.3em}]
@@ -1156,11 +1156,11 @@ graphs $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ overlap.
 		\draw (n2) [out=20,in=160] to (n3);
 		\draw (n2) [out=-20,in=-160] to (n3);
 	\end{tikzpicture}
-	\caption{Graphs $ G_{ \vec{i} } $ (solid lines) and $ G_{ \vec{j} } $ (dashed lines) in Example \ref{ex:GiGj_variance_in_WSCL}.}
+	\caption{Graphs $ G_{ \vec{i} } $ (solid lines) and $ G_{ \vec{j} } $ (dashed lines) in \Cref{ex:GiGj_variance_in_WSCL}.}
 	\label{fig:GiGj_variance_in_WSCL}
 \end{figure}
 
-We now argue similarly to the proof given in \S \ref{sub:convergence_of_expectations_}
+We now argue similarly to the proof given in \Cref{sub:convergence_of_expectations_}
 (for the convergence of the first moments). Namely, 
 in order for $ \EE ( a_{ \vec{i} } \cdot a_{ \vec{j} } ) - \EE( a_{ \vec{i} } ) \EE( a_{ \vec{j} } ) $ to be nonzero 
 we must have the following:
@@ -1186,7 +1186,7 @@ completes the proof of \eqref{Variance_to_zero_WSCL}.
 	Remark: by a similar argument, $ t = k + 1 $ also cannot contribute.
 	Indeed, the combined graph of $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $
 	has $\le k$ double edges and $k+1$ vertices so it must be a tree
-	(in the same sense of gluing edges as in \S \ref{sub:convergence_of_expectations_} above).
+	(in the same sense of gluing edges as in \Cref{sub:convergence_of_expectations_} above).
 	However, as $ G_{ \vec{i} } $ and $ G_{ \vec{j} } $ must also overlap (i.e., share common edges),
 	there are no such trees.
 	This implies a better estimate on the variance:
@@ -1222,7 +1222,7 @@ $L_N$ are concentrated around zero:
 		\PP \left( \, \left \langle \, | x |^k \mathbf{1}_{ | x | > B } , L_N \right \rangle > \varepsilon \right) \xrightarrow[ N \to \infty ]{} 0.
 	\end{equation*}
 \end{lemma}
-Here an everywhere below $\mathbf{1}_{A}$ denotes the indicator function of an event $A$, so the function $| x |^k \mathbf{1}_{ | x | > B }$ looks as on Fig.~\ref{fig:indicator_polynomial}.
+Here an everywhere below $\mathbf{1}_{A}$ denotes the indicator function of an event $A$, so the function $| x |^k \mathbf{1}_{ | x | > B }$ looks as in \Cref{fig:indicator_polynomial}.
 \begin{proof}
 	We will use the Markov (sometimes also called Chebyshev) inequality:
 	\begin{equation*}
@@ -1421,14 +1421,14 @@ The first summand above convergences to zero by Chebyshev inequality:
 	-\big(\EE\langle Q_{\delta},L_N\rangle\big)^{2}}{(\varepsilon/5)^{2}},
 \end{align*}
 which goes to zero because variances go to zero
-(\S \ref{sub:variances_langle_x_k_l_nrangleto0_}).
+(\Cref{sub:variances_langle_x_k_l_nrangleto0_}).
 The second summand convergences to zero because the moments
-converge (\S \ref{sub:convergence_of_expectations_}).
+converge (\Cref{sub:convergence_of_expectations_}).
 The last two summands converge to zero by
-Lemma \ref{lemma:WSCL_truncation} (note that $f$ is bounded and so 
+\Cref{lemma:WSCL_truncation} (note that $f$ is bounded and so 
 can be bounded by a polynomial). 
 This completes our first proof of the Wigner's semicircle law
-(formulated above as Theorem~\ref{thm:SemicircleLaw}).
+(formulated above as \Cref{thm:SemicircleLaw}).
 
 % subsection completing_the_proof (end)
 
@@ -1468,7 +1468,7 @@ for complex eigenvalues of random matrices,
 and typical is the \emph{circular law} stating
 that the eigenvalues of a random matrix with iid 
 entries are distributed uniformly inside a unit disc on the 
-complex plane (cf. Remark \ref{rmk:complex_eigenvalues}).
+complex plane (cf. \Cref{rmk:complex_eigenvalues}).
 
 
 % subsubsection complex_wigner_matrices (end)
@@ -1508,7 +1508,7 @@ Then the density function of $ S_\alpha $ is
 \begin{equation*}
 f_\alpha( x ) = \frac{ \sqrt{ ( x - b_- ) ( b_+ - x ) } }{ 2 \pi x }, \qquad b_- \le x \le b_+,
 \end{equation*}
-which looks as on Fig.~\ref{fig:MP_law}.
+which looks as in \Cref{fig:MP_law}.
 
 Note that if $ M \gg N $, then the random matrices $W$ are likely to be nondegenerate, so the distribution does not hit zero.
 In fact, the distribution $ S_1 $ corresponding to $\alpha=1$
@@ -1569,7 +1569,7 @@ $\mu\boxplus\nu$ of the measures $\mu$ and $\nu$.
 
 \begin{example}
 	Suppose $A_N$ and $B_N$ are independent and real Wigner. 
-	Then by Theorem \ref{thm:SemicircleLaw} we have
+	Then by \Cref{thm:SemicircleLaw} we have
 	$L_N(A_N)\to \SC$ and $L_N(B_N)\to \SC$. However, 
 	$\displaystyle\frac{A_N+B_N}{\sqrt{2}}$ is also clearly real Wigner, and so
 	\begin{equation*}
@@ -1710,7 +1710,7 @@ To showcase the utility of the cumulants, we use them to prove the classical Cen
 \subsection{Moments and cumulants of Gaussian and semicircle distributions} % (fold)
 \label{sub:moments_and_cumulants_of_gaussian_and_semicircle_distributions}
 
-From Example \ref{ex:Cumulant_Seq_Ga} we see that 
+From \Cref{ex:Cumulant_Seq_Ga} we see that 
 the moment generating function of $\mathcal{N}(0,1)$ is 
 \begin{align*}
     M(z)=e^{z^2/2}=\sum_{n=0}^\infty \frac{z^{2n}}{2^nn!}=\sum_{k=0}^\infty \frac{m_k z^k}{k!}.
@@ -1770,7 +1770,7 @@ We will use the following combinatorial statement which can be found in
 	\end{equation}
 	where $\mathcal{P}(n)$ is the set of all partitions of the set 
 	$\{1,...,n\}$, and $B\in \pi$ are the blocks of the partition $\pi$.
-	See Fig.~\ref{fig:partition} for an example.
+	See \Cref{fig:partition} for an example.
 	\begin{figure}[htbp]
 		\begin{tikzpicture}
 			[scale=1, very thick,block/.style ={circle, draw=blue, thick, align=center}]
@@ -1859,7 +1859,7 @@ However, since $c_n=0$ for $n\neq 2$ and $c_2=1$, the sum is only over pair part
 \begin{align*}
  m_{2n}=(2n-1)!!=\# \Big\{\textnormal{pair partitions of $\{1,2,\ldots,2n\}$}\Big\}.
 \end{align*}
-See Fig.~\ref{fig:pair_partitions_NC_partitions}.
+See \Cref{fig:pair_partitions_NC_partitions}.
 \begin{figure}[htbp]
 		\begin{tikzpicture}
 			[scale=1, very thick,block/.style ={circle, draw=blue, thick}]
@@ -2054,10 +2054,10 @@ $\mathcal{P}'(n)$.
 	Catalan number $\mathrm{Cat}_{n}$ counts the 
 	number of \emph{noncrossing} pair partitions of $\{1,2,\ldots,2n\}$
 	--- they are in a natural bijection with Dyck paths 
-	of length $2n$ (cf. \S \ref{sub:an_example_WSCL_proof}).
+	of length $2n$ (cf. \Cref{sub:an_example_WSCL_proof}).
 \end{quote}
-The noncrossing pair partitions of $\{1,2,3,4,5,6\}$ are given on 
-Fig.~\ref{fig:pair_partitions_NC_partitions}, top.
+The noncrossing pair partitions of $\{1,2,3,4,5,6\}$ are given in
+\Cref{fig:pair_partitions_NC_partitions}, top.
 
 This motivates the following general definition:
 \begin{definition}[Free cumulants]
@@ -2067,7 +2067,7 @@ This motivates the following general definition:
 		m_n=\sum_{\pi\in \mathcal{NC}(n)}\prod_{B\in\pi} \kappa_{|B|},
 	\end{equation}
 	where $\mathcal{NC}(n)$ is the set of noncrossing partitions of $\{1,2,\ldots,n\}$
-	(cf. Fig.~\ref{fig:NC_part}).
+	(cf. \Cref{fig:NC_part}).
 \end{definition}
 Clearly, rewriting \eqref{free_cum_def} similarly to \eqref{cumulants_via_moments} as
 \begin{equation}\label{free_cum_via_mom}
@@ -2211,7 +2211,7 @@ Let us give a couple of remarks:
 \subsection{Example. Counting graphs} % (fold)
 \label{sub:example_counting_graphs}
 
-It is not essential that the quantities $m_n$ and $c_n$ in Proposition \ref{prop:expon_thm}
+It is not essential that the quantities $m_n$ and $c_n$ in \Cref{prop:expon_thm}
 are moments and cumulants of a certain random variable. 
 Indeed, the exponential formula \eqref{moments_via_cumulants} holds
 for coefficients of any exponential generating series related as 
@@ -2239,7 +2239,7 @@ Arguing in a similar way with the noncrossing cumulant formula \eqref{free_cum_d
 we see that if the moments $m_n=2^{\binom n2}$ count graphs, then the free cumulants
 $\kappa_n$ count geometrically connected graphs on $n$ labeled vertices.
 The geometrically connectedness condition naturally leads to splitting into noncrossing partitions.
-See Fig.~\ref{fig:counting_graphs}.
+See \Cref{fig:counting_graphs}.
 
 \begin{figure}[htbp]
 	\begin{tikzpicture}[scale=1, very thick,block/.style ={circle, draw = blue, thick, fill=white, align = center}]
@@ -2425,7 +2425,7 @@ Elements $a$ and $b$ in a von Neumann algebra $\mathcal{A}$ are \emph{free indep
 \begin{align*}
     \tau(f_1(a)g_1(b)f_2(a)g_2(b)\cdots g_k(b))=0.
 \end{align*}
-Note that this is essentially mimicking Defining \ref{def:free_indep_classical} 
+Note that this is essentially mimicking \Cref{def:free_indep_classical} 
 stating that joint mixed cumulants are zero. 
 \end{definition}
 Compare this to the classical independence:
@@ -2451,8 +2451,8 @@ in commutative or noncommutative setting.
 	\begin{align*}
 		\mu_{a+b}=\mu_a\boxplus\mu_b.
 	\end{align*}
-	As we will see below in Proposition \ref{prop:asymptotically_free}
-	and \S \ref{sub:free_convolution_and_voiculescu_s_algorithm}, working with free convolution 
+	As we will see below in \Cref{prop:asymptotically_free}
+	and \Cref{sub:free_convolution_and_voiculescu_s_algorithm}, working with free convolution 
 	does not require von Neumann algebras.
 \end{definition}
 
@@ -2471,7 +2471,7 @@ An example of a sequence $(\mathcal{A}_N,\tau_N)$ of von Neumann algebras is
 given by random matrices. Take
 $\mathcal{A}_N$ to be the von Neumann algebra of Hermitian
 random matrices with almost surely bounded entries.\footnote{One can also take real symmetric random
-matrices as we did in \S \ref{sec:wigner_s_semicircle_law}. However,
+matrices as we did in \Cref{sec:wigner_s_semicircle_law}. However,
 from now on we will mostly work with Hermitian complex matrices, so we are 
 switching to this setting.}
 Equip each $\mathcal{A}_N$ with a tracial state
@@ -2480,14 +2480,14 @@ Equip each $\mathcal{A}_N$ with a tracial state
 \end{equation*}
 coming from the usual matrix trace. 
 Recall that quantities like $\tau_N(A)$ played a major role in the proof of the
-Wigner's semicircle law in \S \ref{sec:wigner_s_semicircle_law}.
+Wigner's semicircle law in \Cref{sec:wigner_s_semicircle_law}.
 
 \begin{proposition}\label{prop:asymptotically_free}
 	Consider sequences $(A_N), (B_N)$ of $N\times N$ Hermitian random matrices from $\mathcal{A}_N$ with 
 	\begin{align*}
 		L_N(A_N)\to \mu ,\qquad L_N(B_N)\to \nu,
 	\end{align*}
-	as discussed in \S \ref{sub:motivation}. Assume that $\mu$ and $\nu$ are compactly supported.
+	as discussed in \Cref{sub:motivation}. Assume that $\mu$ and $\nu$ are compactly supported.
 	For each $N$, let $U_N$ be the random Haar-distributed unitary matrix 
 	that is independent of $A_N$ and $B_N$. 
 
@@ -2500,7 +2500,7 @@ Wigner's semicircle law in \S \ref{sec:wigner_s_semicircle_law}.
 	and more references.
 \end{proof}
 
-This proposition shows that the abstract definition of the free convolution (Definition \ref{def:free_convolution})
+This proposition shows that the abstract definition of the free convolution (\Cref{def:free_convolution})
 can be realized more concretely using summation of random matrices, one of which is randomly rotated, 
 so that the eigenbases of $A_N$ and $U_NB_NU^*_N$ are in ``completely generic'' position.
 
@@ -2509,7 +2509,7 @@ so that the eigenbases of $A_N$ and $U_NB_NU^*_N$ are in ``completely generic'' 
 \subsection{Semicircle law again} % (fold)
 \label{sub:semicircle_law_again}
 
-Using Proposition \ref{prop:asymptotically_free}, we can give another proof of the 
+Using \Cref{prop:asymptotically_free}, we can give another proof of the 
 Wigner's semicircle law, now for the Gaussian Unitary Ensemble (GUE).
 First, note that a free analogue of the Central Limit theorem
 states that if $X_1,X_2,\ldots$ is a family of free independent 
@@ -2530,7 +2530,7 @@ in the sense that for any $n\ge0$ we have
 \end{equation}
 This is proven using free cumulants exactly in the same way as in
 the proof of the classical Central Limit Theorem using the classical
-cumulants (Theorem \ref{thm:classic_clt}).
+cumulants (\Cref{thm:classic_clt}).
 	
 Let us now sketch a proof of the semicircle law for the Gaussian Hermitian matrices.
 Let $G_N$ be an $N\times N$ GUE random matrix (i.e., an Hermitian random
@@ -2538,7 +2538,7 @@ matrix with iid standard real Gaussians on the diagonal,
 and iid standard complex Gaussians --- with independent
 real and imaginary parts having Gaussian distribution with variance $\frac 12$
 --- above the diagonal). We would like to show that
-$L_N(G_N)\to\SC$ weakly in probability. We have seen in \S \ref{sec:wigner_s_semicircle_law} that
+$L_N(G_N)\to\SC$ weakly in probability. We have seen in \Cref{sec:wigner_s_semicircle_law} that
 for this it is enough to show the convergence of the moments as in \eqref{free_clt_moment_convergence}.
 Let $G_N^{(1)},...,G_N^{(N)}$ be independent copies of $G_N$.
 By the unitary invariance of the GUE (see \Cref{sub:definition_and_basic_properties} below), for 
@@ -2548,7 +2548,7 @@ Furthermore, we clearly have by the Gaussian nature of the elements of the matri
 \begin{align*}
     G_N\stackrel{D}{=}\frac{U_N^{(1)}G_N^{(1)}(U^{(1)}_N)^*+...+U_N^{(N)}G_N^{(N)}(U_N^{(N)})^*}{\sqrt{N}}.
 \end{align*}
-Finally, by Proposition \ref{prop:asymptotically_free},
+Finally, by \Cref{prop:asymptotically_free},
 the summands above are asymptotically free. Thus, by the free CLT,
 $L_N(G_N)$ converges to the semicircle distribution $\SC$. 
 
@@ -2558,7 +2558,7 @@ $L_N(G_N)$ converges to the semicircle distribution $\SC$.
 \label{sub:free_convolution_and_voiculescu_s_algorithm}
 
 Let us now describe the operation of the free convolution $(\mu,\nu)\mapsto \mu\boxplus \nu$
-of Definition \ref{def:free_convolution}
+of \Cref{def:free_convolution}
 (where $\mu$ and $\nu$ are probability distributions on $\mathbb{R}$ with compact
 support) in more concrete terms.
 
@@ -2577,7 +2577,7 @@ and its free cumulant generating function:
 	\end{equation}
 \end{proposition}
 \begin{proof}
-	This is the free analogue of the exponential formula (Proposition \ref{prop:expon_thm}),
+	This is the free analogue of the exponential formula (\Cref{prop:expon_thm}),
 	which can be proven by combinatorial manipulations with generating series.
 	We will not give its proof here.
 \end{proof}
@@ -2600,13 +2600,13 @@ Now, take the \emph{Cauchy transform} (sometimes also called the \emph{Stieltjes
 \end{align*}
 for large enough $|z|$, and similarly for $G_\nu(z)$
 (recall that the measures have finite support).
-Using \eqref{L_K_definitions} and Proposition \ref{prop:free_expon_thm},
+Using \eqref{L_K_definitions} and \Cref{prop:free_expon_thm},
 define
 \begin{align*}
     V_{\mu}(z):=\frac{1}{z}K_{\mu}(z),
 \end{align*}
 and similarly for $\nu$. 
-Proposition \ref{prop:free_expon_thm} readily implies that
+\Cref{prop:free_expon_thm} readily implies that
 the functions $G_\mu$ and $V_\mu$ are mutual inverses:
 \begin{equation}\label{V_G_relation}
 	V_\mu\big(G_\mu(z)\big)=G_\mu\big(V_\mu(z)\big)=z.
@@ -2707,7 +2707,7 @@ However, there is a more direct approach:
 	This completes the proof.
 \end{proof}
 \begin{exercise}
-	Derive a generalization of the inversion formula of Proposition \ref{prop:inverse_Cauchy}
+	Derive a generalization of the inversion formula of \Cref{prop:inverse_Cauchy}
 	in the case when $\mu$ is not necessarily absolutely continuous (but still compactly supported).
 \end{exercise}
 
@@ -2727,7 +2727,7 @@ Note that classical convolution yields
     \mu*\nu=\frac{1}{4}\delta_{-2}+\frac{1}{2}\delta_0+\frac{1}{4}\delta_2.
 \end{align*}
 
-To find $\mu\boxplus\nu$, we follow Voiculescu's Algorithm (Theorem \ref{thm:Voiculescu_algorithm}):
+To find $\mu\boxplus\nu$, we follow Voiculescu's Algorithm (\Cref{thm:Voiculescu_algorithm}):
 \begin{enumerate}
     \item $\displaystyle G(z)=\EE\frac{1}{z-x}=\frac{1}{2}\left(\frac{1}{z+1}+\frac{1}{z-1}\right)=\frac{z}{z^2-1}$.
     \item Solving $\displaystyle z=G(V(z))=\frac{V}{V^2-1}$ yields $zV^2-V-z=0$. So, 
@@ -2747,7 +2747,7 @@ To find $\mu\boxplus\nu$, we follow Voiculescu's Algorithm (Theorem \ref{thm:Voi
     \begin{align*}
         G_{\mu\boxplus\nu}(z)=\frac{1}{\sqrt{z^2-4}}.
     \end{align*}
-    \item From Proposition \ref{prop:inverse_Cauchy}, we see that the probability density $\rho(x)$ for $\mu\boxplus\nu$ is 
+    \item From \Cref{prop:inverse_Cauchy}, we see that the probability density $\rho(x)$ for $\mu\boxplus\nu$ is 
     \begin{align*}
         \rho(x)&=\frac1\pi\lim_{y\to 0^+}Im\left(\frac{1}{\sqrt{(x+iy)^2-4}}\right)\\
         &=
@@ -2757,7 +2757,7 @@ To find $\mu\boxplus\nu$, we follow Voiculescu's Algorithm (Theorem \ref{thm:Voi
         \end{cases}
     \end{align*}
 \end{enumerate}
-This is the \emph{arcsine distribution} (Fig.~\ref{fig:arcsine}). We see that this is quite different from the classical convolution. 
+This is the \emph{arcsine distribution} (\Cref{fig:arcsine}). We see that this is quite different from the classical convolution. 
 \end{example}
 \begin{figure}[htbp]
 	\includegraphics[width=.6\textwidth]{img/arcsine.png}
@@ -2781,7 +2781,7 @@ Classically,
 In the free situation, by computing the R-transform, multiplying it by $N$, 
 and then inverting, show that $\mu_N^{\boxplus N}$ 
 converges to the density $\frac{1}{2\pi\alpha t}\sqrt{4\lambda\alpha^2-(t-\alpha(1+\lambda))^2}$, 
-which is the Marchenko--Pastur distribution (\S \ref{ssub:marchenko_pastur_law})
+which is the Marchenko--Pastur distribution (\Cref{ssub:marchenko_pastur_law})
 under a change of parameters. 
 If $\lambda\le1$, then the limiting distribution is different. Namely, it has an atom of size $1- \lambda$ at $0$,
 and the rest of the mass $\lambda$ is distributed according to the same Marchenko--Pastur law.
@@ -2866,6 +2866,17 @@ then $U A U^{-1}\stackrel{\mathcal D}{=}A$ (equality in distribution).
 
 \subsection{Joint eigenvalue density} % (fold)
 \label{sub:joint_eigenvalue_density}
+
+
+
+
+
+
+
+
+
+
+
 
 % subsection joint_eigenvalue_density (end)
 
