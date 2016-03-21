@@ -33,7 +33,7 @@ Possible reading + talk assignments (please first discuss your choice with me!):
 2. Persi Diaconis, Peter J. Forrester "A. Hurwitz and the origins of random matrix theory in mathematics" [http://arxiv.org/abs/1512.09229](http://arxiv.org/abs/1512.09229): the goal is to figure out and report on one of the computations of the volume of the group O(N) or U(N), and also enjoy the related historical background
 3. Statistics of elliptic curves and free probability (some references are in section 1.6 in [http://arxiv.org/abs/1205.2097](http://arxiv.org/abs/1205.2097))
 4. Examples of determinantal point processes - in particular, uniform spanning trees - a starting point can be section 8 in the survey [http://arxiv.org/abs/0911.1153](http://arxiv.org/abs/0911.1153)
-5. Tridiagonalization of Gaussian unitary matrices
+5. [taken] Tridiagonalization of Gaussian unitary matrices
 6. [taken] Hermite polynomials and orthogonal polynomials in general
 7. Steepest descent method
 8. Something that you can suggest :)
