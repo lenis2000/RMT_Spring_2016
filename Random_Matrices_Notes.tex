@@ -907,8 +907,8 @@ Each edge may be a \emph{self} edge such as $(1,1)$, or it can be an edge \emph{
 With this notation we have
 \begin{equation}\label{WSCL_proof_1}
 	\EE a_{i_1i_2}a_{i_2i_3}\cdots a_{i_{k-1}i_k}a_{i_ki_1}=
-	\prod_{\substack{\textnormal{self $e$}\\e\in G_{i_1\cdots i_ki_1}}}\EE a_{11}^{N_e}
-	\prod_{\substack{\textnormal{connecting $e$}\\ e\in G_{i_1\cdots i_ki_1}}}\EE a_{12}^{N_e},
+	\prod_{\substack{\textnormal{self $e$}\\e\in G_{i_1\ldots i_ki_1}}}\EE a_{11}^{N_e}
+	\prod_{\substack{\textnormal{connecting $e$}\\ e\in G_{i_1\ldots i_ki_1}}}\EE a_{12}^{N_e},
 \end{equation}
 since all diagonal elements are iid, and all the elements above the diagonal are iid.
 Here the product runs over all possible distinct edges in the graph of the word.
@@ -917,9 +917,9 @@ In order for the expectation
 \eqref{WSCL_proof_1} to be nonzero, we must have the following properties:
 \begin{itemize}
 	\item
-	Since $\EE a_{ij}=0$, each edge in $G_{i_1\cdots i_ki_1}$ must have 
+	Since $\EE a_{ij}=0$, each edge in $G_{i_1\ldots i_ki_1}$ must have 
 	$N_e\ge2$..
-	\item The graph $G_{i_1\cdots i_ki_1}$ has $k+1$ edges, and so it can have
+	\item The graph $G_{i_1\ldots i_ki_1}$ has $k+1$ edges, and so it can have
 	at most $1+k/2$ vertices.
 \end{itemize}
 
@@ -2815,7 +2815,7 @@ insights into Free Probability.
 
 % section elements_of_free_probability (end)
 
-\section{Gaussian Unitary Ensemble} % (fold)
+\section{Gaussian Unitary Ensemble and its asymptotic behavior} % (fold)
 \label{sec:gaussian_unitary_ensemble}
 
 \subsection{Definition and basic properties} % (fold)
@@ -2878,7 +2878,7 @@ eigenvalues (which are necessarily real) by $\lambda_1\ge\cdots\ge\lambda_N$.
 
 We will now derive the joint density of eigenvalues of the GUE random matrix:
 
-\begin{theorem}
+\begin{theorem}\label{thm:eigenvalue_density}
   Let $A=A_N\in\mathcal H_N$ have the GUE distribution. 
   Then the joint density of the eigenvalues of $A$ 
   with respect to the Lebesgue measure on $\mathbb{R}^{N}$ is given by
@@ -2896,12 +2896,12 @@ $\dfrac{(2\pi)^{-N/2}}{0! 1!\cdots (N-1)!}$.
   Hermitian $N\times N$ matrices 
   which is unitary invariant, 
   i.e. $f(U A U^*)=f(A)$ for any fixed unitary matrix $U$. 
-  (This implies that $f$ depends only on the eigenvalues $\lambda_1,\cdots, \lambda_N$ of $A$, and 
+  (This implies that $f$ depends only on the eigenvalues $\lambda_1,\ldots, \lambda_N$ of $A$, and 
   moreover, in a symmetric way.) We will show that
-  \begin{equation*}
-    \int_{\mathcal H_N}f(A) dA=\mathrm{const}_N\int_{\mathbb{R}^N} f(\lambda_1,\cdots, \lambda_N) 
+  \begin{equation}\label{radial_part_Lebesgue_unitary}
+    \int_{\mathcal H_N}f(A) dA=\mathrm{const}_N\int_{\mathbb{R}^N} f(\lambda_1,\ldots, \lambda_N) 
     \prod_{i<j} |\lambda_i-\lambda_j|^2 ~ d\lambda_1\cdots d\lambda_N,
-  \end{equation*}
+  \end{equation}
   where both integrals are with respect to the corresponding Lebesgue measures. 
   In other words, we aim to find
   the Jacobian of the transformation mapping from $A$ to the set of its eigenvalues.
@@ -2919,58 +2919,229 @@ $\dfrac{(2\pi)^{-N/2}}{0! 1!\cdots (N-1)!}$.
 	space of $N\times N$ Hermitian matrices.
   \end{example}
 
-  %%%
-  %%%
-  %%%
-  %%%
-  
-  Consider $\mathcal H_N$ as a space with an action of $U(N)$: $A\mapsto UAU^*$. A typical $A\in \mathcal H_N$ can be written as $U \Lambda U^*$, where $\Lambda$ is the diagonal matrix of eigenvalues of $A$. Perform a change of variables 
+  Continuing with the proof,
+  view $\mathcal H_N$ as a space with an action of the unitary group $U(N)$ by conjugations: $A\mapsto UAU^*$. 
+  A typical matrix\footnote{That is, almost every matrix with 
+  respect to the GUE (or, equivalently, the Lebesgue) measure on $\mathcal H_N$.}
+  $A\in \mathcal H_N$ can be written as $U \Lambda U^*$, where $\Lambda$ is the diagonal matrix of eigenvalues of $A$. 
+  This gives rise to a change of variables 
   \begin{equation*}
     A \leftrightarrow (\vec{\lambda}, \dot{U}),
   \end{equation*}
-  where $\vec{\lambda}$ is the vector of eigenvalues and $\dot{U}=U \mod T$, $T$ the torus of diagonal matrices, which stabilize $\vec{\lambda}$. The matrix $\dot{U}$ represents the rotation to the eigenbasis of $A$.
+  where $\vec{\lambda}$ is the vector of eigenvalues and $\dot{U}=U \mod T$, 
+  where $T$ is the torus of diagonal matrices 
+  which stabilize $\vec{\lambda}$. The matrix $\dot{U}$ represents the rotation to the eigenbasis of $A$.
   
-  The Jacobian is $dA=(?) d\vec{\lambda} d \dot{U}$, where $d\dot{U}$ is Haar measure. We note that the Jacobian is independent of $U$ since Lebesuge measure is rotationally invariant.
+  The Jacobian we aim to compute is $dA=(?) d\vec{\lambda} d \dot{U}$, where $d\dot{U}$ is Haar measure. 
+  We note that the Jacobian must be independent of $U$ since the Lebesgue measure is rotationally invariant.
   
-  So we can take $U=1+X$, $X$ ``small''. Then $U^*=U^{-1}=1-X+$ small order terms. Since $A=U\Lambda U^*$, 
+  Let us write $U=1+X$ where $X$ is ``small''. In other words,
+  we are applying a Lie algebraic perspective. Since $U$ is unitary, the 
+  matrix $X$ must be skew-Hermitian: $X+X^*=0$.
+  This leaves $N^{2}$ real parameters in $X$ (which corresponds to the well-known
+  fact that $U(N)$ is $N^{2}$-dimensional over $\mathbb{R}$).
+  Then $U^*=U^{-1}=1-X+\textnormal{smaller order terms}$. 
+  Since $A=U\Lambda U^*$, we can write
   \begin{equation*}
-    A+dA=(1+X)(\Lambda+d\Lambda)(1-X)=\Lambda+d\Lambda+X\Lambda-\Lambda X+ \text{ small terms}.
+    A+dA=(1+X)(\Lambda+d\Lambda)(1-X)=\Lambda+d\Lambda+X\Lambda-\Lambda X+\textnormal{smaller order terms}.
   \end{equation*}
-  Hence
+  Hence small changes in diagonal terms in $A$
+  are 
+  \begin{equation*}
+  	d a_{ii} = d\lambda_i,
+  \end{equation*}
+  while small changes in the off-diagonal terms have the form (here $j< k$)
   \begin{align*}
-    d a_{jk} &= x_{jk}\lambda_k-\lambda_j x_{jk}=(\lambda_k-\lambda_j)x_{jk} \\
-    d a_{ii} &= d\lambda_i.
+    d a_{jk} = x_{jk}\lambda_k-\lambda_j x_{jk}=(\lambda_k-\lambda_j)x_{jk}.
   \end{align*}
-  The $x_{jk}$ are distributed according to Haar measure. Thus 
-  \begin{equation*}
-    dA=\prod d\lambda_{i} \prod_{j<k} d x_{jk} \prod_{j<k} |\lambda_j-\lambda_k|^2,
-  \end{equation*}
-  so the Jacobian is $\prod_{j<k} |\lambda_j-\lambda_k|^2$.
+  Since both $da_{jk}$ and $x_{jk}$ are complex, the contribution 
+  $(\lambda_k-\lambda_j)$ affects both 
+  $da_{jk}^{\Re}$ and $da_{jk}^{\Im}$, so overall we see that the 
+  the Jacobian is $\prod_{j<k} |\lambda_j-\lambda_k|^2$.
   
-  The theorem then follows from using $f(A)=e^{-\frac{1}{2} \mathrm{tr}(A^2)}$.
+  The theorem then follows from \eqref{radial_part_Lebesgue_unitary}
+  by setting $f(A)=e^{-\frac{1}{2} \mathrm{tr}(A^2)}$.
 \end{proof}
 
-
-
-
-
-
-
-
-
-
 % subsection joint_eigenvalue_density (end)
+
+\subsection{Examples of other random matrix ensembles with explicit eigenvalue density} % (fold)
+\label{sub:other_gaussian_ensembles}
+
+The eigenvalue density result of \Cref{thm:eigenvalue_density} opens a way to generalize the Gaussian
+Unitary Ensemble in several directions.
+We can express the joint eigenvalue density of a GUE using the Vandermonde determinant
+\begin{equation*}
+  V(\lambda)=\prod_{i<j} |\lambda_i-\lambda_j|.
+\end{equation*}
+\begin{exercise}
+  Show that $V(\lambda)=\pm \det [\lambda_i^{j-1}]_{i,j=1}^N.$
+\end{exercise}
+The density of eigenvalues of \Cref{thm:eigenvalue_density}
+is 
+\begin{equation*}
+  C_N^{GUE} V(\lambda)^2 \prod_{i=1}^N e^{-\frac{1}{2}\lambda_i^2}.
+\end{equation*}
+
+\subsubsection{Beta ensembles} % (fold)
+\label{ssub:beta_ensembles}
+
+Certain other Gaussian random matrix ensembles 
+defined similarly to the GUE
+have eigenvalue densities also involving $V(\lambda)$.
+
+Recall that a real symmetric matrix $A$ has 
+Gaussian Orthogonal Ensemble (GOE) distribution 
+if $a_{ii}\sim N(0,2)$ and $a_{ij}=a_{ji}\sim N(0,1)$ for $i<j$. Then the GOE eigenvalue density is 
+\begin{equation*}
+  C_N^{GOE} |V(\lambda)|\prod_{i=1}^N e^{-\lambda_i^2/4}
+\end{equation*}
+with respect to the Lebesgue measure on $\mathbb{R}^{N}$.
+
+The powers of $V(\lambda)$ can be generalized, leading to Gaussian $\beta$ Ensembles (G$\beta$E), 
+with eigenvalue density (with respect to Lebesgue measure) given by
+\begin{equation}\label{beta_ensemble}
+  C_N^{\beta} |V(\lambda)|^{\beta} \prod_{i=1}^N e^{-(\lambda_i^2/4)\beta}.
+\end{equation}
+For certain special values of $\beta$ the above density
+is a probability density of eigenvalues of random matrices:
+\begin{equation*}
+	\begin{tabular}{ccc}
+	  $\beta=1$ & GOE & $\mathbb{R}$ \\
+	  $\beta=2$ & GUE & $\mathbb{C}$ \\
+	  $\beta=4$ & G Symplectic E (GSE) & $\mathbb{H}$
+	\end{tabular}
+\end{equation*}
+(We will not define the GSE here --- see, for example, \cite{mehta2004random}.)
+No other values of $\beta$ correspond to similar invariant random matrix ensembles. 
+However, there are still ways to study general G$\beta$E. In fact, the spectral distributions
+of these ensembles still converge to the Wigner semicircle law (but the local limiting distributions
+are substantially different).
+
+One way to treat the Gaussian $\beta$ ensembles is to introduce a completely different
+random matrix model for the spectral distribution \eqref{beta_ensemble}.
+This was first observed in 
+\cite{dumitriu2002matrix} by applying the standard tridiagonalization procedure from
+linear algebra to Gaussian random matrices, and reading off the corresponding distributions.
+This tridiagonal matrix ensemble for G$\beta$E looks as follows. 
+Let $\chi_t$ be a $\chi$ random variable of parameter $t$, that is, with density 
+\begin{equation*}
+  \frac{2^{1-t/2} x^{t-1} e^{-x^2/2}}{\Gamma(t/2)}
+\end{equation*}
+on the real line.
+Let $y_i \sim \chi_{i\beta}$, $\xi_i\sim N(0,1)$ be independent random variables. Then the tridiagonal ensemble 
+\begin{equation*}
+  A_N^\beta=\begin{bmatrix}
+    \sqrt{\frac{2}{\beta}}\xi_1 & y_{N-1}/\sqrt{\beta} &  \dots & 0 \\
+    y_{N-1}/\sqrt{\beta} & \sqrt{\frac{2}{\beta}}\xi_2 & \ddots &  \vdots \\
+    \vdots & \ddots & \ddots &   y_{1}/\sqrt{\beta} \\
+    0 & \dots & y_{1}/\sqrt{\beta} & \sqrt{\frac{2}{\beta}} \xi_N 
+  \end{bmatrix}
+\end{equation*}
+has the eigenvalue density G$\beta$E.
+
+One can view the above matrix $A_N^\beta$ as a linear operator, in this case it will be a 
+\emph{random difference operator}.
+As $N\to \infty$ it converges to a random differential operator. This analysis is performed in,
+e.g., \cite{RamirezRiderVirag2006RandomAiry}.
+
+\begin{remark}
+  Eigenvalue densities are also accessible for Gaussian random matrices without Hermitian or real symmetry. 
+  That is, if the elements of a random matrix
+  $a_{ij}\sim N(0,1)$ are i.i.d. for all $i,j$, then the spectrum
+  of this matrix (which is complex)
+  is the so-called Ginibre ensemble. The limiting spectral distribution
+  in this case is uniform on the unit disc in the complex plane. This result
+  is known under the name \emph{Girko's Circular Law}.
+\end{remark}
+
+% subsubsection beta_ensembles (end)
+
+\subsubsection{Circular ensembles} % (fold)
+\label{ssub:circular_ensembles}
+
+Another example is the Circular Dyson's ensemble (CUE) of random matrices.
+Consider the Haar measure $\mu$ on the compact group of unitary matrices $U(N)$. This measure is shift invariant, i.e.
+\begin{equation*}
+  \forall \mathcal{A}\subseteq U(N),\ \forall V\in U(N),\qquad \mu(V\mathcal{A})=\mu(\mathcal{A}V)=\mu(\mathcal{A}),
+\end{equation*}
+and is normalized so $\mu(U(N))=1$.
+
+The eigenvalues of a random matrix $U_N\in U(N)$ lie on the unit circle, so they are of the form $e^{i\theta_k}, k=1,\ldots, N$. The joint density of the eigenvalues is 
+\begin{equation*}
+  C_N^{CUE} \prod_{k<j} |e^{i\theta_k}-e^{i\theta_j}|^2
+\end{equation*}
+with respect to the Lebesgue measure on the $N$-dimensional torus $\{|z|=1\}^N$. 
+This ensemble does not have any edge behavior, so we will not consider it. 
+The local (bulk) distribution in the CUE case is similar to that of the Gaussian Unitary Ensemble
+with real eigenvalues.
+
+It is also possible to define general $\beta$ CUE ensembles by changing the power of the Vandermonde determinant.
+
+
+% subsubsection circular_ensembles (end)
+
+\subsubsection{Invariant ensembles} % (fold)
+\label{ssub:invariant_ensembles}
+
+\note{log-gas interpretation of the eigenvalue density, and invariant ensembles --- to be filled in here}
+
+% subsubsection invariant_ensembles (end)
+
+% subsection other_gaussian_ensembles (end)
+
+\lect{2/10/2016}
+
+\subsection{Determinantal structure of the GUE} % (fold)
+\label{sub:determinantal_structure_of_the_gue}
+
+% subsection determinantal_structure_of_the_gue (end)
+
+\subsection{Hermite polynomials} % (fold)
+\label{sub:hermite_polynomials}
+
+% subsection hermite_polynomials (end)
+
+\subsection{Non-rigorous asymptotics via spectral projections} % (fold)
+\label{sub:non_rigorous_asymptotics_using_operator_approach}
+
+% subsection non_rigorous_asymptotics_using_operator_approach (end)
+
+\subsection{Rigorous asymptotics via contour integrals} % (fold)
+\label{sub:rigorous_asymptotics_via_contour_integrals}
+
+% subsection rigorous_asymptotics_via_contour_integrals (end)
+
+\subsection{Edge asymptotics and the Tracy--Widom distribution} % (fold)
+\label{sub:edge_asymptotics_and_the_tracy_widom_distribution}
+
+% subsection edge_asymptotics_and_the_tracy_widom_distribution (end)
 
 \subsection{Notes and references} % (fold)
 \label{sub:notes_GUE}
 
-{\ }
+The material in \Cref{sec:gaussian_unitary_ensemble} represents a classical 
+chapter in random matrix theory. 
+The Gaussian Unitary Ensemble is a random matrix ensemble for which all the computations
+can be carried out explicitly. 
+\Cref{sub:non_rigorous_asymptotics_using_operator_approach}
+closely follows the book \cite{TaoRMbook}.
+
+The asymptotic results for the GUE presented here
+should be \emph{universal} --- that is,
+they should not depend on the concrete structure of the 
+ensemble and hold in much greater generality. 
+Getting such universal results for random matrices 
+is an important ongoing program, see, e.g.,
+\cite{Johansson2001Universality}, \cite{tao2011univ},
+\cite{TaoVu2012Survey}, \cite{erdHos2011universality}.
+Addressing some universality results is the next big goal of the course.
 
 % subsection notes_GUE (end)
 
 % section gaussian_unitary_ensemble (end)
 
-\lect{2/10/2016}
+
 
 
 
