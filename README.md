@@ -35,7 +35,7 @@ Possible reading + talk assignments (please first discuss your choice with me!):
 4. Examples of determinantal point processes - in particular, uniform spanning trees - a starting point can be section 8 in the survey [http://arxiv.org/abs/0911.1153](http://arxiv.org/abs/0911.1153)
 5. [taken] Tridiagonalization of Gaussian unitary matrices
 6. [taken] Hermite polynomials and orthogonal polynomials in general
-7. Steepest descent method
+7. [taken] Steepest descent method
 8. Something that you can suggest :)
 
 -----
