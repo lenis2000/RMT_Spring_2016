@@ -27,6 +27,7 @@
 \DeclareMathOperator{\EE}{\mathbb{E}}
 \DeclareMathOperator{\VAR}{\mathrm{Var}}
 \DeclareMathOperator{\PP}{\mathbb{P}}
+\newcommand{\Det}{\mathop{\mathrm{det}}\limits}
 
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2828,8 +2829,8 @@ Recall that by $\mathcal H_N$ we denote the set of $N \times N$ Hermitian matric
   a probability distribution on $\mathcal H_N$, and the law of 
   a random matrix $A=(a_{ij})_{i,j=1}^N\in\mathcal H_N$ is described as follows:
   \begin{itemize}
-    \item $a_{ii} \sim \mathcal N(0,1)$ for each $i$.
-    \item $a_{ij}=\overline{a}_{ji}\sim \mathcal N(0,1/2)+ \sqrt{-1}\, \mathcal N(0,1/2)$ for $i<j$.
+    \item $a_{ii} \sim \mathcal{N}(0,1)$ for each $i$.
+    \item $a_{ij}=\overline{a}_{ji}\sim \mathcal{N}(0,1/2)+ \sqrt{-1}\, \mathcal{N}(0,1/2)$ for $i<j$.
   \end{itemize}
   All real normal random variables involved above are assumed to be independent.
   Note that $\EE a_{ij}=0$ for all $i,j$.
@@ -2887,8 +2888,9 @@ We will now derive the joint density of eigenvalues of the GUE random matrix:
   \end{equation*}
 \end{theorem}
 We will not compute the value of the normalization
-constant $C_N$ right now, but later in \Cref{} we will see that it is equal to 
-$\dfrac{(2\pi)^{-N/2}}{0! 1!\cdots (N-1)!}$.
+constant $C_N$ right now, but later in \Cref{sub:determinantal_structure_of_the_gue} we will see that it is equal to 
+$\dfrac{(2\pi)^{-N/2}}{0! 1!\cdots (N-1)!N!}$ (see also \Cref{rmk:ordering} below
+on a slight ambiguity in the value of this normalization constant).
 \begin{proof}
   We will in fact prove a more general result.
   Namely,
@@ -2965,7 +2967,7 @@ $\dfrac{(2\pi)^{-N/2}}{0! 1!\cdots (N-1)!}$.
 
 % subsection joint_eigenvalue_density (end)
 
-\subsection{Examples of other random matrix ensembles with explicit eigenvalue density} % (fold)
+\subsection{Other random matrix ensembles with explicit eigenvalue density} % (fold)
 \label{sub:other_gaussian_ensembles}
 
 The eigenvalue density result of \Cref{thm:eigenvalue_density} opens a way to generalize the Gaussian
@@ -2975,7 +2977,7 @@ We can express the joint eigenvalue density of a GUE using the Vandermonde deter
   V(\lambda)=\prod_{i<j} |\lambda_i-\lambda_j|.
 \end{equation*}
 \begin{exercise}
-  Show that $V(\lambda)=\pm \det [\lambda_i^{j-1}]_{i,j=1}^N.$
+  Show that $V(\lambda)=\pm \Det_{i,j=1}^{N} \lambda_i^{j-1}.$
 \end{exercise}
 The density of eigenvalues of \Cref{thm:eigenvalue_density}
 is 
@@ -2992,7 +2994,7 @@ have eigenvalue densities also involving $V(\lambda)$.
 
 Recall that a real symmetric matrix $A$ has 
 Gaussian Orthogonal Ensemble (GOE) distribution 
-if $a_{ii}\sim N(0,2)$ and $a_{ij}=a_{ji}\sim N(0,1)$ for $i<j$. Then the GOE eigenvalue density is 
+if $a_{ii}\sim \mathcal{N}(0,2)$ and $a_{ij}=a_{ji}\sim \mathcal{N}(0,1)$ for $i<j$. Then the GOE eigenvalue density is 
 \begin{equation*}
   C_N^{GOE} |V(\lambda)|\prod_{i=1}^N e^{-\lambda_i^2/4}
 \end{equation*}
@@ -3029,7 +3031,7 @@ Let $\chi_t$ be a $\chi$ random variable of parameter $t$, that is, with density
   \frac{2^{1-t/2} x^{t-1} e^{-x^2/2}}{\Gamma(t/2)}
 \end{equation*}
 on the real line.
-Let $y_i \sim \chi_{i\beta}$, $\xi_i\sim N(0,1)$ be independent random variables. Then the tridiagonal ensemble 
+Let $y_i \sim \chi_{i\beta}$, $\xi_i\sim \mathcal{N}(0,1)$ be independent random variables. Then the tridiagonal ensemble 
 \begin{equation*}
   A_N^\beta=\begin{bmatrix}
     \sqrt{\frac{2}{\beta}}\xi_1 & y_{N-1}/\sqrt{\beta} &  \dots & 0 \\
@@ -3048,7 +3050,7 @@ e.g., \cite{RamirezRiderVirag2006RandomAiry}.
 \begin{remark}
   Eigenvalue densities are also accessible for Gaussian random matrices without Hermitian or real symmetry. 
   That is, if the elements of a random matrix
-  $a_{ij}\sim N(0,1)$ are i.i.d. for all $i,j$, then the spectrum
+  $a_{ij}\sim \mathcal{N}(0,1)$ are i.i.d. for all $i,j$, then the spectrum
   of this matrix (which is complex)
   is the so-called Ginibre ensemble. The limiting spectral distribution
   in this case is uniform on the unit disc in the complex plane. This result
@@ -3094,32 +3096,281 @@ It is also possible to define general $\beta$ CUE ensembles by changing the powe
 
 \subsection{Determinantal structure of the GUE} % (fold)
 \label{sub:determinantal_structure_of_the_gue}
+We now return to the GUE case, and investigate 
+its joint eigenvalue density in more detail. 
+
+\subsubsection{Correlation functions} % (fold)
+\label{ssub:correlation_functions}
+
+Recall that the GUE joint probability density 
+with respect to the Lebesgue measure has the form
+$C_N V(x)^2 \prod_{i=1}^{N} e^{-x_i^2/2}$,
+where $V(x)$ is the Vandermonde determinant.
+\begin{remark}\label{rmk:ordering}
+	Note that the joint GUE eigenvalue density is invariant under permutations
+	of the $x_i$'s, which creates an ambiguity on which space one should consider the 
+	density --- the whole $\mathbb{R}^{N}$ or the ordered cone 
+	$\mathbb{W}^{N}:=\{x_1\ge \ldots\ge x_N\}\subset\mathbb{R}^{N}$?\footnote{The space
+	$\mathbb{W}^{N}$ is sometimes also called the \emph{Weyl chamber}.} 
+	The difference between these choices leads to an additional factor of $N!$ in the normalization
+	constant $C_N$.
+	Here we will adopt the first 
+	convention, and will think of the argument in 
+	the joint density as an element of $\mathbb{R}^{N}$.
+\end{remark}
+According to \Cref{rmk:ordering}, the joint probability density of eigenvalues
+of the GUE matrix has the form
+\begin{equation}\label{GUE_density}
+	\tilde \rho_N(x_1,\ldots,x_N)=C_N \prod_{1\le i<j\le N}|x_i-x_j|^{2} \prod_{i=1}^{N} e^{-x_i^2/2},\qquad
+	x=(x_1,\ldots,x_N)\in\mathbb{R}^{N}.
+\end{equation}
+
+\begin{definition}
+  The function $\rho_k:\mathbb{W}^k\to \mathbb{R}$, 
+  where $\rho_k(y_1,\dots, y_k)$ is the probability density (with respect to the Lebesgue measure on 
+  the space $\mathbb{W}^{k}$ of $k$-point configurations)
+  to find eigenvalues close to $y_1,\cdots, y_k$, 
+  is called the $k$th \emph{correlation function}.
+
+  Note that the argument of the correlation function $\rho_k$ 
+  is a point configuration and not an element of $\mathbb{R}^{k}$.
+  The arguments in the correlation function must be distinct, otherwise
+  it vanishes by agreement.
+\end{definition}
+\begin{example}
+  The first correlation function
+  $\rho_1(y_1)$ is called the \emph{density function}; it may be used to get the semicircle law.
+\end{example}
+\begin{remark}
+	The correlation function $\rho_k$
+	is not necessarily a probability density function, because it does not necessarily integrate to 1.
+	For example, 
+	$\int_{a}^{b}\rho_{1}(y_1)dy_1$ is the expected number of eigenvalues
+	in the segment $[a,b]$.
+\end{remark}
+
+
+We can compute $\rho_k(y_1,\cdots, y_k)$ as follows:
+\begin{equation*}
+  \rho_k(y_1,\cdots, y_k)=\int_{\mathbb{R}^{N-k}} \frac{N!}{(N-k)!} 
+  \,\tilde \rho_N(y_1,\cdots, y_k, x_{k+1}, \cdots, x_N) dx_{k+1}\cdots dx_N.
+\end{equation*}
+In particular, $\rho_N(x_1,\ldots,x_N)=N!\, \tilde \rho_N(x_1,\ldots,x_N)$
+for $(x_1,\ldots,x_N)\in\mathbb{W}^{N}$, which makes sense
+because $(x_1,\ldots,x_N)$ in the left-hand side is a point configuration, and 
+to get $\rho_N(x_1,\ldots,x_N)$ one should sum the values of $\tilde \rho_N$
+over all permutations.
+
+We will now work towards showing that the correlation functions 
+$\rho_k$ are given by $k\times k$ determinants of a certain form.
+
+% subsubsection correlation_functions (end)
+
+\subsubsection{Determinantal point processes and biorthogonal ensembles} % (fold)
+\label{ssub:determinantal_point_processes}
+
+By a \emph{point process} (say, on $\mathbb{R}$) we mean a probability measure on the 
+space of point configurations on $\mathbb{R}$. In this
+way the eigenvalues of the GUE random matrix form a point process on $\mathbb{R}$
+(which has $N$ points almost surely).
+
+\begin{definition}\label{def:}
+  If there exists a function $K(x,y)$ such that 
+  for any $k$ and any pairwise distinct $y_1,\ldots,y_k$ one has
+  $\rho_k(y_1,\ldots,y_k)=\Det_{i,j=1}^{k}K(y_i,y_j)$,
+  then the point process is called \emph{determinantal}.
+\end{definition}
+
+We will now obtain a formal statement showing that certain probability distributions
+on $N$-point configurations are determinantal, and will compute the corresponding
+correlation kernels. 
+Let $(\mathfrak{X},\mu)$ be a ``sufficiently nice'' space with a probability measure.
+Define a distribution on the space of $N$-point configurations on $\mathfrak{X}$:
+\begin{equation}\label{biorthogonal_ensemble}
+  P(dx_1\cdots dx_N)=C_N \Det_{i,j=1}^{N}\phi_i(x_j)\cdot \Det_{i,j=1}^{N}\psi_i(x_j)\cdot \mu(dx_1)\cdots\mu(dx_N),
+\end{equation}
+where $\phi_1,\ldots,\phi_N$ and $\psi_1,\ldots,\psi_N$ are fixed functions on $\mathfrak{X}$
+and
+$C_N$ is the normalization constant.
+\begin{example}
+	For example, if $\mathfrak{X}=\mathbb{R}$,
+	$\mu$ is the standard normal distribution, and 
+	$\phi_i(x)=\psi_i(x)=x^{i-1}$, 
+	then the measure \eqref{biorthogonal_ensemble} corresponds to the GUE spectrum.
+\end{example}
+
+We will now proceed to the computation of the correlation kernel of the 
+point process \eqref{biorthogonal_ensemble}.
+
+\textbf{Step 1.}
+Set $G_{ij}=\int_{\mathfrak{X}} \phi_i(x)\psi_j(x) \mu(dx)$. The matrix $G=[G_{ij}]_{i,j=1}^N$ is 
+sometimes called the ``Gram matrix''. Then 
+\begin{align*}
+  \frac{1}{C_N} &= \idotsint \Det_{i,j=1}^{N}\phi_i(x_j) \Det_{i,j=1}^{N}\psi_i(x_j) \mu(\vec{dx}) \\
+  &= \sum_{\sigma, \tau\in S_N} (-1)^{\sigma} (-1)^{\tau} \prod_{i=1}^N \int_{\mathfrak{X}} \phi_{\sigma(i)}(x_i) \psi_{\tau(i)}(x_i) \mu(dx_i) \\
+  &= \sum_{\sigma, \tau\in S_N} (-1)^{\sigma} (-1)^{\tau} \prod_{i=1}^N G_{\sigma(i)\tau(i)} \\
+  &= N! \det[G].
+\end{align*}
+Above we have expanded the determinants
+as summations over the symmetric group $S_N$,
+and rewrote the result as a new determinant.
+The above computation implies that $G$ is invertible. 
+
+\textbf{Step 2.} Let us now compute the correlation functions
+\begin{equation*}
+  \rho_k(x_1,\cdots, x_k)=\frac{N!}{(N-k)!}
+  \idotsint_{\mathfrak{X}^{N-k}} 
+  \Det_{i,j=1}^{N}\phi_i(x_j)\Det_{i,j=1}^{N}\psi_i(x_j) \frac{\mu(dx_{k+1})\ldots
+  \mu(dx_N)}{N!\det[G]}.
+\end{equation*}
+Since $G$ is invertible, there exist $N\times N$
+matrices $A, B$ such that $AGB^T=1$.\footnote{Note that
+their choice is not unique,
+which can be helpful in some applications.} 
+Define $\Phi_k=\sum_{l=1}^{N} A_{kl}\phi_l$ and $\Psi_k=\sum_{l=1}^{N} B_{kl}\psi_l$. Then clearly
+\begin{equation}\label{biorthogonality}
+  \int_{\mathfrak{X}}\Phi_k(x)\Psi_l(x)\mu(dx)=\delta_{kl},
+\end{equation}
+that is, the functions $\Phi_k$ and $\Psi_l$ form a \emph{biorthogonal family}.
+For this reason the probability distribution \eqref{biorthogonal_ensemble}
+is sometimes referred to as the \emph{biorthogonal ensemble}.
+
+Using these biorthogonal functions, the measure \eqref{biorthogonal_ensemble} takes the form
+\begin{equation*}
+  P(dx_1,\ldots,dx_N)=\frac{1}{N!} \Det_{i,j=1}^{N}\Phi_i(x_j)\cdot \Det_{i,j=1}^{N}\Psi_i(x_j)\cdot \mu(dx_1)\ldots\mu(dx_N).
+\end{equation*}
+
+\textbf{Step 3.}
+Thus, the correlation functions have the form
+\begin{equation*}
+  \rho_n(x_1,\cdots, x_n)=\frac{1}{(N-n)!}\idotsint_{\mathfrak{X}^{N-n}} 
+  \sum_{\sigma, \tau\in S_N} (-1)^{\sigma}(-1)^{\tau} 
+  \bigg(\prod_{i=1}^N \Phi_{\sigma(i)}(x_i)\Psi_{\tau(i)}(x_i)\bigg)
+  \mu(dx_{k+1})\ldots\mu(dx_N).
+\end{equation*}
+By the biorthogonality, nonzero terms in the above sum must have $\sigma(k)=\tau(k)$, $k=n+1,\cdots, N$, so
+\begin{equation}
+  \rho_n(x_{n+1},\cdots, x_N) = \frac{1}{(N-n)!} \sum_{1\leq j_1\leq\cdots\leq j_n\leq N} \det[\Phi_{x_1,\cdots, x_n}^{j_1,\cdots, j_n}] \det[\Psi_{x_1,\cdots, x_n}^{j_1,\cdots, j_n}] 
+  = \Det_{i,j=1}^{n}\bigg[\sum_{k=1}^N \Phi_k(x_i) \Psi_k(x_j)\bigg].
+  \label{Final_computation_of_corr_kernel}
+\end{equation}
+We now explain these two equalities and the notation. 
+By $\Phi_{x_1,\cdots, x_n}^{j_1,\cdots, j_n}$ 
+we mean the $n$ by $n$ matrix consisting of the 
+intersection of the first $n$ rows of $[\Phi_j(x_i)]$ 
+and the $n$ columns corresponding to $j_1,\cdots, j_n$,
+and similarly for $\Psi_{x_1,\cdots, x_n}^{j_1,\cdots, j_n}$.
+The first equality follows by the biorthogonality \eqref{biorthogonality}, and 
+to obtain the second equality we have used the \emph{Cauchy-Binet formula} from the next proposition.
+
+\begin{proposition}[Cauchy-Binet formula]
+	Let $A$ be an $m\times n$ matrix 
+	and $B$ an $n\times m$ matrix. 
+	If $J\subseteq \{1,\cdots, n\}$ has size $m$, 
+	let $A_J$ be the $m\times m$ submatrix of $A$ 
+	with columns from $J$, and let $B_J$ be the $m\times m$ submatrix of $B$ with rows from $J$. Then
+	\begin{equation*}
+	  \det(AB)=\sum_{J\subseteq \{1,\cdots, n\}\colon|J|=m} \det(A_J) \det(B_J).
+	\end{equation*}
+\end{proposition}
+
+\textbf{Step 4.}
+The computation \eqref{Final_computation_of_corr_kernel}
+implies that the point process
+\eqref{biorthogonal_ensemble} is determinantal with the correlation kernel
+$K(x,y)=\sum \Phi_k(x) \Psi_k(y)$. As written, it depends on the choice of $A$ and $B$,
+but one can rewrite it in the form
+\begin{equation}\label{biorthogonal_ensemble_kernel}
+	K(x,y)=\sum_{i,j=1}^N [G^{-1}]_{ji}\, \phi_i(x) \psi_j(y)
+	=\sum_{i,j=1}^N [G^{{}-{}\textnormal{transpose}}]_{ij}\, \phi_i(x) \psi_j(y),
+\end{equation}
+so the kernel is in fact independent of the choice of $A$ and $B$.
+
+\begin{remark}\label{rmk:reference_measure}
+	In this general setting, the correlation functions 
+	$\rho_k(y_1,\ldots,y_k)$ are defined with respect to the \emph{reference measure}
+	$\mu$
+	on $\mathfrak{X}$.
+	That is,
+	$\rho_k(y_1,\ldots,y_k)\mu(dy_1)\ldots\mu(dy_k)$ is the infinitesimal probability
+	to find particles from the point process around the locations
+	$y_1,\ldots,y_k$.
+	Therefore, the kernel $K(x,y)$ is also defined with respect to the same reference measure.
+	Later, when talking about scaling limits of correlation kernels, 
+	an appropriate object would be 
+	\begin{equation}\label{reference_measure_invariant_form}
+		K(x,y)\sqrt{\mu(dx)\mu(dy)},
+	\end{equation}
+	or, in other words, an integral operator in $L^2(\mu)$.
+\end{remark}
+
+% subsubsection determinantal_point_processes (end)
+
+\subsubsection{Correlation kernel for the GUE} % (fold)
+\label{ssub:correlation_kernel_for_the_gue}
+
+Applying the computation of \Cref{ssub:determinantal_point_processes}
+to the GUE setting, we let 
+$\mu(dx)=\frac{1}{\sqrt{2\pi}}e^{-x^2/2}$ be the standard $\mathcal{N}(0,1)$ distribution,
+and $\phi_i(x)=\psi_i(x)=x^{i-1}$ be the power functions. 
+To get a formula for the correlation
+kernel of the GUE, let us orthogonalize the powers $x^{i-1}$ with respect to the weight $e^{-x^2/2}$. We have
+\begin{equation}\label{GUE_via_Hermite}
+  P_{GUE}(dx_1,\cdots, dx_N)=
+  \frac{1}{N!}
+  \Big(\Det_{i,j=1}^{N}H_{i-1}(x_j)\Big)^2 \mu(dx_1)\cdots\mu(dx_N),
+\end{equation}
+where the $H_i$'s are orthogonal polynomials called the \emph{Hermite polynomials}:
+\begin{equation*}
+  \int H_k(x) H_l(x) \mu(dx)=\delta_{kl},\qquad k,l=0,\ldots,N-1.
+\end{equation*}
+
+We have thus established the following result:
+\begin{theorem}\label{thm:GUE_kernel}
+	The random point process \eqref{GUE_density}, \eqref{GUE_via_Hermite}
+	corresponding to the GUE eigenvalues is determinantal, with the correlation
+	kernel (with respect to the standard normal
+	reference measure, cf. \Cref{rmk:reference_measure})
+	\begin{equation}
+		K_N(x,y)=\sum_{j=0}^{N-1}H_j(x)H_j(y).
+	\end{equation}
+\end{theorem}
+
+The asymptotics of the kernel $K_N$ determine the asymptotics of the GUE eigenvalues.
+
+% subsubsection correlation_kernel_for_the_gue (end)
 
 % subsection determinantal_structure_of_the_gue (end)
 
-\subsection{Hermite polynomials} % (fold)
-\label{sub:hermite_polynomials}
-
 {\ }\\\lect{2/17/2016}
-
-% subsection hermite_polynomials (end)
 
 \subsection{Non-rigorous asymptotics via spectral projections} % (fold)
 \label{sub:non_rigorous_asymptotics_using_operator_approach}
+
+\note{put all stuff about Hermite polynomials in \Cref{sub:hermite_polynomials}, and reference it here}
 
 % subsection non_rigorous_asymptotics_using_operator_approach (end)
 
 {\ }\\\lect{3/14/2016}
 
+\subsection{Hermite polynomials} % (fold)
+\label{sub:hermite_polynomials}
+
+% subsection hermite_polynomials (end)
+
 {\ }\\\lect{3/16/2016}
 
-\subsection{Rigorous asymptotics via contour integrals} % (fold)
+\subsection{Rigorous asymptotics via contour integrals (Plancherel--Rotach asymptotics)} % (fold)
 \label{sub:rigorous_asymptotics_via_contour_integrals}
+
+\cite{Plancherel_Rotach_original}
 
 % subsection rigorous_asymptotics_via_contour_integrals (end)
 
 \subsection{Edge asymptotics and the Tracy--Widom distribution} % (fold)
 \label{sub:edge_asymptotics_and_the_tracy_widom_distribution}
+
+\cite{TW_Airy_Painleve_2002}
 
 % subsection edge_asymptotics_and_the_tracy_widom_distribution (end)
 
@@ -3133,15 +3384,28 @@ can be carried out explicitly.
 \Cref{sub:non_rigorous_asymptotics_using_operator_approach}
 closely follows the book \cite{TaoRMbook}.
 
+The proof that the variational problem for the limiting spectral distribution
+reduces to the Euler--Lagrange equations
+(for which a naive argument was given in \Cref{ssub:invariant_ensembles})
+may be deduced from \cite{saff2013logarithmic}, see also \cite{Forrester-LogGas}.
+
+Generalities and details on determinantal point processes can be found in the 
+surveys \cite{Soshnikov2000}, 
+\cite{peres2006determinantal},
+\cite{Borodin2009}.
+
 The asymptotic results for the GUE presented here
-should be \emph{universal} --- that is,
+are believed to be \emph{universal} --- that is,
 they should not depend on the concrete structure of the 
 ensemble and hold in much greater generality. 
 Getting such universal results for random matrices 
-is an important ongoing program, see, e.g.,
+is an important ongoing program which is successful so far in 
+the bulk case (with getting the sine kernel).
+See, e.g.,
 \cite{Johansson2001Universality}, \cite{tao2011univ},
 \cite{TaoVu2012Survey}, \cite{erdHos2011universality}.
-Addressing some universality results is the next big goal of the course.
+Addressing some universality results is the next general goal of the course, for which we 
+will need certain Markov processes on random matrices and on their spectra.
 
 % subsection notes_GUE (end)
 
